@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rtfm_water_tracker_frontend/static/css/main.7acaea2f.css",
+    "main.js": "/rtfm_water_tracker_frontend/static/js/main.39456b03.js",
+    "index.html": "/rtfm_water_tracker_frontend/index.html",
+    "main.7acaea2f.css.map": "/rtfm_water_tracker_frontend/static/css/main.7acaea2f.css.map",
+    "main.39456b03.js.map": "/rtfm_water_tracker_frontend/static/js/main.39456b03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.39456b03.js"
+  ]
+}

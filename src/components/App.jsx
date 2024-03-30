@@ -1,16 +1,49 @@
+import { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import Loader from "./Loader/Loader";
+import SharedLayout from "./SharedLayout/SharedLayout";
+// import WelcomePage from "./pages/WelcomePage/WelcomePage";
+// import PublicRoute from "./guards/PublicRoute";
+// import PrivateRoute from "./guards/PrivateRoute";
+
+const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'))
+const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'))
+const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'))
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
+
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      Water Tracker
-    </div>
+    <>
+      <Loader/>
+      <Suspense fallback={<>Loading...</>}>
+        <Routes>
+          <Route path="/" element={<SharedLayout/>}>
+            <Route path="welcome" element={
+              // <PublicRoute>
+                <WelcomePage/>
+              // </PublicRoute>
+            }/>
+            <Route path="signin" element={
+              // <PublicRoute>
+                <SigninPage/>
+              // </PublicRoute>
+            }/>
+            <Route path="signup" element={
+              // <PublicRoute>
+                <SignupPage/>
+              // </PublicRoute>
+            }/>
+            <Route path="home" element={
+              // <PrivateRoute>
+                <HomePage/>
+              // </PrivateRoute>
+            }/>
+          </Route>
+          <Route path="*" element={<div>404</div>}/>
+        </Routes>
+      </Suspense>
+    </>
   );
 };

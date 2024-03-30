@@ -1,8 +1,8 @@
-import React from 'react'
+import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <UserLogoutModal/>
   )
 }
 

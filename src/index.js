@@ -7,7 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename='rtfm_water_tracker_frontend'>
-      <App/>
-    </BrowserRouter>  
+      <App />
+    </BrowserRouter>
+
   </React.StrictMode>
 );
+
+

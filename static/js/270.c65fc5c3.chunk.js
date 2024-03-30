@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrtfm_water_tracker_frontend=self.webpackChunkrtfm_water_tracker_frontend||[]).push([[270],{270:function(e,r,t){t.r(r);t(791);var n=t(184);r.default=function(){return(0,n.jsx)("div",{children:"HomePage"})}}}]);
-//# sourceMappingURL=270.c65fc5c3.chunk.js.map

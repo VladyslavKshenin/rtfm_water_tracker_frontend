@@ -1,3 +1,4 @@
+
 import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal'
 
 const HomePage = () => {

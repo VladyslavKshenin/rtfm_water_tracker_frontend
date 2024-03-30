@@ -1,4 +1,3 @@
-// import icons from 'assets/icons.svg'
 
 import { ReactComponent as Calendar} from 'images/benefits-1.svg'
 import { ReactComponent as Statistics} from 'images/benefits-2.svg'

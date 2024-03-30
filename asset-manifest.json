@@ -1,24 +1,27 @@
 {
   "files": {
     "main.css": "/rtfm_water_tracker_frontend/static/css/main.a353901d.css",
-    "main.js": "/rtfm_water_tracker_frontend/static/js/main.5ed8b4fc.js",
-    "static/js/768.ba9d2e8d.chunk.js": "/rtfm_water_tracker_frontend/static/js/768.ba9d2e8d.chunk.js",
+    "main.js": "/rtfm_water_tracker_frontend/static/js/main.39c3afba.js",
+    "static/js/697.d2491dc7.chunk.js": "/rtfm_water_tracker_frontend/static/js/697.d2491dc7.chunk.js",
     "static/js/565.4711058a.chunk.js": "/rtfm_water_tracker_frontend/static/js/565.4711058a.chunk.js",
     "static/js/83.532a7d0e.chunk.js": "/rtfm_water_tracker_frontend/static/js/83.532a7d0e.chunk.js",
     "static/js/664.83532252.chunk.js": "/rtfm_water_tracker_frontend/static/js/664.83532252.chunk.js",
     "static/media/Roboto-Medium.woff2": "/rtfm_water_tracker_frontend/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
     "static/media/Roboto-Bold.woff2": "/rtfm_water_tracker_frontend/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
     "static/media/Roboto-Regular.woff2": "/rtfm_water_tracker_frontend/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
+    "static/media/benefits-3.svg": "/rtfm_water_tracker_frontend/static/media/benefits-3.efbb94a9d6b57aee55f71b3ad62c22a2.svg",
     "index.html": "/rtfm_water_tracker_frontend/index.html",
+    "static/media/benefits-1.svg": "/rtfm_water_tracker_frontend/static/media/benefits-1.e0bdc4a9fab9ecfb9bbdffb4d00d0301.svg",
+    "static/media/benefits-2.svg": "/rtfm_water_tracker_frontend/static/media/benefits-2.452fd129f151e10013b27172cc6b83ff.svg",
     "main.a353901d.css.map": "/rtfm_water_tracker_frontend/static/css/main.a353901d.css.map",
-    "main.5ed8b4fc.js.map": "/rtfm_water_tracker_frontend/static/js/main.5ed8b4fc.js.map",
-    "768.ba9d2e8d.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/768.ba9d2e8d.chunk.js.map",
+    "main.39c3afba.js.map": "/rtfm_water_tracker_frontend/static/js/main.39c3afba.js.map",
+    "697.d2491dc7.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/697.d2491dc7.chunk.js.map",
     "565.4711058a.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/565.4711058a.chunk.js.map",
     "83.532a7d0e.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/83.532a7d0e.chunk.js.map",
     "664.83532252.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/664.83532252.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a353901d.css",
-    "static/js/main.5ed8b4fc.js"
+    "static/js/main.39c3afba.js"
   ]
 }

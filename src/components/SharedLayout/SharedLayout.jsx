@@ -1,17 +1,28 @@
-import Footer from 'components/Footer/Footer'
-import Header from 'components/Header/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-const SharedLayout = () => {
+import { Supsense } from 'react';
+import { Header } from './Header/Header';
+
+export const SharedLayout = () => {
   return (
     <>
       <Header />
-      <main>
+      <Supsense fallback={null}>
         <Outlet />
-      </main>
-      <Footer/>
+      </Supsense>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
-)
-}
-
-export default SharedLayout
+  );
+};

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { Suspense } from 'react';
-import Header from '../Header/Header';
+import { Header } from '../Header/Header';
 
 export const SharedLayout = () => {
   return (

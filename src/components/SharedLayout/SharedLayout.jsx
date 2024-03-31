@@ -1,16 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { Supsense } from 'react';
+import { Suspense } from 'react';
 import Header from '../Header/Header';
 
 export const SharedLayout = () => {
   return (
     <>
       <Header />
-      <Supsense fallback={null}>
+      <Suspense fallback={null}>
         <Outlet />
-      </Supsense>
+      </Suspense>
       <ToastContainer
         position="top-right"
         autoClose={3000}

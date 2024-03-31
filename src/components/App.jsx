@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Loader from "./Loader/Loader";
-import SharedLayout from "./SharedLayout/SharedLayout";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
 // import WelcomePage from "./pages/WelcomePage/WelcomePage";
 // import PublicRoute from "./guards/PublicRoute";
 // import PrivateRoute from "./guards/PrivateRoute";
@@ -16,32 +16,32 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
 export const App = () => {
   return (
     <>
-      <Loader/>
+      <Loader />
       <Suspense fallback={<>Loading...</>}>
         <Routes>
-          <Route path="/" element={<SharedLayout/>}>
+          <Route path="/" element={<SharedLayout />}>
             <Route path="welcome" element={
               // <PublicRoute>
-                <WelcomePage/>
+              <WelcomePage />
               // </PublicRoute>
-            }/>
+            } />
             <Route path="signin" element={
               // <PublicRoute>
-                <SigninPage/>
+              <SigninPage />
               // </PublicRoute>
-            }/>
+            } />
             <Route path="signup" element={
               // <PublicRoute>
-                <SignupPage/>
+              <SignupPage />
               // </PublicRoute>
-            }/>
+            } />
             <Route path="home" element={
               // <PrivateRoute>
-                <HomePage/>
+              <HomePage />
               // </PrivateRoute>
-            }/>
+            } />
           </Route>
-          <Route path="*" element={<div>404</div>}/>
+          <Route path="*" element={<div>404</div>} />
         </Routes>
       </Suspense>
     </>

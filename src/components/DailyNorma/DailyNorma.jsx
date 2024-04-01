@@ -8,7 +8,7 @@ export const DailyNorma = () => {
     <div>
         <h3>My daily norma</h3>
         <div>
-            <p><strong>2l</strong></p>
+            <p><strong>2 L</strong></p>
             <button type="button">Edit</button>
         </div>
         <Modal>

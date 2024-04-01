@@ -1,17 +1,18 @@
-import { ReactComponent as Close} from 'images/close.svg'
+import { Svg } from 'components/Icons/Icons'
+
 import DailyNormalModalForm from '../DailyNormalModalForm/DailyNormalModalForm'
 
 const DailyNormaModal = () => {
   return (
     <>
         <h2>My daily norma</h2>
-        <Close width={24} height={24}/>
+        <Svg id={"#close"} width={24} height={24}/>
         <ul>
             <li>
-                <p>For girl:<span>V=(M*0,03) + (T*0,4)</span></p>
+                <p>For girl: <span>V=(M*0,03) + (T*0,4)</span></p>
             </li>
             <li>
-                <p>For man:<span>V=(M*0,04) + (T*0,6)</span></p>
+                <p>For man: <span>V=(M*0,04) + (T*0,6)</span></p>
             </li>
         </ul>
         <p>

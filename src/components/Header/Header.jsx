@@ -1,6 +1,6 @@
 import header from './Header.module.css'
-import { AuthForm } from 'components/AuthForm/AuthForm'
 import Logo from '../../images/Logo.jpg'
+import { UserAuth } from './UserAuth/UserAuth'
 
 export const Header = () => {
   return (
@@ -14,8 +14,10 @@ export const Header = () => {
             <br />
             Tracker
           </p>
-          <AuthForm />
         </div>
+
+
+        <UserAuth />
       </header>
 
     </>

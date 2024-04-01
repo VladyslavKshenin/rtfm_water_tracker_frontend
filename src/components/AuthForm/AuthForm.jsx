@@ -1,19 +1,9 @@
 import React from 'react'
-import Icons from '../../images/icons.svg';
 
-export const AuthForm = () => {
+const AuthForm = () => {
   return (
-    <>
-      <p>Sign in</p>
-      <svg width="28" height="28">
-
-        <use href={Icons + '#user'}></use>
-
-      </svg>
-
-
-
-    </>
+    <div>AuthForm</div>
   )
 }
 
+export default AuthForm

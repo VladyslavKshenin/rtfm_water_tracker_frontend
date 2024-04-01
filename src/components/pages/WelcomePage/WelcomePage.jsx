@@ -21,7 +21,7 @@ const WelcomePage = () => {
             <figcaption>Tracker Benefits</figcaption>
             <ul>
               <li>
-                <Svg id={"#logo"} width={32} height={32}/>
+                <Svg id={"#benefits-1"} width={32} height={32}/>
                 <p>Habit drive</p>
               </li>
               <li>

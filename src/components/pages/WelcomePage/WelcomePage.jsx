@@ -1,17 +1,14 @@
+import { Svg } from 'components/Icons/Icons'
 
-import { ReactComponent as Calendar} from 'images/benefits-1.svg'
-import { ReactComponent as Statistics} from 'images/benefits-2.svg'
-import { ReactComponent as PersonalRateSetting} from 'images/benefits-3.svg'
-
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 const WelcomePage = () => {
-  const location = useLocation()
+
   const navigate = useNavigate()
 
   const handleravigate =()=>{
-    navigate(location.state??'/signup')
+    navigate('/signup')
   }
 
   return (
@@ -24,15 +21,16 @@ const WelcomePage = () => {
             <figcaption>Tracker Benefits</figcaption>
             <ul>
               <li>
-                <Calendar width={32} height={32}/>
+                <Svg id={"#benefits-1"} width={32} height={32}/>
                 <p>Habit drive</p>
               </li>
               <li>
-                <Statistics width={32} height={32}/>
+                  <Svg id={"#benefits-2"} width={32} height={32}/>
                 <p>View statistics</p>
               </li>
               <li>
-                <PersonalRateSetting width={32} height={32}/>
+                  <Svg id="#benefits-3" width={32} height={32}/>
+            
                 <p>Personal rate setting</p>
               </li>
             </ul>

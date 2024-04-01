@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrtfm_water_tracker_frontend=self.webpackChunkrtfm_water_tracker_frontend||[]).push([[536],{1536:function(t,e,r){r.d(e,{n:function(){return i}});r(2791);var n=r.p+"static/media/icons.a745b3de89f09318ccfd990b77050b04.svg",c=r(184),i=function(t){var e=t.id,r=t.width,i=t.height;return(0,c.jsx)("svg",{width:r,height:i,children:(0,c.jsx)("use",{href:n+e})})}}}]);
+//# sourceMappingURL=536.1e9eacc9.chunk.js.map

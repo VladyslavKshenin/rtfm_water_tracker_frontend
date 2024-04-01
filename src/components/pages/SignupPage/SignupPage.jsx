@@ -1,5 +1,5 @@
 // import AuthForm from 'components/AuthForm/AuthForm'
-import { Link } from "react-router-dom"
+import { Link ,useNavigate } from "react-router-dom"
 import { selectError } from "store/auth/authSelectors.js";
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../store/auth/authOperations';
@@ -12,6 +12,7 @@ const SignupPage = () => {
 
   const [regPassword,setRegPassword]=useState('');
   const [regRepeatPassword,setRegRepeatPassword]=useState('');
+  const navigate = useNavigate();
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;
@@ -32,6 +33,7 @@ const SignupPage = () => {
       setRegEmail('')
       setRegPassword('')
       setRegRepeatPassword('')
+      navigate('/signin')
     }
   };
   const handleChange = (e)=>{

@@ -1,7 +1,7 @@
 // import AuthForm from 'components/AuthForm/AuthForm'
 import { useDispatch ,useSelector} from 'react-redux';
 import { logIn } from '../../../store/auth/authOperations';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
@@ -13,6 +13,7 @@ const SigninPage = () => {
   const [logPassword,setLogPassword]=useState('');
   const [logEmail,setLogEmail]=useState('');
   const error = useSelector(selectError);
+  const navigate = useNavigate();
   console.log(error);
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const SigninPage = () => {
     if(error===null){
     setLogEmail('')
     setLogPassword('')
+    navigate('/home')
     }
   };
   const handleChange = (e)=>{

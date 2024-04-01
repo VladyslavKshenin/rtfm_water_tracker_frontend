@@ -87,9 +87,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
 
 img {
   display: block;
@@ -104,6 +101,7 @@ address {
 button {
   font-family: inherit;
   line-height: inherit;
+  cursor: pointer;
 }
 
 input {
@@ -113,5 +111,29 @@ input {
 
 .list {
   list-style: none;
+}
+
+
+@media screen and (min-width: 320px) {
+  .container {
+    min-width: 320px;
+    padding: 24px 20px 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .container {
+
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .container {
+
+  }
 }
 

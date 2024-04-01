@@ -2,7 +2,9 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix';
 
+/// НАШ БЕКЕНД
 axios.defaults.baseURL = 'http://localhost:5050/api';
+/// НАШ БЕКЕНД
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

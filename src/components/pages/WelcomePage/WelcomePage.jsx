@@ -38,8 +38,8 @@ const WelcomePage = () => {
           </figure>
           <button className={styles.tryTrackerBtn} type="button" onClick={handleravigate}>Try tracker</button>
         </div>
-        <div>
-          <figure className={styles.whyDrinkCont}>
+          <div className={styles.whyDrinkCont}>
+          <figure className={styles.marg}>
             <figcaption className={styles.whyDrink}>Why drink water</figcaption>
             <ul className={styles.listReasons}>
               <li className={styles.itemReasons}> Supply of nutrients to all organs</li>

@@ -6,13 +6,13 @@ export const Header = () => {
   return (
     <>
       <header className={header.css}>
-        <div>
-          <img src={Logo} alt='Logo' />
+        <div className={header.position}>
+          <img className={header.logo} src={Logo} alt='Logo' />
 
-          <p>
-            Water
-            <br />
+          <p className={header.description}> 
             Tracker
+            <br />
+            of water
           </p>
         </div>
 

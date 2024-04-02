@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @import-normalize; /* bring in normalize.css styles */
 
 body {
@@ -114,21 +118,25 @@ input {
 }
 
 .container {
-  min-width: 320px;
+  /* min-width: 320px; */
   max-width: 428px;
   padding: 0 20px;
   margin-left: auto;
-   margin-right: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 768px) {
   .container {
+    max-width: 768px;
       padding: 0 32px;
+      margin: 0;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .container {
+    max-width: 1440px;
       padding: 0 18px;
+      margin: 0;
   }
 }

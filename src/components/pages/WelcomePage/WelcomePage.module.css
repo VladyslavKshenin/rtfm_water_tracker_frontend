@@ -1,0 +1,254 @@
+@media screen and (min-width: 320px) {
+
+    .section {
+        padding: 24px 0 40px 0;
+    }
+
+    .title {
+        font-family: var(--primary-font);
+        max-width: 246px;
+        height: 64px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 1.14;
+        color: var(--black);
+        margin-bottom: 16px;
+    }
+    
+    .subtitle {
+        font-family: var(--primary-font);
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.25;
+        color: var(--black);
+        margin-bottom: 24px;
+        max-width: 197px;
+        height: 60px;
+    }
+
+    .trackerCont{
+        margin: 0;
+    }
+    
+    .benefits {
+        font-family: var(--primary-font);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.11;
+        color: var(--black);
+        margin-bottom: 12px;
+    }
+    
+    .listBenefits {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .itemBenefits {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .description{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        color: var(--black);
+    }
+    
+    .tryTrackerBtn {
+        width: 280px;
+        height: 36px;
+        padding: 8px 30px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+        background: var(--blue);
+        margin-bottom: 40px;
+        
+
+        font-family: var(--primary-font);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.25;
+        text-align: center;
+        color: var(--white);
+    }
+
+    .tryTrackerBtn:hover {
+        box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+    }
+
+    .tryTrackerBtn:active {
+        box-shadow: none;
+    }
+
+    .whyDrinkCont {
+        margin: 0;
+        width: 248px;
+        height: 368px;
+        padding: 24px 16px 24px 16px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
+        background: var(--very-light-blue);
+    }
+    
+    .whyDrink {
+        font-family: var(--primary-font);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.11;
+        color: var(--black);
+        margin-bottom: 12px;
+    }
+    
+    .listReasons {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    
+    .itemReasons {
+        font-family: var(--primary-font);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        color: var(--black);
+    }
+
+    
+    /* .itemReasons:before {
+        background-color: var(--blue);
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        } */
+
+   
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .section {
+         padding: 40px 0 50px 0;
+    }
+
+    .title {
+        max-width: 439px;
+        height: 42px;
+        font-size: 36px;
+        line-height: 1.16;
+    }
+
+    .subtitle {
+        font-size: 26px;
+        line-height: 1.23;
+        margin-bottom: 24px;
+        max-width: 404px;
+        height: 32px;
+    }
+
+
+    .listBenefits {
+        flex-direction: row;
+        column-gap: 16px;
+        row-gap: 0;
+    }
+
+    .itemBenefits {
+        width: 224px;
+        height: 40px;
+    }
+
+    .icon {
+        width: 32.5px;
+        height: 32.5px;
+    }
+
+    .tryTrackerBtn {
+        width: 336px;
+        height: 44px;
+        padding: 10px 30px;
+        margin-bottom: 60px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    .whyDrinkCont {
+        width: 446px;
+        height: 268px;
+        padding: 32px 24px;
+    }
+
+}
+
+
+@media screen and (min-width: 1440px) {
+
+    .section {
+        padding: 49px 0 109px 0;
+    }
+
+    .secondContainer {
+        width: 439px;
+        height: 336px;
+    }
+
+    
+    .subtitle {
+        line-height: 1.23;
+        max-width: 404px;
+        height: 32px;
+    }
+
+
+    .trackerCont {
+        margin: 0;
+    }
+
+
+    .listBenefits {
+        flex-direction: column;
+    }
+    
+       
+    .itemBenefits {
+        width: 248px;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    
+    .tryTrackerBtn {
+        width: 384px;
+        height: 44px;
+        padding: 10px 30px;
+        margin-bottom: 0;
+
+        
+    }
+
+    .desktop {
+        display: flex;
+        gap: 81px;
+        margin: 31px 192px 185px 198px;
+        }
+}

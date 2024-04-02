@@ -87,9 +87,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
 
 img {
   display: block;
@@ -104,6 +101,7 @@ address {
 button {
   font-family: inherit;
   line-height: inherit;
+  cursor: pointer;
 }
 
 input {
@@ -118,19 +116,19 @@ input {
 .container {
   min-width: 320px;
   max-width: 428px;
-  padding: 0 16px;
-  margin: 0 auto;
+  padding: 0 20px;
+  margin-left: auto;
+   margin-right: auto;
 }
 
 @media screen and (min-width: 768px) {
   .container {
-      max-width: 768px;
+      padding: 0 32px;
   }
 }
 
-@media only screen and (min-width: 1158px) {
+@media only screen and (min-width: 1440px) {
   .container {
-      max-width: 1158px;
-      padding: 0 15px;
+      padding: 0 18px;
   }
 }

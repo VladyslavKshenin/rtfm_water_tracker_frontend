@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import { Svg } from 'components/Icons/Icons';
-import Icons from '../../images/icons.svg';
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);

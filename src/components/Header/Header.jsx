@@ -20,9 +20,9 @@ export const Header = () => {
                 <Link to="/welcome">
                   <Svg id="#logo" width={102} height={48}/> 
                 </Link>
-                : <Link to="/home">
-                <Svg id="#logo" width={102} height={48}/> 
-              </Link>}
+              : <Link to="/home">
+                  <Svg id="#logo" width={102} height={48}/> 
+                </Link>}
             </li>
             <li>
               <Link to="/signin" className={css.link}>
@@ -32,7 +32,7 @@ export const Header = () => {
                 </svg>
               </Link>
             </li>
-            <li><BasicPopover/></li>
+            {isLoggedIn? <li><BasicPopover/></li> : null}
           </ul>
         </nav>
       </div>

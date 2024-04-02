@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://VladyslavKshenin.github.io/rtfm_water_tracker_frontend/",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.14",
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.2",
     "@testing-library/jest-dom": "^5.17.0",

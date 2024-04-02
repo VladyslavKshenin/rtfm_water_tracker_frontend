@@ -116,7 +116,6 @@ input {
 
 @media screen and (min-width: 320px) {
   .container {
-    min-width: 280px;
     padding: 0 20px 0 20px;
     margin-left: auto;
     margin-right: auto;
@@ -126,7 +125,6 @@ input {
 
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 768px;
     padding: 0 32px;
   }
 }
@@ -134,11 +132,9 @@ input {
 
 @media screen and (min-width: 1440px) {
   .container {
-    min-width: 1440px;
+    /* min-width: 1440px; */
     padding: 0 18px;
-    display: flex;
-    gap: 81px;
-    margin: 31px 195px 0 195px;
+    
   }
 }
 

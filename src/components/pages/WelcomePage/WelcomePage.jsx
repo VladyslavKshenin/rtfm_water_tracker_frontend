@@ -18,8 +18,9 @@ const WelcomePage = () => {
   }
 
   return (
-    <section>
+    <section className={styles.section}>
       <div className="container">
+        <div className={styles.desktop}>
         <div className={styles.secondContainer}>
           <h1 className={styles.title}>Water consumption tracker</h1>
           <h2 className={styles.subtitle}>Record daily water intake and track</h2>
@@ -55,7 +56,8 @@ const WelcomePage = () => {
               <li className={styles.itemReasons}> Maintaining an immune system capable of resisting disease</li>
             </ul>
           </figure>
-        </div>
+          </div>
+          </div>
       </div> 
     </section>
   )

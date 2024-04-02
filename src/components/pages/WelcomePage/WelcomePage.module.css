@@ -1,4 +1,9 @@
 @media screen and (min-width: 320px) {
+
+    .section {
+        padding: 24px 0 40px 0;
+    }
+
     .title {
         font-family: var(--primary-font);
         max-width: 246px;
@@ -138,7 +143,12 @@
 
 
 @media screen and (min-width: 768px) {
-.title {
+
+    .section {
+         padding: 40px 0 50px 0;
+    }
+
+    .title {
         max-width: 439px;
         height: 42px;
         font-size: 36px;
@@ -190,15 +200,13 @@
 
 @media screen and (min-width: 1440px) {
 
+    .section {
+        padding: 49px 0 109px 0;
+    }
+
     .secondContainer {
         width: 439px;
         height: 336px;
-    }
-
-
-    .title {
-        max-width: 439px;
-        height: 42px;
     }
 
     
@@ -223,10 +231,10 @@
         width: 248px;
     }
 
-        .icon {
-            width: 30px;
-            height: 30px;
-        }
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
     
     
     .tryTrackerBtn {
@@ -234,5 +242,13 @@
         height: 44px;
         padding: 10px 30px;
         margin-bottom: 0;
+
+        
     }
+
+    .desktop {
+        display: flex;
+        gap: 81px;
+        margin: 31px 192px 185px 198px;
+        }
 }

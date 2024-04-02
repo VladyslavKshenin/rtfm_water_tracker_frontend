@@ -25,7 +25,6 @@ export const Header = () => {
                 <svg className={css.icon} width="28" height="28">
                   <use href={Icons + '#user-1'}></use>
                 </svg>
-                {/* <Svg id="#user-1" className={css.icon} width={28} height={28}/>     */}
               </Link>
             </li>
           </ul>

@@ -17,16 +17,6 @@ header {
     color: var(--blue);
 }
 
-.svg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1px solid var(--black)
-}
-
 .icon {
     display: block;
     stroke: var(--black);

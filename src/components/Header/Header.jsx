@@ -1,26 +1,34 @@
-import header from './Header.module.css'
-import Logo from '../../images/Logo.jpg'
-import { UserAuth } from './UserAuth/UserAuth'
+import { Svg } from 'components/Icons/Icons'
+import { Link } from 'react-router-dom'
+import css from "./Header.module.css"
 
 export const Header = () => {
+
+  //Для спан-юзера зроби бордер 
+  // <span>
+  // <Svg id="#user" width={14} height={18}/>    
+  // </span>
   return (
-    <>
-      <header className={header.css}>
-        <div>
-          <img src={Logo} alt='Logo' />
-
-          <p>
-            Water
-            <br />
-            Tracker
-          </p>
-        </div>
-
-
-        <UserAuth />
-      </header>
-
-    </>
+    <header>
+      <div className='container'>
+        <nav className={css.nav}>
+          <ul className={css.list}>
+            <li>
+              <Link to="/welcome">
+                <Svg id="#logo" width={102} height={48}/> 
+              </Link>
+            </li>
+            <li>
+              <Link to="/signin" className={css.link}>
+                <span>Sign In</span> 
+                <span className={css.svg}>
+                  <Svg id="#user" width={18} height={24}/>    
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   )
 }
-

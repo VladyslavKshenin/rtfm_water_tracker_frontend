@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 import { selectError } from 'store/auth/authSelectors';
 
+import css from './SigninPage.module.css'
+
 const SigninPage = () => {
 
   const dispatch = useDispatch();
@@ -42,29 +44,36 @@ const SigninPage = () => {
   }
 
   return (
-    <>
-      <h1>Log In</h1>
+    <section className='section'>
+      <div className='main'>
+        <div className='container'>
+      <h1 className={css.title}>Sign In</h1>
 
       <div>
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label>
-            E-mail:
-            <input type="email" name="email" onChange={handleChange} value={logEmail}/>
+            <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+              <p className={css.description}>Enter your email</p>
+          <label className={css.label}>
+            
+            <input placeholder='E-mail' className={css.input} type="email" name="email" onChange={handleChange} value={logEmail}/>
+              </label>
+              <p className={css.description}>Enter your password</p>
+          <label className={css.label}>
+            
+            <input placeholder='Password' className={css.input} type="password" name="password" onChange={handleChange} value={logPassword} />
           </label>
-          <label>
-            Password:
-            <input type="password" name="password" onChange={handleChange} value={logPassword} />
-          </label>
-          <button type="submit">
+          <button className={css.button} type="submit">
             Sign In
           </button>
         </form>
 
-        <p>
+        <p className={css.signUp}>
           <Link to="/signup">Sign Up</Link>
         </p>
       </div>
-    </>
+    </div>
+      </div>
+    </section>
+    
     // <AuthForm/>
   )
 }

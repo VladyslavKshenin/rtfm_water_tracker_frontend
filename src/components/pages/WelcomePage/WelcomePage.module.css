@@ -47,6 +47,11 @@
         column-gap: 8px;
     }
 
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
     .description{
         font-weight: 400;
         font-size: 16px;
@@ -75,6 +80,10 @@
 
     .tryTrackerBtn:hover {
         box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+    }
+
+    .tryTrackerBtn:active {
+        box-shadow: none;
     }
 
     .whyDrinkCont {
@@ -156,6 +165,11 @@
         height: 40px;
     }
 
+    .icon {
+        width: 32.5px;
+        height: 32.5px;
+    }
+
     .tryTrackerBtn {
         width: 336px;
         height: 44px;
@@ -208,6 +222,11 @@
     .itemBenefits {
         width: 248px;
     }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
     
     
     .tryTrackerBtn {

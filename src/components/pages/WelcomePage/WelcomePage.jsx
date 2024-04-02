@@ -27,15 +27,15 @@ const WelcomePage = () => {
             <figcaption className={styles.benefits}>Tracker Benefits</figcaption>
             <ul className={styles.listBenefits}>
               <li className={styles.itemBenefits}>
-                <Calendar width={32} height={32}/>
+                <Calendar className={styles.icon} width={32} height={32}/>
                 <p className={styles.description}>Habit drive</p>
               </li>
               <li className={styles.itemBenefits}>
-                <Statistics width={32} height={32}/>
+                <Statistics className={styles.icon} width={32} height={32}/>
                 <p className={styles.description}>View statistics</p>
               </li>
               <li className={styles.itemBenefits}>
-                <PersonalRateSetting width={32} height={32}/>
+                <PersonalRateSetting className={styles.icon} width={32} height={32}/>
                 <p className={styles.description}>Personal rate setting</p>
               </li>
             </ul>

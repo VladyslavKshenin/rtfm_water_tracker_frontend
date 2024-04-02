@@ -1,12 +1,16 @@
 import { useCallback } from 'react';
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { showModal } from 'store/modal/modalSlice';
 
-const Modal = ({ onClose, children}) => {
+const Modal = ({ children}) => {
+
+    const dispatch = useDispatch()
 
     const handlerClick = useCallback((e) => {
-        if (e.code === 'Escape') onClose();
-        if (e.currentTarget === e.target) onClose();
-    }, [onClose])
+        if (e.code === 'Escape') dispatch(showModal());
+        if (e.currentTarget === e.target) dispatch(showModal());
+    }, [dispatch])
 
     useEffect(() => {
         window.addEventListener('keydown', handlerClick)

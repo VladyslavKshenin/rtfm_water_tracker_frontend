@@ -4,8 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Loader from "./Loader/Loader";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
-// import PublicRoute from "./guards/PublicRoute";
-// import PrivateRoute from "./guards/PrivateRoute";
+import PublicRoute from "./guards/PublicRoute";
+import PrivateRoute from "./guards/PrivateRoute";
 
 const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'))
 const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'))
@@ -21,24 +21,24 @@ export const App = () => {
           <Route path="/" element={<SharedLayout />}>
             <Route index element ={<WelcomePage/>}/>
             <Route path="welcome" element={
-              // <PublicRoute>
-              <WelcomePage />
-              // </PublicRoute>
+              <PublicRoute>
+                <WelcomePage />
+              </PublicRoute>
             } />
             <Route path="signin" element={
-              // <PublicRoute>
-              <SigninPage />
-              // </PublicRoute>
+              <PublicRoute>
+                <SigninPage />
+              </PublicRoute>
             } />
             <Route path="signup" element={
-              // <PublicRoute>
-              <SignupPage />
-              // </PublicRoute>
+              <PublicRoute>
+                <SignupPage />
+              </PublicRoute>
             } />
             <Route path="home" element={
-              // <PrivateRoute>
-              <HomePage />
-              // </PrivateRoute>
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
             } />
           </Route>
           <Route path="*" element={<div>404</div>} />

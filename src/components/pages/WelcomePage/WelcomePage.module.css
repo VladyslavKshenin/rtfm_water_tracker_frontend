@@ -1,5 +1,5 @@
     .section {
-        background-image: url(../../../images/mobile/background_main_mobile@1x.png);
+        background-image: url(../../../images/mobile/background_main_mobile@1x.png), url(../../../images/mobile/background_main_mobile@2x.png);
         min-height: 100vh;
         background-position: center bottom;
         background-repeat: no-repeat;
@@ -7,7 +7,6 @@
     }
     
     .main {
-        background-image: url(../../../images/mobile/background_main_mobile@2x.png);
         min-height: 100vh;
         width: 100%;
     }
@@ -148,13 +147,9 @@
 
     @media screen and (min-width: 768px) {
         .section {
-            background-image: url(../../../images/tablet/background_main_page_tablet@1x.png);
+            background-image: url(../../../images/tablet/background_main_page_tablet@1x.png), url(../../../images/tablet//background_main_page_tablet@2x.png);;
         }
-            
-        .main {
-            background-image: url(../../../images/tablet//background_main_page_tablet@2x.png);    
-        }
-            
+       
         .desktop {
             gap: 60px;
             padding-top: 40px;
@@ -194,11 +189,11 @@
 
     @media screen and (min-width: 1440px) {
         .section {
-            background-image: url(../../../images/desc/background_main_desc@1x.png);
+            background-image: url(../../../images/desc/background_main_desc@1x.png), url(../../../images/desc/background_main_desc@2x.png);
         }
             
         .main {
-            background-image: url(../../../images/desc/background_element_main_desc@1x.png);
+            background-image: url(../../../images/desc/background_element_main_desc@1x.png), url(../../../images/desc/background_element_main_desc@2x.png);
         }
             
         .desktop {

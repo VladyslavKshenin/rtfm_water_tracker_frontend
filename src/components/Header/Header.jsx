@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import css from "./Header.module.css"
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'store/auth/authSelectors';
+import BasicPopover from './BasicPopover';
 
 export const Header = () => {
 
@@ -31,6 +32,7 @@ export const Header = () => {
                 </svg>
               </Link>
             </li>
+            <li><BasicPopover/></li>
           </ul>
         </nav>
       </div>

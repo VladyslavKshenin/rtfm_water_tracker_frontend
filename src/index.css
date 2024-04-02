@@ -116,9 +116,12 @@ input {
 .list {
   list-style: none;
 }
+figure {
+  margin: 0;
+}
 
 .container {
-  /* min-width: 320px; */
+  min-width: 320px;
   max-width: 428px;
   padding: 0 20px;
   margin-left: auto;

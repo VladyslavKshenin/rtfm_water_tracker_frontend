@@ -5,11 +5,11 @@ import { UserAuth } from './UserAuth/UserAuth'
 export const Header = () => {
   return (
     <>
-      <header className={header.css}>
-        <div className={header.position}>
-          <img className={header.logo} src={Logo} alt='Logo' />
+      <header>
+        <div>
+          <img src={Logo} alt='Logo' />
 
-          <p className={header.description}> 
+          <p> 
             Tracker
             <br />
             of water

@@ -1,4 +1,5 @@
 import { Svg } from 'components/Icons/Icons'
+import Icons from '../../images/icons.svg';
 import { Link } from 'react-router-dom'
 import css from "./Header.module.css"
 
@@ -21,9 +22,10 @@ export const Header = () => {
             <li>
               <Link to="/signin" className={css.link}>
                 <span>Sign In</span> 
-                <span className={css.svg}>
-                  <Svg id="#user" width={18} height={24}/>    
-                </span>
+                <svg className={css.icon} width="28" height="28">
+                  <use href={Icons + '#user-1'}></use>
+                </svg>
+                {/* <Svg id="#user-1" className={css.icon} width={28} height={28}/>     */}
               </Link>
             </li>
           </ul>

@@ -9,7 +9,7 @@ export const Header = () => {
   // <Svg id="#user" width={14} height={18}/>
   // </span>
   return (
-    <header>
+
       <div className="container">
         <nav className={css.nav}>
           <ul className={css.list}>

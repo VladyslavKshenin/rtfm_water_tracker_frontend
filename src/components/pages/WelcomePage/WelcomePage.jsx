@@ -43,16 +43,16 @@ const WelcomePage = () => {
           <button className={styles.tryTrackerBtn} type="button" onClick={handleravigate}>Try tracker</button>
         </div>
         <div>
-          <figure>
+          <figure className={styles.whyDrinkCont}>
             <figcaption className={styles.whyDrink}>Why drink water</figcaption>
             <ul className={styles.listReasons}>
-              <li className={styles.itemReasons}>Supply of nutrients to all organs  </li>
-              <li className={styles.itemReasons}>Providing oxygen to the lungs</li>
-              <li className={styles.itemReasons}>Maintaining the work of the heart</li>
-              <li className={styles.itemReasons}>Release of processed substances</li>
-              <li className={styles.itemReasons}>Ensuring the stability of the internal environment</li>
-              <li className={styles.itemReasons}>Maintaining within the normal temperature</li>
-              <li className={styles.itemReasons}>Maintaining an immune system capable of resisting disease</li>
+              <li className={styles.itemReasons}> Supply of nutrients to all organs</li>
+              <li className={styles.itemReasons}> Providing oxygen to the lungs</li>
+              <li className={styles.itemReasons}> Maintaining the work of the heart</li>
+              <li className={styles.itemReasons}> Release of processed substances</li>
+              <li className={styles.itemReasons}> Ensuring the stability of the internal environment</li>
+              <li className={styles.itemReasons}> Maintaining within the normal temperature</li>
+              <li className={styles.itemReasons}> Maintaining an immune system capable of resisting disease</li>
             </ul>
           </figure>
         </div>

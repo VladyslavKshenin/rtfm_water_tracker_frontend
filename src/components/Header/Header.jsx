@@ -2,22 +2,26 @@ import { Svg } from 'components/Icons/Icons'
 import Icons from '../../images/icons.svg';
 import { Link } from 'react-router-dom'
 import css from "./Header.module.css"
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'store/auth/authSelectors';
 
 export const Header = () => {
 
-  //Для спан-юзера зроби бордер 
-  // <span>
-  // <Svg id="#user" width={14} height={18}/>    
-  // </span>
+  const isLoggedIn = useSelector(selectIsLoggedIn) 
+  console.log('first', isLoggedIn)
   return (
     <header>
       <div className='container'>
         <nav className={css.nav}>
           <ul className={css.list}>
             <li>
-              <Link to="/welcome">
+              {!isLoggedIn? 
+                <Link to="/welcome">
+                  <Svg id="#logo" width={102} height={48}/> 
+                </Link>
+                : <Link to="/home">
                 <Svg id="#logo" width={102} height={48}/> 
-              </Link>
+              </Link>}
             </li>
             <li>
               <Link to="/signin" className={css.link}>

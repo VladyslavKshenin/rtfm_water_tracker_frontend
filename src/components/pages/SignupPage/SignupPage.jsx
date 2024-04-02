@@ -8,6 +8,7 @@ import { useState } from 'react';
 const SignupPage = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectError)
+  console.log('error', error)
   const [regEmail,setRegEmail]=useState('');
 
   const [regPassword,setRegPassword]=useState('');

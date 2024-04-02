@@ -1,21 +1,17 @@
-
+import { useDispatch } from 'react-redux'
+import { showModal } from 'store/modal/modalSlice'
 
 import DailyNormalModalForm from '../DailyNormalModalForm/DailyNormalModalForm'
 import { Svg } from 'components/Icons/Icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { showModalSelector } from 'store/modal/modalSelector'
-import { showModal } from 'store/modal/modalSlice'
 
 const DailyNormaModal = () => {
 
-    const show = useSelector(showModalSelector)
-    console.log('second', show)
-    const distpath = useDispatch()
+    const dispatch = useDispatch()
 
   return (
     <>
         <h2>My daily norma</h2>
-        <button type="button" onClick={()=>{distpath(showModal())}}>
+        <button type="button" onClick={()=>{dispatch(showModal())}}>
             <Svg id={"#close"} width={24} height={24}/>
         </button>
         <ul>

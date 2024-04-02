@@ -7,14 +7,14 @@ import { showModal } from "store/modal/modalSlice"
 export const DailyNorma = () => {
 
     const show = useSelector(showModalSelector)
-    const distpath = useDispatch()
-    console.log('first', show)
+    const dispatch = useDispatch()
+    
   return (
     <div>
         <h3>My daily norma</h3>
         <div>
             <p><strong>2 L</strong></p>
-            <button type="button" onClick={()=>{distpath(showModal())}}>Edit</button>
+            <button type="button" onClick={()=>{dispatch(showModal())}}>Edit</button>
         </div>
         {show ? <Modal>
                     <DailyNormaModal/>

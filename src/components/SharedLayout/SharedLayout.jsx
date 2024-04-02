@@ -3,14 +3,18 @@ import { ToastContainer } from 'react-toastify';
 
 import { Suspense } from 'react';
 import { Header } from '../Header/Header';
+import Footer from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
   return (
     <>
       <Header />
       <Suspense fallback={null}>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </Suspense>
+      <Footer/>
       <ToastContainer
         position="top-right"
         autoClose={3000}

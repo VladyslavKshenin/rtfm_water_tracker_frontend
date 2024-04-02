@@ -1,4 +1,3 @@
-
 import { Svg } from 'components/Icons/Icons';
 import { useNavigate } from 'react-router-dom';
 import styles from './WelcomePage.module.css';
@@ -11,8 +10,8 @@ const WelcomePage = () => {
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.main}>
+    <section className="section">
+      <div className="main">
         <div className="container">
           <div className={styles.desktop}>
             <div className={styles.secondContainer}>

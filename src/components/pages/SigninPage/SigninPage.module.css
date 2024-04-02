@@ -61,3 +61,29 @@
     line-height: 1.25;
     color: var(--blue);
 }
+
+@media screen and (min-width: 768px) {
+    .title {
+            padding-top: 40px;
+        }
+
+        .contPosition {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input {
+            width: 336px;
+            height: 44px;
+        }
+    
+        .button {
+      
+            padding: 10px 30px;
+            width: 336px;
+            height: 44px;
+
+            font-size: 18px;
+            line-height: 1.33;
+        }
+}

@@ -1,26 +1,21 @@
-
-import { ReactComponent as Calendar} from 'images/benefits-1.svg'
-import { ReactComponent as Statistics} from 'images/benefits-2.svg'
-import { ReactComponent as PersonalRateSetting } from 'images/benefits-3.svg'
+import { Svg } from 'components/Icons/Icons'
+import { useNavigate } from 'react-router-dom'
 import styles from './WelcomePage.module.css'
 
 
 
-import { useLocation, useNavigate } from 'react-router-dom'
-
-
 const WelcomePage = () => {
-  const location = useLocation()
+
   const navigate = useNavigate()
 
   const handleravigate =()=>{
-    navigate(location.state??'/signup')
+    navigate('/signup')
   }
 
   return (
     <section className={styles.section}>
       <div className="container">
-        <div className={styles.desktop}>
+       <div className={styles.desktop}>
         <div className={styles.secondContainer}>
           <h1 className={styles.title}>Water consumption tracker</h1>
           <h2 className={styles.subtitle}>Record daily water intake and track</h2>
@@ -28,15 +23,15 @@ const WelcomePage = () => {
             <figcaption className={styles.benefits}>Tracker Benefits</figcaption>
             <ul className={styles.listBenefits}>
               <li className={styles.itemBenefits}>
-                <Calendar className={styles.icon} width={32} height={32}/>
+                <Svg className={styles.icon} id={"#benefits-1"} width={32} height={32}/>
                 <p className={styles.description}>Habit drive</p>
               </li>
               <li className={styles.itemBenefits}>
-                <Statistics className={styles.icon} width={32} height={32}/>
+               <Svg className={styles.icon} id={"#benefits-2"} width={32} height={32}/>
                 <p className={styles.description}>View statistics</p>
               </li>
-              <li className={styles.itemBenefits}>
-                <PersonalRateSetting className={styles.icon} width={32} height={32}/>
+              <li className={styles.itemBenefits}> 
+                <Svg className={styles.icon} id={"#benefits-3"} width={32} height={32}/>
                 <p className={styles.description}>Personal rate setting</p>
               </li>
             </ul>

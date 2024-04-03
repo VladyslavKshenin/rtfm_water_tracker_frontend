@@ -1,7 +1,7 @@
 # Як почати:
 
 Клонуйте репозиторій: git clone
-https://github.com/VladyslavKshenin/rtfm_water_tracker_frontendno
+https://github.com/VladyslavKshenin/rtfm_water_tracker_frontendn
 
 Встановіть залежності: npm install
 

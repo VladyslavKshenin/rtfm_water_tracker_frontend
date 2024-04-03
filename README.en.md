@@ -32,6 +32,6 @@ and then track the amount of water consumed in real-time.
 ## Getting Started
 
 1. Return to the root directory: `cd ..`
-2. Install backend dependencies: `npm install`
+2. Install dependencies: `npm install`
 3. Start the server: `npm start`
 4. Open a web browser and go to `http://localhost:3000/`

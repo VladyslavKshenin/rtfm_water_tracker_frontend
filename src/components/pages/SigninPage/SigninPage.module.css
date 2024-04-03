@@ -1,0 +1,100 @@
+.title {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.23;
+    color: var(--black);
+}
+
+.description {
+    font-family: var(--primary-font);
+    font-size: 18px;
+    line-height: 1.33;
+    columns: var(--black);
+    padding-bottom: 8px;
+}
+
+.input {
+    border: 1px solid var(--air-force-blue);
+    border-radius: 6px;
+    padding: 12px 10px;
+    width: 280px;
+    height: 44px;
+    background-color: var(--white);
+    margin-bottom: 16px; 
+    outline: none;
+    color: var(--air-force-blue)
+}
+
+.input::placeholder {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--light-blue);
+}
+
+.button {
+    border-radius: 10px;
+    padding: 8px 30px;
+    width: 280px;
+    height: 36px;
+    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+    background: var(--blue);
+    border: none;
+
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--white);
+    margin: 16px 0;
+}
+
+.sign {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--blue);
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        padding-top: 40px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;        
+    }
+
+    .input {
+        width: 336px;
+        height: 44px;
+    }
+    
+    .button {  
+        padding: 10px 30px;
+        width: 336px;
+        height: 44px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .form {
+        margin: 162px 0 0 822px;
+    }
+
+    .input {
+        width: 384px;
+    }
+
+    .button {
+        width: 384px;
+    }
+}
+

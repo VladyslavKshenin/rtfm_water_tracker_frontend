@@ -11,6 +11,11 @@ const HomePage = () => {
 
   const isLoading = useSelector(selectIsLoggedIn);
 
+// import { useSelector } from 'react-redux';
+// import Loader from 'components/Loader/Loader';
+
+const HomePage = () => {
+  // const isLoading = useSelector();
 
   return (
     <>
@@ -19,7 +24,7 @@ const HomePage = () => {
       </Modal>
       <DailyNorma />
       <WaterProgress />
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
     </>
   );
 };

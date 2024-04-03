@@ -51,24 +51,20 @@ const SigninPage = () => {
             <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
               <h1 className={css.title}>Sign In</h1>
               <p className={css.description}>Enter your email</p>
-          <label className={css.label}>
-            
+          <label>
             <input placeholder='E-mail' className={css.input} type="email" name="email" onChange={handleChange} value={logEmail}/>
               </label>
               <p className={css.description}>Enter your password</p>
-          <label className={css.label}>
-            
+          <label>
             <input placeholder='Password' className={css.input} type="password" name="password" onChange={handleChange} value={logPassword} />
           </label>
           <button className={css.button} type="submit">
             Sign In
               </button>
-              <p className={css.signUp}>
+              <p className={css.sign}>
           <Link to="/signup">Sign Up</Link>
         </p>
         </form>
-
-        
       </div>
     </div>
       </div>

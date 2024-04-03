@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 import { selectError } from 'store/auth/authSelectors';
 
+import css from './SigninPage.module.css'
+
 const SigninPage = () => {
   const dispatch = useDispatch();
   const [logPassword, setLogPassword] = useState('');
@@ -40,43 +42,34 @@ const SigninPage = () => {
   };
 
   return (
-    <>
-      <section className="signSection">
-        <div className="signMain">
-          <h1>Log In</h1>
-
-          <div>
-            <form onSubmit={handleSubmit} autoComplete="off">
-              <label>
-                E-mail:
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={logEmail}
-                />
+    <section className='signSection'>
+      <div className='signMain'>
+        <div className='container'>
+          <div className={css.contPosition}>
+            <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+              <h1 className={css.title}>Sign In</h1>
+              <p className={css.description}>Enter your email</p>
+          <label>
+            <input placeholder='E-mail' className={css.input} type="email" name="email" onChange={handleChange} value={logEmail}/>
               </label>
-              <label>
-                Password:
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  value={logPassword}
-                />
-              </label>
-              <button type="submit">Sign In</button>
-            </form>
-
-            <p>
-              <Link to="/signup">Sign Up</Link>
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+              <p className={css.description}>Enter your password</p>
+          <label>
+            <input placeholder='Password' className={css.input} type="password" name="password" onChange={handleChange} value={logPassword} />
+          </label>
+          <button className={css.button} type="submit">
+            Sign In
+              </button>
+              <p className={css.sign}>
+          <Link to="/signup">Sign Up</Link>
+        </p>
+        </form>
+      </div>
+    </div>
+      </div>
+    </section>
+    
     // <AuthForm/>
-  );
-};
+  )
+}
 
 export default SigninPage;

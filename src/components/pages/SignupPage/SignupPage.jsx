@@ -4,6 +4,7 @@ import { selectError } from 'store/auth/authSelectors.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../store/auth/authOperations';
 import { useState } from 'react';
+import css from '../SigninPage/SigninPage.module.css'
 
 const SignupPage = () => {
   const dispatch = useDispatch();
@@ -49,51 +50,38 @@ const SignupPage = () => {
   };
 
   return (
-    // <AuthForm/>
-    <>
-      <section className="signSection">
-        <div className="signMain">
-          <h1>Sign Up</h1>
-          <div>
-            <form onSubmit={handleSubmit} autoComplete="off">
-              <label>
-                Enter your email
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={regEmail}
-                />
-              </label>
-              <label>
-                Enter your password
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  value={regPassword}
-                />
-              </label>
-              <label>
-                Repeat password
-                <input
-                  type="password"
-                  name="password-repeat"
-                  onChange={handleChange}
-                  value={regRepeatPassword}
-                />
-              </label>
-              <button type="submit">Sign Up</button>
-            </form>
-
-            <p>
-              <Link to="/signin">Log In</Link>
-            </p>
-          </div>
+    
+    <section className="signSection">
+      <div className="signMain">
+        <div className="container">
+          <div className={css.contPosition}>
+            <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+              <h1 className={css.title}>Sign Up</h1>
+              <p className={css.description}>Enter your email</p>
+    <label>
+      <input placeholder="E-mail" className={css.input} type="email" name="email" onChange={handleChange} value={regEmail}/>
+    </label>
+    <p className={css.description}>Enter your password</p>
+     <label>
+      <input placeholder="Password" className={css.input} type="password" name="password" onChange={handleChange} value={regPassword}/>
+    </label>
+    <p className={css.description}>Repeat password</p> 
+    <label>
+      <input placeholder="Repeat password" className={css.input} type="password" name="password-repeat" onChange={handleChange} value={regRepeatPassword}  />
+    </label>
+    <button className={css.button} type="submit">
+      Sign Up
+              </button>
+              <p className={css.sign}>
+    <Link to="/signin">Sign In</Link>
+  </p>
+  </form>
+    </div>
+      </div>
         </div>
-      </section>
-    </>
-  );
-};
+    </section>
+    // <AuthForm/>
+  )
+}
 
 export default SignupPage;

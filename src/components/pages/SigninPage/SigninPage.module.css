@@ -8,7 +8,8 @@
     color: var(--black);
 }
 
-.form {}
+.form {
+}
 
 .description {
     font-family: var(--primary-font);
@@ -18,8 +19,6 @@
     padding-bottom: 8px;
 }
 
-.label {}
-
 .input {
     border: 1px solid var(--air-force-blue);
     border-radius: 6px;
@@ -27,6 +26,7 @@
     width: 280px;
     height: 44px;
     background-color: var(--white);
+    margin-bottom: 16px;
     
 }
 
@@ -64,26 +64,39 @@
 
 @media screen and (min-width: 768px) {
     .title {
-            padding-top: 40px;
-        }
+        padding-top: 40px;
+    }
 
-        .contPosition {
-            display: flex;
-            flex-direction: column;
-        }
+    .form {
+        display: flex;
+        flex-direction: column;        
+    }
 
-        .input {
-            width: 336px;
-            height: 44px;
-        }
+    .input {
+        width: 336px;
+        height: 44px;
+    }
     
-        .button {
-      
-            padding: 10px 30px;
-            width: 336px;
-            height: 44px;
-
-            font-size: 18px;
-            line-height: 1.33;
-        }
+    .button {  
+        padding: 10px 30px;
+        width: 336px;
+        height: 44px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
 }
+
+@media screen and (min-width: 1440px) {
+    .form {
+        margin: 162px 0 0 822px;
+    }
+
+    .input {
+        width: 384px;
+    }
+
+    .button {
+        width: 384px;
+    }
+}
+

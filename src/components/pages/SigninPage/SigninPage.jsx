@@ -47,10 +47,9 @@ const SigninPage = () => {
     <section className='section'>
       <div className='main'>
         <div className='container'>
-      <h1 className={css.title}>Sign In</h1>
-
-      <div className={css.contPosition}>
+          <div className={css.contPosition}>
             <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+              <h1 className={css.title}>Sign In</h1>
               <p className={css.description}>Enter your email</p>
           <label className={css.label}>
             
@@ -63,12 +62,13 @@ const SigninPage = () => {
           </label>
           <button className={css.button} type="submit">
             Sign In
-          </button>
-        </form>
-
-        <p className={css.signUp}>
+              </button>
+              <p className={css.signUp}>
           <Link to="/signup">Sign Up</Link>
         </p>
+        </form>
+
+        
       </div>
     </div>
       </div>

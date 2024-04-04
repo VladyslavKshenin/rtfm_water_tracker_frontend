@@ -5,7 +5,7 @@ const authInitialState = {
   user: { email: null, password: null },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  // isRefreshing: false,
   error: null,
 };
 
@@ -41,7 +41,7 @@ export const authSlice = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoggedIn = false;
-        state.isRefreshing = false;
+        // state.isRefreshing = false;
       })
       .addCase(logOut.rejected, handleRejected)
 

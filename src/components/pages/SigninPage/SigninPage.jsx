@@ -1,20 +1,21 @@
 // import AuthForm from 'components/AuthForm/AuthForm'
-import { useDispatch ,useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from '../../../store/auth/authOperations';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ReactComponent as Eye } from 'images/eye.svg';
+import { ReactComponent as EyeSlash } from 'images/eye-slash.svg';
+import css from './SigninPage.module.css';
 
 import { useState } from 'react';
 
-import { selectError } from 'store/auth/authSelectors';
-
 const SigninPage = () => {
-
   const dispatch = useDispatch();
-  const [logPassword,setLogPassword]=useState('');
-  const [logEmail,setLogEmail]=useState('');
-  const error = useSelector(selectError);
+  const [logPassword, setLogPassword] = useState('');
+  const [logEmail, setLogEmail] = useState('');
+  const [flagWatch, setFlagWatch] = useState(false);
+
   const navigate = useNavigate();
-  console.log(error);
+  // console.log(error);
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;
@@ -23,23 +24,24 @@ const SigninPage = () => {
         email: Form.elements.email.value,
         password: Form.elements.password.value,
       })
-    );
-    if(error===null){
-    setLogEmail('')
-    setLogPassword('')
-    navigate('/home')
+    )
+      .unwrap()
+      .then(() => {
+        setLogEmail('');
+        setLogPassword('');
+        navigate('/home');
+      })
+      .catch(() => alert('Введенні почта або пароль не є вірними!'));
+  };
+  const handleChange = e => {
+    const { name, value } = e.currentTarget;
+
+    if (name === 'email') {
+      setLogEmail(value);
+    } else {
+      setLogPassword(value);
     }
   };
-  const handleChange = (e)=>{
-    const {name,value}=e.currentTarget;
-
-    if(name==='email'){
-    setLogEmail(value)
-  }
-    else {
-      setLogPassword(value)
-    }
-  }
 
   return (
     <>
@@ -49,15 +51,31 @@ const SigninPage = () => {
         <form onSubmit={handleSubmit} autoComplete="off">
           <label>
             E-mail:
-            <input type="email" name="email" onChange={handleChange} value={logEmail}/>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              value={logEmail}
+            />
           </label>
-          <label>
+          <label className={css.form_label}>
             Password:
-            <input type="password" name="password" onChange={handleChange} value={logPassword} />
+            <input
+              type={flagWatch ? 'text' : 'password'}
+              name="password"
+              onChange={handleChange}
+              value={logPassword}
+            />
+            <div
+              onClick={() => {
+                setFlagWatch(!flagWatch);
+              }}
+              className={css.svg_input_password}
+            >
+              {!flagWatch ? <Eye /> : <EyeSlash />}
+            </div>
           </label>
-          <button type="submit">
-            Sign In
-          </button>
+          <button type="submit">Sign In</button>
         </form>
 
         <p>
@@ -66,7 +84,7 @@ const SigninPage = () => {
       </div>
     </>
     // <AuthForm/>
-  )
-}
+  );
+};
 
-export default SigninPage
+export default SigninPage;

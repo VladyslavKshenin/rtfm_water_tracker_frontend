@@ -3,18 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix';
 
 /// НАШ БЕКЕНД
-axios.defaults.baseURL = 'https://rtfm-water-tracker-backend.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:5050/api';
 /// НАШ БЕКЕНД
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
-
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -31,8 +29,6 @@ export const register = createAsyncThunk(
   }
 );
 
-
-
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
@@ -48,7 +44,6 @@ export const logIn = createAsyncThunk(
   }
 );
 
-
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const { data } = await axios.post('/auth/logout');
@@ -60,7 +55,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',

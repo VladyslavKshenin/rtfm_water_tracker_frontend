@@ -122,3 +122,17 @@
     }
 }
 
+.svg_input_password{
+    position: absolute;
+    right: 1%;
+    top: 20%;
+    padding: 0;
+    border: 0;
+    width: 19px;
+    height: 20px;
+    background-color: initial;
+    cursor: pointer;
+}
+.form_label{
+    position: relative;
+}

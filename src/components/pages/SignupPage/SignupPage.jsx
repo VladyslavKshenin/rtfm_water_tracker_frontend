@@ -1,42 +1,52 @@
 // import AuthForm from 'components/AuthForm/AuthForm'
 import { Link, useNavigate } from 'react-router-dom';
-import { selectError } from 'store/auth/authSelectors.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../../store/auth/authOperations';
-import { useState } from 'react';
 import css from '../SigninPage/SigninPage.module.css'
+import { useDispatch } from 'react-redux';
+import { register } from 'store/auth/authOperations';
+import { useState } from 'react';
+import { ReactComponent as Eye } from 'images/eye.svg';
+import { ReactComponent as EyeSlash } from 'images/eye-slash.svg';
 
 const SignupPage = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
-  console.log('error', error);
   const [regEmail, setRegEmail] = useState('');
+  const [flagWatch, setFlagWatch] = useState(false);
 
   const [regPassword, setRegPassword] = useState('');
   const [regRepeatPassword, setRegRepeatPassword] = useState('');
   const navigate = useNavigate();
+  function validateEmail(email) {
+    let re =
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    return re.test(String(email).toLowerCase());
+  }
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;
+    if (!validateEmail(regEmail)) {
+      alert('Введіть коректний email');
+      return;
+    }
 
-    console.log(Form.elements);
     if (regPassword !== regRepeatPassword) {
       alert('Паролі не співпадають');
       return;
     }
+
     dispatch(
       register({
         email: Form.elements.email.value,
         password: Form.elements.password.value,
       })
-    );
-
-    if (error === null) {
-      setRegEmail('');
-      setRegPassword('');
-      setRegRepeatPassword('');
-      navigate('/signin');
-    }
+    )
+      .unwrap()
+      .then(() => {
+        setRegEmail('');
+        setRegPassword('');
+        setRegRepeatPassword('');
+        navigate('/signin');
+      })
+      .catch(() => alert('Please enter all input'));
   };
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -62,12 +72,28 @@ const SignupPage = () => {
       <input placeholder="E-mail" className={css.input} type="email" name="email" onChange={handleChange} value={regEmail}/>
     </label>
     <p className={css.description}>Enter your password</p>
-     <label>
-      <input placeholder="Password" className={css.input} type="password" name="password" onChange={handleChange} value={regPassword}/>
+     <label  className={css.form_label}>
+      <input placeholder="Password" className={css.input} type={flagWatch ? 'text' : 'password'} name="password" onChange={handleChange} value={regPassword}/>
+      <div
+              onClick={() => {
+                setFlagWatch(!flagWatch);
+              }}
+              className={css.svg_input_password}
+            >
+              {flagWatch ? <Eye /> : <EyeSlash />}
+            </div>
     </label>
     <p className={css.description}>Repeat password</p> 
-    <label>
-      <input placeholder="Repeat password" className={css.input} type="password" name="password-repeat" onChange={handleChange} value={regRepeatPassword}  />
+    <label  className={css.form_label}>
+      <input placeholder="Repeat password" className={css.input}  type={flagWatch ? 'text' : 'password'} name="password-repeat" onChange={handleChange} value={regRepeatPassword}  />
+      <div
+              onClick={() => {
+                setFlagWatch(!flagWatch);
+              }}
+              className={css.svg_input_password}
+            >
+              {flagWatch ? <Eye /> : <EyeSlash />}
+            </div>
     </label>
     <button className={css.button} type="submit">
       Sign Up

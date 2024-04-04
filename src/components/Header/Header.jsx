@@ -11,8 +11,7 @@ export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn) 
 
   return (
-    <header>
-      <div className="container">
+    <header className={css.header}>
         <nav className={css.nav}>
           <ul className={css.list}>
             <li>
@@ -35,7 +34,6 @@ export const Header = () => {
             {isLoggedIn? <li><BasicPopover/></li> : null}
           </ul>
         </nav>
-      </div>
     </header>
   );
 };

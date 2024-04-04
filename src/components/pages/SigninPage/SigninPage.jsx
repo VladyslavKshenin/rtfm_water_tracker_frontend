@@ -1,21 +1,21 @@
 // import AuthForm from 'components/AuthForm/AuthForm'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from '../../../store/auth/authOperations';
 import { Link, useNavigate } from 'react-router-dom';
+import { ReactComponent as Eye } from 'images/eye.svg';
+import { ReactComponent as EyeSlash } from 'images/eye-slash.svg';
+import css from './SigninPage.module.css';
 
 import { useState } from 'react';
-
-import { selectError } from 'store/auth/authSelectors';
-
-import css from './SigninPage.module.css'
 
 const SigninPage = () => {
   const dispatch = useDispatch();
   const [logPassword, setLogPassword] = useState('');
   const [logEmail, setLogEmail] = useState('');
-  const error = useSelector(selectError);
+  const [flagWatch, setFlagWatch] = useState(false);
+
   const navigate = useNavigate();
- console.log('error', error)
+  // console.log(error);
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;
@@ -24,12 +24,14 @@ const SigninPage = () => {
         email: Form.elements.email.value,
         password: Form.elements.password.value,
       })
-    );
-    if (error === null) {
-      setLogEmail('');
-      setLogPassword('');
-      navigate('/home');
-    }
+    )
+      .unwrap()
+      .then(() => {
+        setLogEmail('');
+        setLogPassword('');
+        navigate('/home');
+      })
+      .catch(() => alert('Введенні почта або пароль не є вірними!'));
   };
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -53,8 +55,16 @@ const SigninPage = () => {
             <input placeholder='E-mail' className={css.input} type="email" name="email" onChange={handleChange} value={logEmail}/>
               </label>
               <p className={css.description}>Enter your password</p>
-          <label>
-            <input placeholder='Password' className={css.input} type="password" name="password" onChange={handleChange} value={logPassword} />
+          <label className={css.form_label}>
+            <input placeholder='Password' className={css.input}  type={flagWatch ? 'text' : 'password'} name="password" onChange={handleChange} value={logPassword} />
+            <div
+              onClick={() => {
+                setFlagWatch(!flagWatch);
+              }}
+              className={css.svg_input_password}
+            >
+              {flagWatch ? <Eye /> : <EyeSlash />}
+            </div>
           </label>
           <button className={css.button} type="submit">
             Sign In

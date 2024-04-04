@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { waterSelector } from '../../store/water/waterSelector';
+import { addWaterThunk } from '../../store/water/waterThunk';
 
 export const AddWaterModal = () => {
+  // const dose = useSelector(waterSelector);
+  const dispatch = useDispatch();
   const [waterDose, setWaterDose] = useState(0);
   const [inputWaterDose, setInputWaterDose] = useState('');
   const [time, setTime] = useState(currentTime());
@@ -55,6 +60,7 @@ export const AddWaterModal = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    dispatch(addWaterThunk({ waterDose, time }));
   };
   return (
     <>

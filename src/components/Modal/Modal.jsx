@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { showModal } from 'store/modal/modalSlice';
+import css from "./Modal.module.css"
+
 
 const Modal = ({ children}) => {
 
@@ -22,10 +24,10 @@ const Modal = ({ children}) => {
 
     return (
         <div 
-        // className={css.Overlay} 
+        className={css.backdrop + " " + css.backdropIsHidden} 
         onClick={handlerClick}>
             <div
-                // className={css.Modal}  
+                className={css.modalCallback}  
                 onClick={handlerClick}>
                 {children}
             </div>

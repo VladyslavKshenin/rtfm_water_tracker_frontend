@@ -15,7 +15,7 @@ const SigninPage = () => {
   const [logEmail, setLogEmail] = useState('');
   const error = useSelector(selectError);
   const navigate = useNavigate();
-  console.log(error);
+ console.log('error', error)
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;

@@ -20,14 +20,16 @@
         line-height: 1.14;
         font-weight: 700;
         color: var(--black);
-        margin-bottom: 16px;
+        padding-bottom: 16px;
+        font-family: var(--primary-font);
         }
     
     .subtitle {
         font-size: 24px;
         line-height: 1.25;
         color: var(--black);
-        margin-bottom: 24px;
+        padding-bottom: 24px;
+        font-family: var(--primary-font);
     }
     
     .benefits {
@@ -35,14 +37,14 @@
         font-size: 18px;
         color: var(--black);
         line-height: 1.11;
-        margin-bottom: 12px;
+        padding-bottom: 12px;
     }
     
     .listBenefits {
         display: flex;
         flex-direction: column;
         row-gap: 16px;
-        margin-bottom: 24px;
+        padding-bottom: 24px;
         font-size: 16px;
         color: var(--black);
         line-height: 1.25;
@@ -56,6 +58,13 @@
         -webkit-box-align: center;
         align-items: center;
     }
+
+    .description {
+        font-family: var(--primary-font);
+        font-style: 16px;
+        line-height: 1.25;
+        color: var(--black);
+    }
     
     .tryTrackerBtn {
         box-sizing: border-box;
@@ -67,6 +76,7 @@
         border-radius: 10px;
         border: none;
         text-align: center;
+        font-family: var(--primary-font);
         font-weight: 500;
         background-color: var(--blue);
         box-shadow: rgba(64, 123, 255, 0.34) 0px 4px 8px;
@@ -101,7 +111,7 @@
         font-weight: 500;
         font-size: 18px;
         color: var(--black);
-        margin-bottom: 12px;
+        padding-bottom: 12px;
         line-height: 1.11;
     }
     
@@ -114,7 +124,7 @@
         font-size: 16px;
         color: var(--black);
         line-height: 1.25;
-        margin-bottom: 16px;
+        padding-bottom: 16px;
         position: relative;
         padding-left: 16px;
         list-style-position: inside;
@@ -123,7 +133,7 @@
     .itemReasons::before {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 27%;
         left: 0px;
         transform: translateY(-50%);
         width: 8px;
@@ -175,7 +185,8 @@
                 flex-direction: row;
                 align-items: flex-end;
                 gap: 81px;
-                padding: 80px 195px 0 195px;
+                justify-content: center;
+                padding: 80px 0 0 0 ;
         }
 
         .listBenefits {

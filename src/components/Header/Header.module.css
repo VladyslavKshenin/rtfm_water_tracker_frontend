@@ -1,12 +1,14 @@
-header {
+.header {
     padding-top: 8px;
     width: 100%;
+    padding: 0 20px;
 }
 
 .list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-grow: 1;
 }
 
 .link {
@@ -28,8 +30,19 @@ color: var(--orange);
 }
 
 @media screen and (min-width: 768px) {
+
+    .header {
+        padding: 0 32px;
+    }
+
     .link{
         font-size: 18px;
         line-height: 1.33;
   }
+}
+
+@media screen and (min-width: 1440px) {
+    .header {
+        padding: 0 18px;
+    }
 }

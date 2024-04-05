@@ -1,3 +1,7 @@
+.calendarSection{
+    height: 300px;
+}
+
 .calendarContainer {
     max-width: 544px;
     margin: 0 auto;

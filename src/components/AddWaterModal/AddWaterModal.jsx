@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
+import { Svg } from 'components/Icons/Icons';
 
-export const AddWaterModal = () => {
+export const AddWaterModal = ({ closeModal }) => {
   // const dose = useSelector(waterSelector);
   const dispatch = useDispatch();
   const [waterDose, setWaterDose] = useState(0);
@@ -64,6 +65,9 @@ export const AddWaterModal = () => {
   };
   return (
     <>
+      <button type="button" onClick={closeModal}>
+        <Svg id={'#close'} width={24} height={24} />
+      </button>
       <h2>Add water</h2>
       <p>Choose a value:</p>
       <form onSubmit={handleSubmit}>

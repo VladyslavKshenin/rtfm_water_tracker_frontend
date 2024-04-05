@@ -51,10 +51,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     const { data } = await axios.post('/auth/logout');
     console.log('data', data)
     clearAuthHeader();
-    Notify.info('Logout');
+    // Notify.info('Logout');
     return data;
   } catch (error) {
-    Notify.failure('Something went wrong with your logout!');
+    // Notify.failure('Something went wrong with your logout!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });

@@ -23,7 +23,7 @@ const SignupPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const Form = e.currentTarget;
-    if (!validateEmail(regEmail.toLowerCase())) {
+    if (!validateEmail(regEmail)) {
       alert('Введіть коректний email');
       return;
     }
@@ -44,7 +44,7 @@ const SignupPage = () => {
 
     dispatch(
       register({
-        email: Form.elements.email.value,
+        email: Form.elements.email.value.toLowerCase(),
         password: Form.elements.password.value,
       })
     )

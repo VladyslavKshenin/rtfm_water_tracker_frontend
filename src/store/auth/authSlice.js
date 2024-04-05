@@ -23,13 +23,17 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+const handleFulfilledRegister = (state) => {
+  
+}
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
   extraReducers: builder => {
     builder
       .addCase(register.pending, handlePending)
-      .addCase(register.fulfilled, handleFulfilled)
+      .addCase(register.fulfilled, handleFulfilledRegister)
       .addCase(register.rejected, handleRejected)
 
       .addCase(logIn.pending, handlePending)

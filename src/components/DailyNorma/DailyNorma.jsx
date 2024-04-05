@@ -1,27 +1,27 @@
-// import DailyNormaModal from "components/DailyNormaModal/DailyNormaModal"
+import DailyNormaModal from "components/DailyNormaModal/DailyNormaModal"
 // import Modal from "components/Modal/Modal"
-import { useDispatch } from "react-redux"
-// import { showModalSelector } from "store/modal/modalSelector"
+import { useDispatch, useSelector } from "react-redux"
+import { showModalSelector } from "store/modal/modalSelector"
 import { showModal } from "store/modal/modalSlice"
 import css from "./DailyNorma.module.css"
 
 export const DailyNorma = () => {
 
-    // const showDaily = useSelector(showModalSelector)
+    const showDaily = useSelector(showModalSelector)
     const dispatch = useDispatch()
     
   return (
-    <div className={css.wrapp}>
-        <h3>My daily norma</h3>
+    <div className={css.wrap}>
+        <h3 className={css.title}>My daily norma</h3>
         <div>
-            <p><strong>2 L</strong></p>
+            <p className={css.description}><strong>2 L</strong></p>
             <button type="button" onClick={()=>{dispatch(showModal())}}>Edit</button>
         </div>
-        {/* {showDaily ? 
-                <Modal>
+        {showDaily ? 
+                // <Modal>
                   <DailyNormaModal/>
-                </Modal>
-              : null} */}
+                // </Modal>
+              : null}
     </div>
   )
 }

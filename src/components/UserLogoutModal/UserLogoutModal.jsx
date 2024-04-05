@@ -1,22 +1,19 @@
 import { Svg } from "components/Icons/Icons"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { showModal } from "store/modal/modalSlice"
 import css from "./UserLogoutModal.module.css"
 import { logOut } from "store/auth/authOperations"
-import { selectorIsAuth } from "store/auth/authSelectors"
 import { Navigate } from "react-router-dom"
 import { Notify } from "notiflix"
 
 const UserLogoutModal = () => {
 
   const dispatch = useDispatch()
-  const isAuth = useSelector(selectorIsAuth)
-  console.log('isAuth', isAuth)
+
   const handleClick = () => {
     dispatch(logOut())
     .unwrap()
       .then((payload) => {
-        console.log('payload', payload)
         dispatch(showModal())
         Navigate('/')
         Notify.success("You have successfully exited")

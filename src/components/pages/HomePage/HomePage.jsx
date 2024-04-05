@@ -1,3 +1,4 @@
+// import AuthForm from 'components/AuthForm/AuthForm';
 import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 
 import { WaterProgress } from 'components/WaterProgress/WaterProgress';
@@ -8,12 +9,15 @@ const HomePage = () => {
   // const isLoading = useSelector();
 
   return (
-    <>
-
-      <DailyNorma />
-      <WaterProgress />
-      {/* {isLoading && <Loader />} */}
-    </>
+    <section>
+      <div className="container">
+        {/* <AuthForm/> */}
+        <DailyNorma />
+        <WaterProgress />
+        {/* {isLoading && <Loader />} */}
+      </div>
+      
+    </section>
   );
 };
 

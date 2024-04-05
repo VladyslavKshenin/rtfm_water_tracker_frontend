@@ -8,10 +8,14 @@ const DailyNormaModal = () => {
 
     const dispatch = useDispatch()
 
+    const handleClick = (e) =>{
+        console.log('e.currentTarget', e)
+        dispatch(showModal())
+    }
   return (
     <>
         <h2>My daily norma</h2>
-        <button type="button" onClick={()=>{dispatch(showModal())}}>
+        <button type="button" onClick={()=>{handleClick()}}>
             <Svg id={"#close"} width={24} height={24}/>
         </button>
         <ul>

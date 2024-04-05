@@ -5,15 +5,15 @@ import { useSelector } from 'react-redux';
 import { selectorIsAuth } from 'store/auth/authSelectors';
 import BasicPopover from '../BasicPopover/BasicPopover';
 // import Modal from 'components/Modal/Modal';
-import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
-import { showModalSelector } from 'store/modal/modalSelector';
+// import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
+// import { showModalSelector } from 'store/modal/modalSelector';
 import "../../index"
 import css from "./Header.module.css"
 
 export const Header = () => {
 
   const isAuth = useSelector(selectorIsAuth) 
-  const showLogOut = useSelector(showModalSelector);
+  // const showLogOut = useSelector(showModalSelector);
 
   return (
     <header className={css.header}>
@@ -42,11 +42,11 @@ export const Header = () => {
           </nav>
           {isAuth? <BasicPopover/> : null}
         </div>
-        {showLogOut ? 
+        {/* {showLogOut ? 
         // <Modal>
                         <UserLogoutModal /> 
                       // </Modal>
-                    : null}
+                    : null} */}
       </div>
     </header>
   );

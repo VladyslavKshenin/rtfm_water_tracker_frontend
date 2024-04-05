@@ -21,6 +21,11 @@ export default function BasicPopover() {
 
   const dispatch = useDispatch();
 
+  const handleMenuClose = () => {
+    dispatch(showModal())
+    handleClose()
+  };
+
   return (
     <div>
       <button aria-describedby={id} variant="contained" onClick={handleClick} className={css.popoverButton}>
@@ -30,7 +35,6 @@ export default function BasicPopover() {
         id={id}
         open={open}
         anchorEl={anchorEl}
-        onClose={handleClose}
         anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'center',
@@ -39,17 +43,19 @@ export default function BasicPopover() {
             vertical: 'top',
             horizontal: 'right',
         }}
+        onClose={handleClose}
+        disableRestoreFocus
         >
           <div className={css.listWrapper}>
             <ul className={css.list}>
               <li className={css.item}>
-                <button type="button" onClick={()=>dispatch(showModal())} className={css.btn}>
+                <button type="button" onClick={handleMenuClose} className={css.btn}>
                   <Svg id="#setting" width={16} height={16}/>
                   <span className={css.text}>Setting</span>
                 </button>
               </li>
               <li>
-                <button type="button" onClick={()=>dispatch(showModal())} className={css.btn}>
+                <button type="button" onClick={handleMenuClose} className={css.btn}>
                   <Svg id="#exit" width={16} height={16}/>
                   <span className={css.text}>Log out</span> 
                 </button>

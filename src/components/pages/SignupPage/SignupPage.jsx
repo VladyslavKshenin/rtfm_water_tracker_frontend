@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import css from '../SigninPage/SigninPage.module.css'
 import { useDispatch } from 'react-redux';
 import { register } from 'store/auth/authOperations';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactComponent as Eye } from 'images/eye.svg';
 import { ReactComponent as EyeSlash } from 'images/eye-slash.svg';
 
@@ -11,6 +11,7 @@ const SignupPage = () => {
   const dispatch = useDispatch();
   const [regEmail, setRegEmail] = useState('');
   const [flagWatch, setFlagWatch] = useState(false);
+  const [flagSignup,setFlagSignup] = useState(false);
 
   const [regPassword, setRegPassword] = useState('');
   const [regRepeatPassword, setRegRepeatPassword] = useState('');
@@ -25,6 +26,10 @@ const SignupPage = () => {
     const Form = e.currentTarget;
     if (!validateEmail(regEmail)) {
       alert('Введіть коректний email');
+      return;
+    }
+    if(regPassword.length < 8 || regRepeatPassword.length<8 || regPassword.length > 64 || regRepeatPassword.length > 64){
+      alert('Пароль повинен містити від 8 до 64 символів!');
       return;
     }
 
@@ -44,10 +49,12 @@ const SignupPage = () => {
         setRegEmail('');
         setRegPassword('');
         setRegRepeatPassword('');
-        navigate('/signin');
+        navigate("/signin");
+       
       })
-      .catch(() => alert('Please enter all input'));
+      .catch((error) =>  {console.log(error);});
   };
+
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     if (name === 'email') {

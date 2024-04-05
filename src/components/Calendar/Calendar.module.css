@@ -1,9 +1,6 @@
-.calendarSection{
-    height: 300px;
-}
-
 .calendarContainer {
     max-width: 544px;
+    height: 300px;
     margin: 0 auto;
     text-align: center;
 }

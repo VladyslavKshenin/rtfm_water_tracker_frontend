@@ -1,0 +1,53 @@
+.calendarContainer {
+    max-width: 544px;
+    margin: 0 auto;
+    text-align: center;
+}
+.calendarHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.monthNameContainer{
+    display: flex;
+    align-items: center;
+}
+.monthName{
+    line-height: 1.25;
+    text-align: center;
+    color: var(--blue);
+}
+.buttonMonth{
+    border: none;
+    background-color: inherit;
+    color: var(--blue);
+}
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 20px;
+    column-gap: 22px;
+    width: 544px;
+}
+.titleMonth{    
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.23077;       
+    color: var(--black);
+}
+
+.day{
+    width: 34px;
+}
+
+
+.calendarDay {
+    padding: 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: var(--orange);
+}
+
+.today {
+    background-color: lightblue;
+}

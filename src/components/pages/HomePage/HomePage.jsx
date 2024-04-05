@@ -2,6 +2,8 @@
 import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 
 import { WaterProgress } from 'components/WaterProgress/WaterProgress';
+import CalendarContainer from '../../Calendar/Calendar.jsx';
+import css from './HomePage.module.css';
 // import { useSelector } from 'react-redux';
 // import Loader from 'components/Loader/Loader';
 
@@ -9,14 +11,19 @@ const HomePage = () => {
   // const isLoading = useSelector();
 
   return (
-    <section>
-      <div className="container">
-        {/* <AuthForm/> */}
-        <DailyNorma />
-        <WaterProgress />
-        {/* {isLoading && <Loader />} */}
+    <section className={css.sectionHome}>
+      <div className={`container ${css.containerHome}`}>
+        <div>
+          {/* <AuthForm/> */}
+          <DailyNorma />
+          <WaterProgress />
+          {/* {isLoading && <Loader />} */}
+        </div>
+
+        <div className={css.waterRateContainer}>
+          <CalendarContainer />
+        </div>
       </div>
-      
     </section>
   );
 };

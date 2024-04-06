@@ -27,7 +27,7 @@
     color: var(--blue);
 }
 .calendarGrid {
-    position: relative;
+    /* position: relative; */
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     row-gap: 20px;
@@ -61,8 +61,8 @@
         z-index: 999;
         background-color: var(--white);
         box-shadow: 0 4px 4px 0 rgba(64, 123, 255, 0.3);
-        top: -100%;
-        left: -27%;
+        top: 40%;
+        left: 48%;
         transform: translateX(-50%);
         border-radius: 10px;
         padding: 24px 16px;

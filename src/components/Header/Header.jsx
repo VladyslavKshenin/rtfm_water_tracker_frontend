@@ -1,19 +1,30 @@
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutModal } from 'store/modal/modalSlice';
+import { selectIsLoggedIn } from 'store/auth/authSelectors';
+import { logOutModalSelector, settingModalSelector } from 'store/modal/modalSelector';
 import { Svg } from 'components/Icons/Icons';
 import Icons from '../../images/icons.svg';
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
-import { selectorIsAuth } from 'store/auth/authSelectors';
 import BasicPopover from '../BasicPopover/BasicPopover';
-// import Modal from 'components/Modal/Modal';
-// import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
-// import { showModalSelector } from 'store/modal/modalSelector';
+import Modal from 'components/Modal/Modal';
+import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
 import "../../index"
 import css from "./Header.module.css"
 
 export const Header = () => {
 
-  const isAuth = useSelector(selectorIsAuth) 
-  // const showLogOut = useSelector(showModalSelector);
+  const dispatch = useDispatch()
+  const isLoggedIn = useSelector(selectIsLoggedIn) 
+  const logOutClose = useSelector(logOutModalSelector);
+  const settingModal = useSelector(settingModalSelector);
+
+  const onCloseLogOut = () => {
+    dispatch(logOutModal())
+  }
+
+  const onCloseSetting = ()=>{
+    dispatch(settingModal())
+  }
 
   return (
     <header className={css.header}>
@@ -22,7 +33,7 @@ export const Header = () => {
           <nav className={css.nav}>
             <ul className={css.list}>
               <li>
-                {!isAuth? 
+                {!isLoggedIn? 
                   <Link to="/welcome">
                     <Svg id="#logo" width={102} height={48}/> 
                   </Link>
@@ -40,13 +51,18 @@ export const Header = () => {
               </li>
             </ul>
           </nav>
-          {isAuth? <BasicPopover/> : null}
+          {/* {isLoggedIn? */}
+           <BasicPopover/> 
+           {/* : null} */}
         </div>
-        {/* {showLogOut ? 
-        // <Modal>
-                        <UserLogoutModal /> 
-                      // </Modal>
-                    : null} */}
+        {logOutClose ? <Modal onClose={onCloseLogOut} >
+                        <UserLogoutModal onClose={onCloseLogOut} /> 
+                      </Modal>
+                    : null}
+        {settingModal ? <Modal onClose={onCloseSetting} >
+                        {/* <Setting onClose={onCloseSetting} />  */}
+                      </Modal>
+                    : null}
       </div>
     </header>
   );

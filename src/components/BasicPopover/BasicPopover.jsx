@@ -2,11 +2,12 @@ import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import { Svg } from 'components/Icons/Icons';
 import { useDispatch } from 'react-redux';
-import { showModal } from "store/modal/modalSlice"
+import { logOutModal, settingModal } from "store/modal/modalSlice"
 import css from "./BasicPopover.module.css"
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -19,10 +20,9 @@ export default function BasicPopover() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  const dispatch = useDispatch();
-
-  const handleMenuClose = () => {
-    dispatch(showModal())
+  
+  const handleMenuClose = (e) => {
+    (e.currentTarget.textContent === "Log out") ? dispatch(logOutModal()) : dispatch(settingModal())
     handleClose()
   };
 

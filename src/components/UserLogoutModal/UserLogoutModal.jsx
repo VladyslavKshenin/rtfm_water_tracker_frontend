@@ -1,21 +1,25 @@
 import { Svg } from "components/Icons/Icons"
-import { useDispatch } from "react-redux"
-import { showModal } from "store/modal/modalSlice"
-import css from "./UserLogoutModal.module.css"
 import { logOut } from "store/auth/authOperations"
-import { Navigate } from "react-router-dom"
 import { Notify } from "notiflix"
+import { useDispatch, useSelector } from "react-redux"
+import css from "./UserLogoutModal.module.css"
+import { logOutModalSelector } from "store/modal/modalSelector"
+// import { forwardRef } from "react"
 
-const UserLogoutModal = () => {
+const UserLogoutModal = ({ onClose }) => {
 
   const dispatch = useDispatch()
+
+  // const navigate = useNavigate()
+  const logOutModal = useSelector(logOutModalSelector)
 
   const handleClick = () => {
     dispatch(logOut())
     .unwrap()
       .then((payload) => {
-        dispatch(showModal())
-        Navigate('/')
+        console.log('payload', payload)
+        dispatch(logOutModal())
+        // navigate('/')
         Notify.success("You have successfully exited")
        })
       .catch((error) => {
@@ -26,7 +30,7 @@ const UserLogoutModal = () => {
   return (
     <div className={css.wrapp}>
         <h2 className={css.title}>Log out</h2>
-        <button type="button" onClick={()=>{dispatch(showModal())}} className={css.buttonClose}>
+        <button type="button" onClick={onClose} className={css.buttonClose}>
             <Svg id={"#close"} width={24} height={24}/>
         </button>
         <h3 className={css.subtitle}>Do you really want to leave?</h3>
@@ -36,7 +40,7 @@ const UserLogoutModal = () => {
           </li>
           <li className={css.item}>
             <button type="button" className={css.button}
-              onClick={()=>{dispatch(showModal())}}>Cancel</button>
+              onClick={onClose} >Cancel</button>
           </li>
         </ul>
     </div>

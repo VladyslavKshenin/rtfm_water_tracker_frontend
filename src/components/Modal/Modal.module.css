@@ -16,6 +16,8 @@
 }
 
 .modalCallback {
+    pointer-events: all;
+    z-index: 1000;
     position: absolute;
     min-height: 100px;
     top: 50%;

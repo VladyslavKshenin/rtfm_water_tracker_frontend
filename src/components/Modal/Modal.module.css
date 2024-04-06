@@ -4,34 +4,35 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* transition: opacity rgba(0, 0, 0, 0.8), visibility rgba(0, 0, 0, 0.8); */
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     background-color: rgba(0, 0, 0, 0.8);
-
-}
-
-.backdropIsHidden {
-    /* opacity: 0; */
-    /* visibility: hidden; */
+    transition: 0.5s;
     pointer-events: none;
 }
 
-.modalCallback {
+.backdropActive {
+    opacity: 1;
     pointer-events: all;
+}
+
+.modalContent {
+    top: 25%;
+    left: 25%;
+    border-radius: 10px;
+    background-color: #fff;
     z-index: 1000;
     position: absolute;
     min-height: 100px;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #fff;
-    border-radius: 4px;
+    transform: scale(0.3);
+    transition: 0.4s all;;
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
-    /* transition: transform var(--transition-options) 250ms, opacity var(--transition-options) 250ms;
-    transition: transform var(--transition-options); */
-} 
-
-.backdropIsHidden .modalCallback {
-    /* opacity: 0; */
-    transform: translateX(-50%) translateY(-70%);
 }
+
+.modalContentActive {
+    transform: scale(1);
+}
+
 

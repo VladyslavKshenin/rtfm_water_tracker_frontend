@@ -2,9 +2,10 @@ import { useCallback } from 'react';
 import { useEffect } from 'react'
 import css from "./Modal.module.css"
 
-const Modal = ({ onClose, children}) => {
+const Modal = ({ active, onClose, children}) => {
 
     const handlerClick = useCallback((e) => {
+       
         if (e.code === 'Escape') onClose();
         // console.log('first', e.currentTarget)
         // console.log('second', e.target)
@@ -18,15 +19,9 @@ const Modal = ({ onClose, children}) => {
             document.removeEventListener('keydown', handlerClick);
         })
     }, [handlerClick])
-
     return (
-        <div className={css.backdrop + " " + css.backdropIsHidden} 
-        onClick={handlerClick}
-        >
-            <div
-                className={css.modalCallback}  
-                onClick={handlerClick}
-                >
+        <div className={active ? css.backdrop + " " + css.backdropActive : css.backdrop} onClick={handlerClick}>
+            <div className={active ? css.modalContent + " " + css.modalContentActive : css.modalContent} onClick={(e)=>{ e.stopPropagation()}}>
                 {children}
             </div>
         </div>

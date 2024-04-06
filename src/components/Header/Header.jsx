@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutModal } from 'store/modal/modalSlice';
-import { selectIsLoggedIn } from 'store/auth/authSelectors';
+import { selectIsLoggedIn, selectUser } from 'store/auth/authSelectors';
 import { logOutModalSelector, settingModalSelector } from 'store/modal/modalSelector';
 import { Svg } from 'components/Icons/Icons';
 import Icons from '../../images/icons.svg';
@@ -17,6 +17,8 @@ export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn) 
   const logOutClose = useSelector(logOutModalSelector);
   const settingModal = useSelector(settingModalSelector);
+  const isUser = useSelector(selectUser)
+  console.log('isUser', isUser)
 
   const onCloseLogOut = () => {
     dispatch(logOutModal())
@@ -55,11 +57,11 @@ export const Header = () => {
            <BasicPopover/> 
            {/* : null} */}
         </div>
-        {logOutClose ? <Modal onClose={onCloseLogOut} >
+        {logOutClose ? <Modal active={logOutClose} onClose={onCloseLogOut} >
                         <UserLogoutModal onClose={onCloseLogOut} /> 
                       </Modal>
                     : null}
-        {settingModal ? <Modal onClose={onCloseSetting} >
+        {settingModal ? <Modal active={settingModal} onClose={onCloseSetting} >
                         {/* <Setting onClose={onCloseSetting} />  */}
                       </Modal>
                     : null}

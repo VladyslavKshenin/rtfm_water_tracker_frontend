@@ -24,7 +24,7 @@ export const DailyNorma = () => {
               Edit
             </button>
         </div>
-        {dailyNormaClose  ? <Modal onClose={onClose}>
+        {dailyNormaClose  ? <Modal active={dailyNormaClose} onClose={onClose}>
                               <DailyNormaModal/>
                             </Modal>
                           : null}

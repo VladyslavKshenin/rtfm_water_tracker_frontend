@@ -17,6 +17,7 @@
     line-height: 1.25;
     text-align: center;
     color: var(--blue);
+    width: 120px;
 }
 .buttonMonth{
     border: none;
@@ -24,6 +25,7 @@
     color: var(--blue);
 }
 .calendarGrid {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     row-gap: 20px;
@@ -45,10 +47,33 @@
 .calendarDay {
     padding: 5px;
     border-radius: 50%;
-    border-style: solid;
-    border-color: var(--orange);
+    border: 1px solid var(--orange);
+    background-color: var(--white);
 }
 
 .today {
     background-color: lightblue;
 }
+.popover {
+    position: absolute;
+        z-index: 999;
+        background-color: var(--white);
+        box-shadow: 0 4px 4px 0 rgba(64, 123, 255, 0.3);
+        top: -100%;
+        left: -27%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+        padding: 24px 16px;
+        width: 292px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+.popoverDate{
+            color: var(--blue);
+            margin-bottom: 16px;
+    }
+.popoverList{
+    margin-bottom: 16px;
+
+    }

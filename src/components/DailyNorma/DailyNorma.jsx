@@ -9,6 +9,11 @@ export const DailyNorma = () => {
 
   const dispatch = useDispatch()  
   const dailyNormaClose = useSelector(dailyNormaModalSelector)
+
+  const onClose = () => {
+    dispatch(dailyNormaModal())
+  }
+
     
   return (
     <div className={css.wrap}>
@@ -19,10 +24,7 @@ export const DailyNorma = () => {
               Edit
             </button>
         </div>
-        {dailyNormaClose  ? 
-                            <Modal 
-                            // onClose={dispatch(dailyNormaModal())}
-                            >
+        {dailyNormaClose  ? <Modal onClose={onClose}>
                               <DailyNormaModal/>
                             </Modal>
                           : null}

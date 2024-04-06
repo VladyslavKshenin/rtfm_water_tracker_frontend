@@ -2,11 +2,12 @@ import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import { Svg } from 'components/Icons/Icons';
 import { useDispatch } from 'react-redux';
-import { logOutModal } from "store/modal/modalSlice"
+import { logOutModal, settingModal } from "store/modal/modalSlice"
 import css from "./BasicPopover.module.css"
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -19,7 +20,11 @@ export default function BasicPopover() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  const dispatch = useDispatch();
+  
+  const handleMenuClose = (e) => {
+    (e.currentTarget.textContent === "Log out") ? dispatch(logOutModal()) : dispatch(settingModal())
+    handleClose()
+  };
 
   return (
     <div>
@@ -44,14 +49,13 @@ export default function BasicPopover() {
           <div className={css.listWrapper}>
             <ul className={css.list}>
               <li className={css.item}>
-                {/* <button type="button" onClick={()=>dispatch(showModal())} className={css.btn}>
+                <button type="button" onClick={handleMenuClose} className={css.btn}>
                   <Svg id="#setting" width={16} height={16}/>
                   <span className={css.text}>Setting</span>
-                </button> */}
-                zzzzzzzz
+                </button>
               </li>
               <li>
-                <button type="button" onClick={()=>dispatch(logOutModal())} className={css.btn}>
+                <button type="button" onClick={handleMenuClose} className={css.btn}>
                   <Svg id="#exit" width={16} height={16}/>
                   <span className={css.text}>Log out</span> 
                 </button>

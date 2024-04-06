@@ -13,6 +13,7 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
 
 
 export const App = () => {
+
   return (
     <>
       <Loader />

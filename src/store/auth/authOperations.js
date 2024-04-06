@@ -6,12 +6,10 @@ import { clearAuthHeader, setAuthHeader } from 'components/api/api';
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
-    console.log('credentials', credentials)
 
     try {
       console.log('credentials', credentials)
       const { data } = await axios.post('/auth/register', credentials);
-
       console.log('data', data)
       Notify.success('Registered successfully!');
       return data;

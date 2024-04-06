@@ -7,7 +7,7 @@
 import { useState } from 'react'
 
 const DailyNormalModalForm = () => {
-  const [gender, setGender] = useState('')
+  const [gender, setGender] = useState('female')
   const [weight, setWeight] = useState('')
   const [time, setTime]= useState('')
   const [waterRate, setWaterRate] = useState('')
@@ -59,6 +59,7 @@ const DailyNormalModalForm = () => {
                 id="gender"
                 value="female"
                 name="gender"
+                checked={gender === "female"}
                 onChange={handlerChange}/>
             For woman
           </label>
@@ -68,6 +69,7 @@ const DailyNormalModalForm = () => {
                 id="gender"
                 value="male" 
                 name="gender"
+                checked={gender === "male"}
                 onChange={handlerChange}/>
             For man
           </label>

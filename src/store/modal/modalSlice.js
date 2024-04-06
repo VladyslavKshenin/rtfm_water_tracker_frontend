@@ -3,14 +3,18 @@ import { createSlice } from '@reduxjs/toolkit'
 const modalSlice = createSlice({
     name: 'modal',
     initialState: {
-        showModal: false
+        logOutModal: false,
+        dailyNormaModal: false,
     },
     reducers: {
-        showModal: (state) => {
-            state.showModal= !state.showModal
+        logOutModal: (state) => {
+            state.logOutModal= !state.logOutModal
+        },
+        dailyNormaModal: (state) => {
+            state.dailyNormaModal= !state.dailyNormaModal
         }
     }
 })
 
 export const showModalReducer = modalSlice.reducer
-export const { showModal } = modalSlice.actions
+export const { logOutModal, dailyNormaModal } = modalSlice.actions

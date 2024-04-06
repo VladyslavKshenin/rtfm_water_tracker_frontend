@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'store/auth/authSelectors';
+import { logOutModalSelector } from 'store/modal/modalSelector';
 import { Svg } from 'components/Icons/Icons';
 import Icons from '../../images/icons.svg';
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
-import { selectorIsAuth } from 'store/auth/authSelectors';
 import BasicPopover from '../BasicPopover/BasicPopover';
-// import Modal from 'components/Modal/Modal';
-// import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
-// import { showModalSelector } from 'store/modal/modalSelector';
+import Modal from 'components/Modal/Modal';
+import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
 import "../../index"
 import css from "./Header.module.css"
 
 export const Header = () => {
 
-  const isAuth = useSelector(selectorIsAuth) 
-  // const showLogOut = useSelector(showModalSelector);
+  const dispatch = useDispatch()
+  const isLoggedIn = useSelector(selectIsLoggedIn) 
+  const LogOutClose = useSelector(logOutModalSelector);
+  console.log('LogOutClose', LogOutClose)
 
   return (
     <header className={css.header}>
@@ -22,7 +24,7 @@ export const Header = () => {
           <nav className={css.nav}>
             <ul className={css.list}>
               <li>
-                {!isAuth? 
+                {!isLoggedIn? 
                   <Link to="/welcome">
                     <Svg id="#logo" width={102} height={48}/> 
                   </Link>
@@ -40,13 +42,14 @@ export const Header = () => {
               </li>
             </ul>
           </nav>
-          {isAuth? <BasicPopover/> : null}
+          {isLoggedIn? <BasicPopover/> : null}
         </div>
-        {/* {showLogOut ? 
-        // <Modal>
+        {LogOutClose ? <Modal 
+        // onClose={dispatch(LogOutClose)}
+        >
                         <UserLogoutModal /> 
-                      // </Modal>
-                    : null} */}
+                      </Modal>
+                    : null}
       </div>
     </header>
   );

@@ -7,9 +7,9 @@ import { Svg } from 'components/Icons/Icons';
 export const AddWaterModal = ({ closeModal }) => {
   // const dose = useSelector(waterSelector);
   const dispatch = useDispatch();
-  const [waterDose, setWaterDose] = useState(0);
+  const [amount, setWaterDose] = useState(0);
   const [inputWaterDose, setInputWaterDose] = useState('');
-  const [time, setTime] = useState(currentTime());
+  const [date, setTime] = useState(currentTime());
 
   function currentTime() {
     const now = new Date();
@@ -41,8 +41,8 @@ export const AddWaterModal = ({ closeModal }) => {
   };
 
   useEffect(() => {
-    setInputWaterDose(waterDose.toString());
-  }, [waterDose]);
+    setInputWaterDose(amount.toString());
+  }, [amount]);
 
   const timeOptions = () => {
     const options = [];
@@ -61,7 +61,16 @@ export const AddWaterModal = ({ closeModal }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addWaterThunk({ waterDose, time }));
+
+    const [hours, minutes] = date.split(':').map(Number);
+
+    const currentDate = new Date();
+    currentDate.setHours(hours);
+    currentDate.setMinutes(minutes);
+
+    const isoDate = currentDate.toISOString();
+
+    dispatch(addWaterThunk({ amount, date: isoDate }));
   };
   return (
     <>
@@ -70,21 +79,21 @@ export const AddWaterModal = ({ closeModal }) => {
       </button>
       <h2>Add water</h2>
       <p>Choose a value:</p>
-      <form onSubmit={handleSubmit}>
+      <div>
+        <p>Amount of water:</p>
         <div>
-          <p>Amount of water:</p>
-          <div>
-            <button onClick={decreaseDose} disabled={waterDose === 0}>
-              -
-            </button>
-            {waterDose}ml
-            <button onClick={increaseDose}>+</button>
-          </div>
+          <button onClick={decreaseDose} disabled={amount === 0}>
+            -
+          </button>
+          {amount}ml
+          <button onClick={increaseDose}>+</button>
         </div>
+      </div>
+      <form onSubmit={handleSubmit}>
         <div>
           <p>Recording time:</p>
           <div>
-            <select value={time} onChange={handleTime}>
+            <select value={date} onChange={handleTime}>
               {timeOptions()}
             </select>
           </div>
@@ -99,7 +108,7 @@ export const AddWaterModal = ({ closeModal }) => {
           />
         </div>
         <div>
-          <p>{waterDose}ml</p>
+          <p>{amount}ml</p>
           <button type="submit">Save</button>
         </div>
       </form>

@@ -31,10 +31,6 @@ const DailyNormalModalForm = () => {
     }
   }
 
-  console.log('gender', gender)
-  console.log('weight', weight)
-  console.log('time', time)
-  console.log('waterRate', waterRate)
 
 //     let waterCalculation
 //     switch (gender) {

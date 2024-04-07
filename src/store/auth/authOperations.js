@@ -37,20 +37,16 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-
     const { data } = await axios.post('/auth/logout');
-    console.log('data', data)
     clearAuthHeader();
-    // Notify.info('Logout');
     return data;
   } catch (error) {
-    // Notify.failure('Something went wrong with your logout!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+export const currentUser = createAsyncThunk(
+  'user/current',
   async (_, thunkAPI) => {
     const { token } = thunkAPI.getState().auth;
     if (!token) {
@@ -59,7 +55,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(token);
-      const { data } = await axios('/auth/current');
+      const { data } = await axios('/user-settings/current');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

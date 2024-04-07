@@ -8,7 +8,6 @@ import UserAuth from './UserAuth/UserAuth';
 import "../../index";
 import css from "./Header.module.css";
 
-
 export const Header = () => {
 
   const dispatch = useDispatch()
@@ -37,7 +36,6 @@ export const Header = () => {
               </li>
             </ul>
           </nav>
-          {/* {isUser ? <BasicPopover/> : null} */}
         </div>
         {logOutClose ? <Modal active={logOutClose} onClose={onCloseLogOut} >
                         <UserLogoutModal onClose={onCloseLogOut} /> 

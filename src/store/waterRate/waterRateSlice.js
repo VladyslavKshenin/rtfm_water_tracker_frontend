@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { updateWaterRateThunk } from './waterRateThunk'
 
 const initialState = {
-    waterRate: 2
+    waterRate: 2000
 }
 
 const waterRateSlice = createSlice({

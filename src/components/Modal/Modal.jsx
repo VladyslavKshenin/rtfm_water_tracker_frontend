@@ -7,8 +7,6 @@ const Modal = ({ active, onClose, children}) => {
     const handlerClick = useCallback((e) => {
        
         if (e.code === 'Escape') onClose();
-        // console.log('first', e.currentTarget)
-        // console.log('second', e.target)
         if (e.currentTarget === e.target) onClose();
     }, [onClose])
 

@@ -1,19 +1,34 @@
-import Icons from '../../../images/icons.svg'
+import { Link } from "react-router-dom";
+import { selectIsLoggedIn, selectUser } from 'store/auth/authSelectors';
+import { useSelector } from 'react-redux';
 
-export const UserAuth = () => {
+import Icons from '../../../images/icons.svg';
+import css from "../Header.module.css";
+import BasicPopover from "../../BasicPopover/BasicPopover";
+
+
+const UserAuth = () => {
+
+    const isLoggedIn = useSelector(selectIsLoggedIn) 
+    const usersInformation = useSelector(selectUser)
+    const {name, email, avatar} = usersInformation;
+    console.log('first', usersInformation)
+
     return (
-        <div>
-            <p>Sign in</p>
-            <svg width="28" height="28">
-
-                <use href={Icons + '#user'}></use>
-
-            </svg>
-
-
-
-
-
-        </div>
+        <>
+            {!isLoggedIn  ? <Link to="/signin" className={css.link}>
+                                <span className={css.signin}>Sign In</span>
+                                <svg className={css.icon} width="28" height="28">
+                                    <use href={Icons + '#user-1'}></use>
+                                </svg>
+                            </Link>
+                          : <span>
+                                <span>xzcwsacxsacsc</span>
+                                <img src="" alt="" />
+                                <BasicPopover/>
+                            </span>}
+    </>
     )
 }
+
+export default UserAuth

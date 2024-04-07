@@ -1,16 +1,16 @@
 // import { useDispatch } from "react-redux"
-// import { showModal } from "store/modal/modalSlice"
-// import css from "./DailyNormalModalForm.module.css"
-
-//  import { useForm } from "react-hook-form";
-
 import { useState } from 'react'
+// import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
+// import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
+// import css from "./DailyNormalModalForm.module.css"
 
 const DailyNormalModalForm = () => {
   const [gender, setGender] = useState('female')
   const [weight, setWeight] = useState('')
   const [time, setTime]= useState('')
   const [waterRate, setWaterRate] = useState('')
+
+  // const dispatch = useDispatch()
 
   const handlerChange = ({ target: { value, name } }) => {
     switch (name) {
@@ -31,21 +31,41 @@ const DailyNormalModalForm = () => {
     }
   }
 
+  console.log('waterRate', waterRate)
 
-//     let waterCalculation
-//     switch (gender) {
-//       case 'female': waterCalculation = weight*0.03 + time*0.4
-//         break;
+let waterCalculation
 
-//       default:
-//         waterCalculation = weight*0.03 + time*0.4
-//         return
-// }
-// console.log('first', waterCalculation)
+switch (gender) {
+  case 'female': waterCalculation = weight*0.03 + time*0.4
+    break;
 
-  const handleSubmit =()=>{
+  case 'male':  waterCalculation = (weight*0.04) + (time*0.6)
+    break;
 
+  default:
+    return
+}
+
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  if (waterRate) {
+    const body = waterRate
+    console.log('first', body)
+    return body
+  } else {
+    const body = waterCalculation
+    console.log('first', body)
+    return body
   }
+  // console.log('first', body)
+    
+  //   dispatch(updateWaterRateThunk(body))
+  }
+
   return (
     <form action="Water rate" onSubmit={handleSubmit}>
       <h2>Calculate your rate</h2>
@@ -93,7 +113,7 @@ const DailyNormalModalForm = () => {
           </label>
           
           <p htmlFor="">The required amount of water in liters per day:</p>
-          <p></p>
+          <p>{waterCalculation}</p>
 
           <label htmlFor="water">Write down how much water you will drink:</label>
           <input type="text" name="waterRate" id="water " value={waterRate} onChange={handlerChange}/>

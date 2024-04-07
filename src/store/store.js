@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { showModalReducer } from './modal/modalSlice';
 import { waterReducer } from './water/waterSlice';
+import { waterRateReducer } from './waterRate/waterRateSlice';
 
 /* const middleware = [
   ...getDefaultMiddleware({
@@ -33,6 +34,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     modal: showModalReducer,
     water: waterReducer,
+    waterRate: waterRateReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

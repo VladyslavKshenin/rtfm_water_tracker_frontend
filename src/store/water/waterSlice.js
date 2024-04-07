@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addWaterThunk } from './waterThunk';
+import { addWaterThunk, getWaterTodayThunk } from './waterThunk';
 
 const initialState = {
   //   items: {
@@ -23,7 +23,12 @@ const handleReject = (state, { payload }) => {
 
 const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
+  
   state.items = [payload, ...state.items];
+};
+const handleFulfilledGetToday = (state, { payload }) => {
+  state.isLoading = false;
+  state.items = payload;
 };
 
 export const waterSlice = createSlice({
@@ -33,7 +38,11 @@ export const waterSlice = createSlice({
     builder
       .addCase(addWaterThunk.pending, handlePaending)
       .addCase(addWaterThunk.rejected, handleReject)
-      .addCase(addWaterThunk.fulfilled, handleFulfilled);
+      .addCase(addWaterThunk.fulfilled, handleFulfilled)
+
+      .addCase(getWaterTodayThunk.pending, handlePaending)
+      .addCase(getWaterTodayThunk.rejected, handleReject)
+      .addCase(getWaterTodayThunk.fulfilled, handleFulfilledGetToday)
   },
 });
 

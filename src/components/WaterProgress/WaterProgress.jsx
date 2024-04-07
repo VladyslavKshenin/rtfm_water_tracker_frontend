@@ -18,7 +18,7 @@ export const WaterProgress = () => {
       </div>
       <button onClick={() => handleClick()}>Add Water</button>
       {showModal ? (
-        <Modal>
+        <Modal active={showModal} onClose={closeModal}>
           <AddWaterModal closeModal={closeModal} />
         </Modal>
       ) : null}

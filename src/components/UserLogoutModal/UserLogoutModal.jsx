@@ -1,25 +1,23 @@
 import { Svg } from "components/Icons/Icons"
 import { logOut } from "store/auth/authOperations"
 import { Notify } from "notiflix"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import css from "./UserLogoutModal.module.css"
-import { logOutModalSelector } from "store/modal/modalSelector"
-// import { forwardRef } from "react"
+import { useNavigate } from "react-router-dom"
 
 const UserLogoutModal = ({ onClose }) => {
 
   const dispatch = useDispatch()
 
-  // const navigate = useNavigate()
-  const logOutModal = useSelector(logOutModalSelector)
+  const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch(logOut())
     .unwrap()
       .then((payload) => {
         console.log('payload', payload)
-        dispatch(logOutModal())
-        // navigate('/')
+        onClose()
+        navigate('/signin')
         Notify.success("You have successfully exited")
        })
       .catch((error) => {

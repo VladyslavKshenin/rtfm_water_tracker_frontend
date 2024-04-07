@@ -1,24 +1,19 @@
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutModal } from 'store/modal/modalSlice';
-import { selectIsLoggedIn, selectUser } from 'store/auth/authSelectors';
 import { logOutModalSelector, settingModalSelector } from 'store/modal/modalSelector';
-import { Svg } from 'components/Icons/Icons';
-import Icons from '../../images/icons.svg';
-import BasicPopover from '../BasicPopover/BasicPopover';
+import Logo from './UserAuth/Logo';
 import Modal from 'components/Modal/Modal';
 import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
-import "../../index"
-import css from "./Header.module.css"
+import UserAuth from './UserAuth/UserAuth';
+import "../../index";
+import css from "./Header.module.css";
+
 
 export const Header = () => {
 
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector(selectIsLoggedIn) 
   const logOutClose = useSelector(logOutModalSelector);
   const settingModal = useSelector(settingModalSelector);
-  const isUser = useSelector(selectUser)
-  console.log('isUser', isUser)
 
   const onCloseLogOut = () => {
     dispatch(logOutModal())
@@ -35,27 +30,14 @@ export const Header = () => {
           <nav className={css.nav}>
             <ul className={css.list}>
               <li>
-                {!isLoggedIn? 
-                  <Link to="/welcome">
-                    <Svg id="#logo" width={102} height={48}/> 
-                  </Link>
-                : <Link to="/home">
-                    <Svg id="#logo" width={102} height={48}/> 
-                  </Link>}
+                <Logo/>
               </li>
               <li>
-                <Link to="/signin" className={css.link}>
-                  <span className={css.signin}>Sign In</span>
-                  <svg className={css.icon} width="28" height="28">
-                    <use href={Icons + '#user-1'}></use>
-                  </svg>
-                </Link>
+                <UserAuth/>
               </li>
             </ul>
           </nav>
-          {/* {isLoggedIn? */}
-           <BasicPopover/> 
-           {/* : null} */}
+          {/* {isUser ? <BasicPopover/> : null} */}
         </div>
         {logOutClose ? <Modal active={logOutClose} onClose={onCloseLogOut} >
                         <UserLogoutModal onClose={onCloseLogOut} /> 

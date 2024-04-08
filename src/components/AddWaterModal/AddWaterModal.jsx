@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 // import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
 import { Svg } from 'components/Icons/Icons';
-import css from './AddWaterModal.module.css'
+import css from './AddWaterModal.module.css';
 
 export const AddWaterModal = ({ closeModal }) => {
   // const dose = useSelector(waterSelector);
@@ -60,45 +60,53 @@ export const AddWaterModal = ({ closeModal }) => {
     return options;
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const [hours, minutes] = date.split(':').map(Number);
-
     const currentDate = new Date();
     currentDate.setHours(hours);
     currentDate.setMinutes(minutes);
-
     const isoDate = currentDate.toISOString();
 
-    dispatch(addWaterThunk({ amount, date: isoDate }));
+    try {
+      const result = await dispatch(addWaterThunk({ amount, date: isoDate }));
+      if (result.meta.requestStatus === 'fulfilled') {
+        closeModal();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <div className={css.container}>
       <div className={css.firstblock}>
         <h2 className={css.title}>Add water</h2>
         <button className={css.exit} type="button" onClick={closeModal}>
-        <Svg id={'#close'} width={24} height={24} />
-      </button>
+          <Svg id={'#close'} width={24} height={24} />
+        </button>
       </div>
-      
-      <p className={css.description}> Choose a value:</p>
-      
-        <div className={css.secondblock}>
-          <p className={css.desc}>Amount of water:</p>
-          <div className={css.amount}>
-          <button className={css.btn} onClick={decreaseDose} disabled={amount === 0}>
-            <Svg id={'#minus'} width={14} height={2} className={css.icon } />
-            </button>
-            <span className={css.span}>{amount}ml</span>
-          <button className={css.btn} onClick={increaseDose}>
-            <Svg id={'#plus'} width={14} height={14} className={css.icon } />
-            </button>
-          </div>
-      </div>
-      
 
-        <form onSubmit={handleSubmit}>
+      <p className={css.description}> Choose a value:</p>
+
+      <div className={css.secondblock}>
+        <p className={css.desc}>Amount of water:</p>
+        <div className={css.amount}>
+          <button
+            className={css.btn}
+            onClick={decreaseDose}
+            disabled={amount === 0}
+          >
+            <Svg id={'#minus'} width={14} height={2} className={css.icon} />
+          </button>
+          <span className={css.span}>{amount}ml</span>
+          <button className={css.btn} onClick={increaseDose}>
+            <Svg id={'#plus'} width={14} height={14} className={css.icon} />
+          </button>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit}>
         <div className={css.thirdblock}>
           <p className={css.desc}>Recording time:</p>
           <div>
@@ -108,9 +116,10 @@ export const AddWaterModal = ({ closeModal }) => {
           </div>
         </div>
 
-
         <div className={css.fourthblock}>
-          <label className={css.label}>Enter the value of the water used:</label>
+          <label className={css.label}>
+            Enter the value of the water used:
+          </label>
           <input
             className={css.input}
             type="text"
@@ -120,10 +129,11 @@ export const AddWaterModal = ({ closeModal }) => {
           />
         </div>
 
-        
-        <div className={css.fifthblock}> 
+        <div className={css.fifthblock}>
           <p className={css.amn}>{amount}ml</p>
-          <button className={css.save} type="submit">Save</button>
+          <button className={css.save} type="submit">
+            Save
+          </button>
         </div>
       </form>
     </div>

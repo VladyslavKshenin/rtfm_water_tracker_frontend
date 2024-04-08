@@ -45,10 +45,10 @@ export const Header = () => {
                         <UserLogoutModal onClose={onCloseLogOut} /> 
                       </Modal>
                     : null}
-        {settingModal ? <Modal active={settingClose} onClose={onCloseSetting} >
+        {settingClose ? <Modal active={settingClose} onClose={onCloseSetting} >
                           <SettingModal onClose={onCloseSetting}>
-                            < UploadImage />
-                            < UserSettingsForm />
+                            <UploadImage />
+                            <UserSettingsForm />
                           </SettingModal>
                         </Modal>
                     : null}

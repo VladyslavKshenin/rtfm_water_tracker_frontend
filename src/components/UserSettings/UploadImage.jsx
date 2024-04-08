@@ -22,10 +22,10 @@ const UploadImage = () => {
 
   return (
     <>
-      <h3 classname = {css.title}>Your photo</h3>
-      <div classname = {css.upload_wrapper}>
-        <img classname = {css.avatar} id="avatar" alt='User avatar' src={avatarURL} />
-        <label classname = {css.upload}>
+      <h3 className = {css.title}>Your photo</h3>
+      <div className = {css.upload_wrapper}>
+        <img className = {css.avatar} id="avatar" alt='User avatar' src={avatarURL} />
+        <label className = {css.upload}>
           <input
             name="photo"
             type="file"
@@ -37,7 +37,7 @@ const UploadImage = () => {
           <svg aria-label="upload picture">
             <use href={Icons + '#download'}></use>
           </svg>
-          <p>Upload a photo</p>
+          <span>Upload a photo</span>
         </label>
       </div>
     </>

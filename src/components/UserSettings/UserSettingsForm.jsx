@@ -9,10 +9,10 @@ import css from "./UserSettingsForm.module.css";
 import { toast } from 'react-toastify';
 
 const UserSettingsForm = () => {
-  const { user } = useSelector(selectUser);
-  const [name = user.name, setName] = useState();
-  const [gender = user.gender, setGender] = useState();
-  const [email = user.email, setEmail] = useState();
+  const  user = useSelector(selectUser);
+  const [name, setName] = useState(user?.name || '');
+  const [gender, setGender] = useState(user.gender);
+  const [email, setEmail] = useState(user.email);
   let [password, setPassword] = useState('');
   const [newPassword = '', setNewPassword] = useState('');
   const [repeatPassword = '', setRepeatPassword] = useState();

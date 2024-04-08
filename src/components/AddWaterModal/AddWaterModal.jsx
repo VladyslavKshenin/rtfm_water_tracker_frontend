@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
+import css from './AddWaterModal.module.css'
+
 
 export const AddWaterModal = () => {
   // const dose = useSelector(waterSelector);
@@ -63,18 +65,18 @@ export const AddWaterModal = () => {
     dispatch(addWaterThunk({ waterDose, time }));
   };
   return (
-    <>
-      <h2>Add water</h2>
-      <p>Choose a value:</p>
+    <div>
+      <h2 className={css.title}>Add water</h2>
+      <p className={css.description}> Choose a value:</p>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>Amount of water:</p>
+          <p className={css.desc}>Amount of water:</p>
           <div>
-            <button onClick={decreaseDose} disabled={waterDose === 0}>
-              -
+            <button onClick={decreaseDose} disabled={waterDose === 0} className={css.btn}>
+              
             </button>
             {waterDose}ml
-            <button onClick={increaseDose}>+</button>
+            <button onClick={increaseDose} className={css.btn}>+</button>
           </div>
         </div>
         <div>
@@ -99,6 +101,6 @@ export const AddWaterModal = () => {
           <button type="submit">Save</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };

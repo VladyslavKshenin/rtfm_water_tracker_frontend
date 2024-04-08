@@ -1,6 +1,7 @@
 import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 
 import { WaterProgress } from 'components/WaterProgress/WaterProgress';
+import css from './HomePage.module.css'
 // import { useSelector } from 'react-redux';
 // import Loader from 'components/Loader/Loader';
 
@@ -9,10 +10,14 @@ const HomePage = () => {
 
   return (
     <>
+      <div className={css.cont}>
 
-      <DailyNorma />
+        <DailyNorma />
+      </div>
+      <div className={css.secondCont}>
       <WaterProgress />
-      {/* {isLoading && <Loader />} */}
+        {/* {isLoading && <Loader />} */}
+      </div>
     </>
   );
 };

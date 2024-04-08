@@ -1,0 +1,36 @@
+.cont {
+    padding: 20px 20px 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .cont {
+        padding: 40px 32px 0 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .cont {
+        padding: 52px 112px 0 112px;
+    }
+}
+
+
+
+
+
+.secondCont {
+    padding: 232px 20px 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .secondCont {
+        padding: 326px 32px 0 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .secondCont {
+        padding: 466px 112px 0 112px;
+    }
+}
+

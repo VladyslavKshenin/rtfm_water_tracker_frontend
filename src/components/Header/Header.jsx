@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <header className={css.header}>
-      <div className="container">
+      {/* <div className="container"> */}
         <div className={css.block}>
           <nav className={css.nav}>
             <ul className={css.list}>
@@ -47,7 +47,7 @@ export const Header = () => {
                         <UserLogoutModal /> 
                       // </Modal>
                     : null}
-      </div>
+      {/* </div> */}
     </header>
   );
 };

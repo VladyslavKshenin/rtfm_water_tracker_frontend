@@ -33,6 +33,7 @@ code {
     --air-force-blue:#d7e3ff;
     --orange:#ff9d43;
     --amaranth:#ef5050;
+    --edit: #8baeff;
 }
 @font-face {
   font-family: "Roboto";
@@ -121,7 +122,8 @@ figure {
 }
 
 .container {
-  max-width: 428px;
+  /* max-width: 428px; */
+  max-width: 280px;
   padding: 0 20px;
   margin-left: auto;
   margin-right: auto;

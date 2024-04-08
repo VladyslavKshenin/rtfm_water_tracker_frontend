@@ -4,6 +4,7 @@ import css from "./Modal.module.css"
 
 const Modal = ({ active, onClose, children}) => {
 
+    
     const handlerClick = useCallback((e) => {
        
         if (e.code === 'Escape') onClose();
@@ -11,6 +12,7 @@ const Modal = ({ active, onClose, children}) => {
     }, [onClose])
 
     useEffect(() => {
+        
         document.addEventListener('keydown', handlerClick)
         
         return (() => {

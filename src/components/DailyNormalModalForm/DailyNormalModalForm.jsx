@@ -34,10 +34,10 @@ const DailyNormalModalForm = () => {
 let waterCalculation
 
 switch (gender) {
-  case 'female': waterCalculation = weight*0.03 + time*0.4
+  case 'female': waterCalculation = (weight*0.03 + time*0.4)
     break;
 
-  case 'male':  waterCalculation = (weight*0.04) + (time*0.6)
+  case 'male':  waterCalculation = (weight*0.04 + time*0.6)
     break;
 
   default:
@@ -125,7 +125,7 @@ switch (gender) {
         
         <fieldset className={css.result}>
           <p className={css.resultText}>The required amount of water in liters per day:</p>
-          <p className={css.resultColor}>{waterCalculation}</p>
+          <p className={css.resultColor}>{waterCalculation.toFixed(2)}</p>
         </fieldset>
           
           <fieldset className={css.waterRateWrapp}>

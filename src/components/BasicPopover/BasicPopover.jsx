@@ -27,7 +27,7 @@ export default function BasicPopover() {
   };
 
   return (
-    <div>
+    <span>
       <button aria-describedby={id} variant="contained" onClick={handleClick} className={css.popoverButton}>
         <Svg id="#unfold" width={16} height={16}/>
       </button>
@@ -64,6 +64,6 @@ export default function BasicPopover() {
           </div>
       </Popover>
     
-    </div>
+    </span>
   );
 }

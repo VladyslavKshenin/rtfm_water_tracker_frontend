@@ -47,9 +47,9 @@ export const App = () => {
               </PublicRoute>
             } />
             <Route path="home" element={
-              <PrivateRoute>
+              // <PrivateRoute>
                 <HomePage />
-              </PrivateRoute>
+              // </PrivateRoute>
             } />
           </Route>
           <Route path="*" element={<div>404</div>} />

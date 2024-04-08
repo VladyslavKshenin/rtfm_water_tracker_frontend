@@ -1,0 +1,36 @@
+.title {
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.23;
+    color: var(--black);
+}
+
+.description {
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    color: var(--black);
+}
+
+.desc {
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--black);
+}
+
+.btn {
+    box-shadow: 0 2px 4px 0 rgba(64, 123, 255, 0.2);
+    background: #fff;
+    border: 1px solid #9ebbff;
+    border-radius: 30px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+}
+
+
+

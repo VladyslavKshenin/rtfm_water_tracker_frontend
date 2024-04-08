@@ -16,13 +16,11 @@ export const DailyNorma = () => {
 
     
   return (
-    <div className={css.wrap}>
+    <div className={css.position}>
         <h3 className={css.title}>My daily norma</h3>
-        <div className={css.wrapper}>
-            <p className={css.description}><strong>2 L</strong></p>
-            <button type="button" className={css.btn} onClick={()=>{dispatch(dailyNormaModal())}}>
-              Edit
-            </button>
+        <div className={css.flex}>
+            <p className={css.desc}><strong>1.5 L</strong></p>
+            <button className={css.button} type="button" onClick={()=>{dispatch(dailyNormaModal())}}>Edit</button>
         </div>
         {dailyNormaClose  ? <Modal active={dailyNormaClose} onClose={onClose}>
                               <DailyNormaModal/>

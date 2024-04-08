@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 // import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
 import { Svg } from 'components/Icons/Icons';
+import css from './AddWaterModal.module.css'
 
 export const AddWaterModal = ({ closeModal }) => {
   // const dose = useSelector(waterSelector);
@@ -77,19 +78,20 @@ export const AddWaterModal = ({ closeModal }) => {
       <button type="button" onClick={closeModal}>
         <Svg id={'#close'} width={24} height={24} />
       </button>
-      <h2>Add water</h2>
-      <p>Choose a value:</p>
-      <div>
-        <p>Amount of water:</p>
+      <h2 className={css.title}>Add water</h2>
+      <p className={css.description}> Choose a value:</p>
+      
         <div>
-          <button onClick={decreaseDose} disabled={amount === 0}>
-            -
-          </button>
-          {amount}ml
-          <button onClick={increaseDose}>+</button>
+          <p>Amount of water:</p>
+          <div>
+            <button onClick={decreaseDose} disabled={amount === 0}>
+              -
+            </button>
+            {amount}ml
+            <button onClick={increaseDose}>+</button>
+          </div>
         </div>
-      </div>
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         <div>
           <p>Recording time:</p>
           <div>

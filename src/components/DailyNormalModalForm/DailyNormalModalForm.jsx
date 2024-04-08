@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import { useState } from 'react'
 import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
 import { dailyNormaModal } from "store/modal/modalSlice"
-// import css from "./DailyNormalModalForm.module.css"
+import css from "./DailyNormalModalForm.module.css"
 
 const DailyNormalModalForm = () => {
   const [gender, setGender] = useState('female')
@@ -30,8 +30,6 @@ const DailyNormalModalForm = () => {
         return
     }
   }
-
-  console.log('waterRate', waterRate)
 
 let waterCalculation
 
@@ -75,9 +73,10 @@ switch (gender) {
 
   return (
     <form action="Water rate" onSubmit={handleSubmit}>
-      <h2>Calculate your rate</h2>
-           <label htmlFor="gender">
-             <input
+      <h3 className={css.title}>Calculate your rate</h3>
+      <fieldset className={css.wrappGender}>
+      <label className={css.label} htmlFor="gender">
+             <input className={css.genderInput}
                 type="radio" 
                 id="gender"
                 value="female"
@@ -86,8 +85,8 @@ switch (gender) {
                 onChange={handlerChange}/>
             For woman
           </label>
-          <label htmlFor="gender">
-            <input 
+          <label className={css.label} htmlFor="gender">
+            <input className={css.genderInput} 
                 type="radio" 
                 id="gender"
                 value="male" 
@@ -96,37 +95,53 @@ switch (gender) {
                 onChange={handlerChange}/>
             For man
           </label>
-    
-          <label htmlFor="weight">
-            Your weight in kilograms:
-            <input 
-                type="text"
-                id="weight"
-                placeholder="0"
-                name="weight"
-                value={weight}
-                onChange={handlerChange}/>
-          </label>
-    
-          <label htmlFor="time">
+      </fieldset>
+           
+        <div className={css.userInfo}> 
+        <label className={css.label} htmlFor="weight">
+          Your weight in kilograms:
+        </label>
+        <input className={css.input}
+            type="text"
+            id="weight"
+            placeholder="0"
+            name="weight"
+            value={weight}
+            onChange={handlerChange}/>
+        </div>
+        
+        <div className={css.userInfo}>
+        <label className={css.label} htmlFor="time">
             The time of active participation in sports or other activities with a high physical. Load in hours:
-            <input 
-                type="text"
-                id="time"
-                placeholder="0"
-                value={time}
-                name="time"
-                onChange={handlerChange}/>
-          </label>
+        </label>  
+        <input className={css.input}
+            type="text"
+            id="time"
+            placeholder="0"
+            value={time}
+            name="time"
+            onChange={handlerChange}/>
+        </div>
+        
+        <fieldset className={css.result}>
+          <p className={css.resultText}>The required amount of water in liters per day:</p>
+          <p className={css.resultColor}>{waterCalculation}</p>
+        </fieldset>
           
-          <p htmlFor="">The required amount of water in liters per day:</p>
-          <p>{waterCalculation}</p>
+          <fieldset className={css.waterRateWrapp}>
+            <label className={css.waterRate} htmlFor="water">Write down how much water you will drink:</label>
+            <input className={css.input}
+              type="text" 
+              name="waterRate" 
+              id="water" 
+              placeholder="0"
+              value={waterRate} 
+              onChange={handlerChange} 
+              min={0} 
+              max={15}/>
+          </fieldset>
 
-          <label htmlFor="water">Write down how much water you will drink:</label>
-          <input type="text" name="waterRate" id="water" value={waterRate} onChange={handlerChange} min={0} max={15}/>
-          <div></div>
-
-        <button type="submit">Save</button>
+        <button className={css.button} type="submit">Save</button>
         </form>
   )
 }

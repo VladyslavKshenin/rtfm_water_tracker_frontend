@@ -10,3 +10,84 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
+
+.wrapp {
+  padding: 24px 12px;
+  width: 280px;
+  height: 1516px;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .wrapp {
+    padding: 32px 24px;
+    width: 704px;
+    height: 696px;
+  }
+}
+
+.buttonClose {
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  right: 12px;
+  top: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .buttonClose {
+    right: 24px;
+    top: 36px;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  margin-bottom: 24px;
+}
+
+.list {
+  margin-bottom: 12px;
+}
+
+.item:first-child {
+  padding-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 14px;
+  }
+  
+  .item:first-child {
+    padding-bottom: 0;
+  }
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.formula {
+  font-size: 18px;
+  line-height: 1.33;
+  color: var(--blue)
+}
+
+.wrappText {
+  border: 1px solid var(--air-force-blue);
+  padding: 10px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 12px;
+  line-height: 133%;
+  color: #8f8f8f;
+}

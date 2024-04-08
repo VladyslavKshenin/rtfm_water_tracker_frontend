@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from './Loader/Loader';
 import { SharedLayout } from './SharedLayout/SharedLayout';
@@ -8,13 +8,16 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 import PublicRoute from './guards/PublicRoute';
 import PrivateRoute from './guards/PrivateRoute';
 import { currentUser } from 'store/auth/authOperations';
+import { globalLoadingSelector } from 'store/Root/selectors';
 
 const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 
 export const App = () => {
+
   const dispatch = useDispatch();
+  const isLoading = useSelector(globalLoadingSelector)
 
   useEffect(() => {
     dispatch(currentUser());
@@ -22,7 +25,7 @@ export const App = () => {
 
   return (
     <>
-      <Loader />
+      {isLoading && <Loader />}
       <Suspense fallback={<>Loading...</>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>

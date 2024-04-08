@@ -1,8 +1,10 @@
-import React from 'react'
+import css from './Loader.module.css'
 
 const Loader = () => {
   return (
-    <span></span>
+    <span className={css.direction}>
+      <span className={css.loader}></span>
+    </span>
   )
 }
 

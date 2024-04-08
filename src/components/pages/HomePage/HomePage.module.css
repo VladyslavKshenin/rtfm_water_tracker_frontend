@@ -1,9 +1,43 @@
+
+.sectionHome {
+    padding: 24px 0;
+}
+
+@media screen and (min-width: 1440px) {
+    .sectionHome {
+        padding: 20px 0;;
+    }
+}
+
+.direction {
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+    .direction {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 0 16px;
+    }
+    .containerHome {
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+
+
+
+
 .containerHome {
     display: flex;
     flex-direction: column;
     padding-top: 24px;
     padding-bottom: 20px;
 }
+
 .waterRateContainer{
     display: flex;
     align-items: flex-end;

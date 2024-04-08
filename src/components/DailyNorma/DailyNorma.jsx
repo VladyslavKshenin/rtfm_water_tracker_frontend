@@ -23,7 +23,7 @@ export const DailyNorma = () => {
             <button className={css.button} type="button" onClick={()=>{dispatch(dailyNormaModal())}}>Edit</button>
         </div>
         {dailyNormaClose  ? <Modal active={dailyNormaClose} onClose={onClose}>
-                              <DailyNormaModal/>
+                              <DailyNormaModal />
                             </Modal>
                           : null}
     </div>

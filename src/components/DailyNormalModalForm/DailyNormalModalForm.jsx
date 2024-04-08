@@ -1,7 +1,7 @@
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useState } from 'react'
-// import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
-// import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
+import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
+import { dailyNormaModal } from "store/modal/modalSlice"
 // import css from "./DailyNormalModalForm.module.css"
 
 const DailyNormalModalForm = () => {
@@ -10,24 +10,24 @@ const DailyNormalModalForm = () => {
   const [time, setTime]= useState('')
   const [waterRate, setWaterRate] = useState('')
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  const handlerChange = ({ target: { value, name } }) => {
+  function handlerChange({ target: { value, name } }) {
     switch (name) {
       case 'gender': setGender(value)
-        break;
-      
+        break
+
       case 'weight': setWeight(value)
-        break;
+        break
 
       case 'time': setTime(value)
-        break;
-      
+        break
+
       case 'waterRate': setWaterRate(value)
-        break;
+        break
 
       default:
-        return;
+        return
     }
   }
 
@@ -46,24 +46,31 @@ switch (gender) {
     return
 }
 
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
-  if (waterRate) {
-    const body = waterRate
-    console.log('first', body)
-    return body
-  } else {
-    const body = waterCalculation
-    console.log('first', body)
-    return body
-  }
-  // console.log('first', body)
-    
-  //   dispatch(updateWaterRateThunk(body))
+    if (waterRate) {
+      const body = waterRate*1000
+      dispatch(updateWaterRateThunk({waterRate: body}))
+        .unwrap()
+        .then(() => {
+          dispatch(dailyNormaModal())
+        })
+        .catch(error => {
+          alert('Maximum amount of your daily normal is 15L');
+        });
+    } else {
+      const body = waterCalculation*1000
+      dispatch(updateWaterRateThunk({waterRate: body}))
+        .unwrap()
+        .then(() => {
+          dispatch(dailyNormaModal())
+        })
+        .catch(error => {
+          alert('Maximum amount of your daily normal is 15L');
+        });
+    }
+ 
   }
 
   return (
@@ -116,7 +123,8 @@ switch (gender) {
           <p>{waterCalculation}</p>
 
           <label htmlFor="water">Write down how much water you will drink:</label>
-          <input type="text" name="waterRate" id="water " value={waterRate} onChange={handlerChange}/>
+          <input type="text" name="waterRate" id="water" value={waterRate} onChange={handlerChange} min={0} max={15}/>
+          <div></div>
 
         <button type="submit">Save</button>
         </form>

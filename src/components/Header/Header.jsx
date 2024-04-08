@@ -28,7 +28,7 @@ export const Header = () => {
 
   return (
     <header className={css.header}>
-      {/* <div className="container"> */}
+      <div className="container">
         <div className={css.block}>
           <nav className={css.nav}>
             <ul className={css.list}>
@@ -45,14 +45,14 @@ export const Header = () => {
                         <UserLogoutModal onClose={onCloseLogOut} /> 
                       </Modal>
                     : null}
-        {settingModal ? <Modal active={settingClose} onClose={onCloseSetting} >
+        {settingClose ? <Modal active={settingClose} onClose={onCloseSetting} >
                           <SettingModal onClose={onCloseSetting}>
-                            < UploadImage />
-                            < UserSettingsForm />
+                            <UploadImage />
+                            <UserSettingsForm />
                           </SettingModal>
                         </Modal>
                     : null}
-      {/* </div> */}
+      </div>
     </header>
   );
 };

@@ -15,13 +15,13 @@
 
 @media screen and (min-width: 768px) {
     .header {
-        padding: 16px 32px 0 32px;
+        padding-top: 16px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .header {
-        padding: 12px 112px 0 112px;
+        padding-top: 12px;
     }
 }
 
@@ -67,8 +67,6 @@
     font-size: 16px;
     line-height: 1.25;
     margin-right: 8px;
-    /* font-size: 18px;
-line-height: 133%; */
 }
 
 @media screen and (min-width: 768px) {

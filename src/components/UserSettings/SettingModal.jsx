@@ -3,13 +3,12 @@ import css from "./SettingModal.module.css";
 
 const SettingModal = ({ isOpen, children, onClose }) => {
 
-  if (!isOpen) {
-    return null;
-  } else {
+  // if (!isOpen) {
+  //   return null;
+  // } else {
 
   return (
     <>
-      {isOpen && (
         <aside className={css.modal_wrap}>
           <div className={css.modal_settings}>
             <div className={css.header_settings_modal}>
@@ -25,11 +24,9 @@ const SettingModal = ({ isOpen, children, onClose }) => {
             </div>
           </div>
         </aside>
-        )
-      };
     </>
   );
-  }
-};
+}
+
 
 export default SettingModal;

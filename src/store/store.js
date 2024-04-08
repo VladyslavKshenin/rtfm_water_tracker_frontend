@@ -14,6 +14,7 @@ import { authReducer } from './auth/authSlice';
 import { showModalReducer } from './modal/modalSlice';
 import { waterReducer } from './water/waterSlice';
 import { waterRateReducer } from './waterRate/waterRateSlice';
+import { settingsReducer } from './settings/settingsSlice';
 
 /* const middleware = [
   ...getDefaultMiddleware({
@@ -35,6 +36,7 @@ export const store = configureStore({
     modal: showModalReducer,
     water: waterReducer,
     waterRate: waterRateReducer,
+    settings: settingsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

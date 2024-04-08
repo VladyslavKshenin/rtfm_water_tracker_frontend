@@ -1,0 +1,52 @@
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+  margin-top: 24px;
+}
+
+.upload_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--blue);
+  cursor: pointer;
+
+  & p {
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover,
+  &:focus {
+    & svg {
+      fill: var(--orange);
+    }
+    & p {
+      color: var(--orange);
+    }
+  }
+
+  & svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--blue);
+    transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--very-light-blue);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

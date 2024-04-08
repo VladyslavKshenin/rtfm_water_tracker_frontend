@@ -35,3 +35,17 @@
 .button:active {
     box-shadow: none;
 }
+
+.progressBar {
+    width: 100%;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 10px;
+}

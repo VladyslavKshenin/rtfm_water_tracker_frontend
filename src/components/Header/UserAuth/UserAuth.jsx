@@ -8,17 +8,11 @@ import BasicPopover from '../../BasicPopover/BasicPopover';
 
 const UserAuth = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
-    const usersInformation = useSelector(selectUser)
+    const usersInformation = useSelector(selectUser);
+
     const {name, email, avatar} = usersInformation;
-    console.log('name', name)
-    console.log('email', email)
-    console.log('avatar', avatar)
-    const nameWitchEmail = email?.slice(0, email?.indexOf("@")); 
-        const userName = name ? name : nameWitchEmail;
-        const userAvatar = email?.slice(0, 1).toUpperCase()
-        console.log('userAvatar', userAvatar) 
-
-
+    const userName = name ? name : email?.slice(0, email?.indexOf("@")); 
+    const userAvatar = email?.slice(0, 1).toUpperCase()
 
   return (
     <>

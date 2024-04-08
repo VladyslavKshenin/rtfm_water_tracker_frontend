@@ -48,7 +48,7 @@ const SigninPage = () => {
       <div className='signMain'>
         <div className='container'>
           <div className={css.contPosition}>
-            <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+            <form className={css.form} onSubmit={handleSubmit} autoComplete="on">
               <h1 className={css.title}>Sign In</h1>
               <p className={css.description}>Enter your email</p>
           <label>

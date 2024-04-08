@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
+import { Svg } from 'components/Icons/Icons';
 import css from './AddWaterModal.module.css'
 
-
-export const AddWaterModal = () => {
+export const AddWaterModal = ({ closeModal }) => {
   // const dose = useSelector(waterSelector);
   const dispatch = useDispatch();
-  const [waterDose, setWaterDose] = useState(0);
+  const [amount, setWaterDose] = useState(0);
   const [inputWaterDose, setInputWaterDose] = useState('');
-  const [time, setTime] = useState(currentTime());
+  const [date, setTime] = useState(currentTime());
 
   function currentTime() {
     const now = new Date();
@@ -42,8 +42,8 @@ export const AddWaterModal = () => {
   };
 
   useEffect(() => {
-    setInputWaterDose(waterDose.toString());
-  }, [waterDose]);
+    setInputWaterDose(amount.toString());
+  }, [amount]);
 
   const timeOptions = () => {
     const options = [];
@@ -62,27 +62,40 @@ export const AddWaterModal = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addWaterThunk({ waterDose, time }));
+
+    const [hours, minutes] = date.split(':').map(Number);
+
+    const currentDate = new Date();
+    currentDate.setHours(hours);
+    currentDate.setMinutes(minutes);
+
+    const isoDate = currentDate.toISOString();
+
+    dispatch(addWaterThunk({ amount, date: isoDate }));
   };
   return (
-    <div>
+    <>
+      <button type="button" onClick={closeModal}>
+        <Svg id={'#close'} width={24} height={24} />
+      </button>
       <h2 className={css.title}>Add water</h2>
       <p className={css.description}> Choose a value:</p>
-      <form onSubmit={handleSubmit}>
+      
         <div>
-          <p className={css.desc}>Amount of water:</p>
+          <p>Amount of water:</p>
           <div>
-            <button onClick={decreaseDose} disabled={waterDose === 0} className={css.btn}>
-              
+            <button onClick={decreaseDose} disabled={amount === 0}>
+              -
             </button>
-            {waterDose}ml
-            <button onClick={increaseDose} className={css.btn}>+</button>
+            {amount}ml
+            <button onClick={increaseDose}>+</button>
           </div>
         </div>
+        <form onSubmit={handleSubmit}>
         <div>
           <p>Recording time:</p>
           <div>
-            <select value={time} onChange={handleTime}>
+            <select value={date} onChange={handleTime}>
               {timeOptions()}
             </select>
           </div>
@@ -97,10 +110,10 @@ export const AddWaterModal = () => {
           />
         </div>
         <div>
-          <p>{waterDose}ml</p>
+          <p>{amount}ml</p>
           <button type="submit">Save</button>
         </div>
       </form>
-    </div>
+    </>
   );
 };

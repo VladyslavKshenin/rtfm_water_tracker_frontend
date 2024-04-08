@@ -3,9 +3,9 @@ import { addWater } from './waterApi';
 
 export const addWaterThunk = createAsyncThunk(
   'water/addWater',
-  async (doseWater, { rejectWithValue }) => {
+  async (body, { rejectWithValue, getState }) => {
     try {
-      return await addWater(doseWater);
+      return await addWater(body, getState().auth.token);
     } catch (error) {
       return rejectWithValue(error);
     }

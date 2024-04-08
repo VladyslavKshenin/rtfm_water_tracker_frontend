@@ -1,34 +1,25 @@
 import { useCallback } from 'react';
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { showModal } from 'store/modal/modalSlice';
 import css from "./Modal.module.css"
 
-
-const Modal = ({ children}) => {
-
-    const dispatch = useDispatch()
+const Modal = ({ active, onClose, children}) => {
 
     const handlerClick = useCallback((e) => {
-        if (e.code === 'Escape') dispatch(showModal());
-        if (e.currentTarget === e.target) dispatch(showModal());
-    }, [dispatch])
+       
+        if (e.code === 'Escape') onClose();
+        if (e.currentTarget === e.target) onClose();
+    }, [onClose])
 
     useEffect(() => {
-        window.addEventListener('keydown', handlerClick)
-
+        document.addEventListener('keydown', handlerClick)
+        
         return (() => {
-             document.removeEventListener('keydown', handlerClick);
+            document.removeEventListener('keydown', handlerClick);
         })
     }, [handlerClick])
-
     return (
-        <div 
-        className={css.backdrop + " " + css.backdropIsHidden} 
-        onClick={handlerClick}>
-            <div
-                className={css.modalCallback}  
-                onClick={handlerClick}>
+        <div className={active ? css.backdrop + " " + css.backdropActive : css.backdrop} onClick={handlerClick}>
+            <div className={active ? css.modalContent + " " + css.modalContentActive : css.modalContent} onClick={(e)=>{ e.stopPropagation()}}>
                 {children}
             </div>
         </div>

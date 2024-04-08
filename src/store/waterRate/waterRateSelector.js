@@ -1,0 +1,1 @@
+export const waterRateSelector = state => state.waterRate.waterRate 

@@ -124,15 +124,17 @@
 
 .svg_input_password{
     position: absolute;
-    right: 1%;
-    top: 20%;
+    right: 11px;
+    top: 13px;
     padding: 0;
     border: 0;
-    width: 19px;
-    height: 20px;
-    background-color: initial;
+    width: 16px;
+    height: 16px;
     cursor: pointer;
 }
 .form_label{
+    display: block;
     position: relative;
+    width: fit-content;
+    height: fit-content;
 }

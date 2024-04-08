@@ -1,12 +1,13 @@
 .wrapp {
     width: 280px;
-    padding: 32px 24px;
     position: relative;
+    padding: 24px 12px;
 }
 
 @media screen and (min-width: 768px) {
     .wrapp {
         width: 592px;
+        padding: 32px 24px;
     }
 }
 

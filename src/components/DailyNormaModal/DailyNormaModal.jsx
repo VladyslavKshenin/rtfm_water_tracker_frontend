@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { showModal } from 'store/modal/modalSlice'
+import { dailyNormaModal } from 'store/modal/modalSlice'
 
 import DailyNormalModalForm from '../DailyNormalModalForm/DailyNormalModalForm'
 import { Svg } from 'components/Icons/Icons'
@@ -7,11 +7,11 @@ import { Svg } from 'components/Icons/Icons'
 const DailyNormaModal = () => {
 
     const dispatch = useDispatch()
-
+    
   return (
     <>
         <h2>My daily norma</h2>
-        <button type="button" onClick={()=>{dispatch(showModal())}}>
+        <button type="button" onClick={()=>{dispatch(dailyNormaModal())}}>
             <Svg id={"#close"} width={24} height={24}/>
         </button>
         <ul>

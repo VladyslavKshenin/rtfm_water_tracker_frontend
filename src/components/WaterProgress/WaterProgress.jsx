@@ -8,6 +8,9 @@ export const WaterProgress = () => {
   const handleClick = () => {
     setShowModal(!showModal);
   };
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <div className={css.flex}>
@@ -16,8 +19,8 @@ export const WaterProgress = () => {
       </div>
       
       {showModal ? (
-        <Modal>
-          <AddWaterModal />
+        <Modal active={showModal} onClose={closeModal}>
+          <AddWaterModal closeModal={closeModal} />
         </Modal>
       ) : null}
     </>

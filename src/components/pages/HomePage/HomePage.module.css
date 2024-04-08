@@ -1,36 +1,20 @@
-.cont {
-    padding: 20px 20px 0 20px;
-}
 
-@media screen and (min-width: 768px) {
-    .cont {
-        padding: 40px 32px 0 32px;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .cont {
-        padding: 52px 112px 0 112px;
-    }
+.containerHome{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 
 
-
-
-.secondCont {
-    padding: 232px 20px 0 20px;
+.waterRateContainer{
+    display: flex;
+    align-items: flex-end;
+    border-radius: 10px;
+        padding: 32px 24px;
+        width: 592px;
+        height: 680px;
+        box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
+            background: #ecf2ff;
 }
-
-@media screen and (min-width: 768px) {
-    .secondCont {
-        padding: 326px 32px 0 32px;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .secondCont {
-        padding: 466px 112px 0 112px;
-    }
-}
-

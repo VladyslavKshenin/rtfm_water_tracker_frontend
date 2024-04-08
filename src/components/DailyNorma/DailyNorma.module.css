@@ -22,7 +22,7 @@
     gap: 12px;
     align-items: flex-end;
     padding-top: 12px;
-    
+
 }
 
 .desc {
@@ -50,7 +50,7 @@
         height: 76px;
     }
 
-    .desc {   
-        font-size: 24px;    
+    .desc {
+        font-size: 24px;
     }
 }

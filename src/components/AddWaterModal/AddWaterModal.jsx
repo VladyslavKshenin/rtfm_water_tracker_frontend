@@ -74,46 +74,58 @@ export const AddWaterModal = ({ closeModal }) => {
     dispatch(addWaterThunk({ amount, date: isoDate }));
   };
   return (
-    <>
-      <button type="button" onClick={closeModal}>
+    <div className={css.container}>
+      <div className={css.firstblock}>
+        <h2 className={css.title}>Add water</h2>
+        <button className={css.exit} type="button" onClick={closeModal}>
         <Svg id={'#close'} width={24} height={24} />
       </button>
-      <h2 className={css.title}>Add water</h2>
+      </div>
+      
       <p className={css.description}> Choose a value:</p>
       
-        <div>
-          <p>Amount of water:</p>
-          <div>
-            <button onClick={decreaseDose} disabled={amount === 0}>
-              -
+        <div className={css.secondblock}>
+          <p className={css.desc}>Amount of water:</p>
+          <div className={css.amount}>
+          <button className={css.btn} onClick={decreaseDose} disabled={amount === 0}>
+            <Svg id={'#minus'} width={14} height={2} className={css.icon } />
             </button>
-            {amount}ml
-            <button onClick={increaseDose}>+</button>
+            <span className={css.span}>{amount}ml</span>
+          <button className={css.btn} onClick={increaseDose}>
+            <Svg id={'#plus'} width={14} height={14} className={css.icon } />
+            </button>
           </div>
-        </div>
+      </div>
+      
+
         <form onSubmit={handleSubmit}>
-        <div>
-          <p>Recording time:</p>
+        <div className={css.thirdblock}>
+          <p className={css.desc}>Recording time:</p>
           <div>
-            <select value={date} onChange={handleTime}>
+            <select value={date} onChange={handleTime} className={css.select}>
               {timeOptions()}
             </select>
           </div>
         </div>
-        <div>
-          <label>Enter the value of the water used:</label>
+
+
+        <div className={css.fourthblock}>
+          <label className={css.label}>Enter the value of the water used:</label>
           <input
+            className={css.input}
             type="text"
             value={inputWaterDose}
             onChange={handleInputWaterDoseChange}
             onBlur={handleInputWaterDoseBlur}
           />
         </div>
-        <div>
-          <p>{amount}ml</p>
-          <button type="submit">Save</button>
+
+        
+        <div className={css.fifthblock}> 
+          <p className={css.amn}>{amount}ml</p>
+          <button className={css.save} type="submit">Save</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };

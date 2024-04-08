@@ -1,6 +1,7 @@
-.calendarContainer {
-    max-width: 544px;
-    height: 300px;
+
+.calendarContainer{
+    height: 480px;
+    width: 264px;
     margin: 0 auto;
     text-align: center;
 }
@@ -10,72 +11,115 @@
     align-items: center;
     padding-bottom: 16px;
 }
-
-.monthNameContainer{
+.titleMonth {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--black);
+}
+.monthNameContainer {
     display: flex;
     align-items: center;
 }
-.monthName{
+.buttonMonth {
+    border: none;
+    background-color: inherit;
+    color: var(--blue);
+}
+.monthName {
     line-height: 1.25;
     text-align: center;
     color: var(--blue);
     width: 120px;
 }
-.buttonMonth{
-    border: none;
-    background-color: inherit;
-    color: var(--blue);
-}
 .calendarGrid {
-    /* position: relative; */
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    row-gap: 20px;
-    column-gap: 22px;
-    width: 544px;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 16px;
+    column-gap: 26px;
+    width: 264px;
 }
-.titleMonth{    
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 1.23077;       
-    color: var(--black);
+.day {
+    width: 32px;
 }
-
-.day{
-    width: 34px;
-}
-
-
 .calendarDay {
     padding: 5px;
     border-radius: 50%;
     border: 1px solid var(--orange);
     background-color: var(--white);
 }
-
 .today {
     background-color: lightblue;
 }
 .popover {
     position: absolute;
-        z-index: 999;
-        background-color: var(--white);
-        box-shadow: 0 4px 4px 0 rgba(64, 123, 255, 0.3);
-        top: 40%;
-        left: 48%;
-        transform: translateX(-50%);
-        border-radius: 10px;
-        padding: 24px 16px;
-        width: 292px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-.popoverDate{
-            color: var(--blue);
-            margin-bottom: 16px;
-    }
-.popoverList{
+    z-index: 999;
+    background-color: var(--white);
+    box-shadow: 0 4px 4px 0 rgba(64, 123, 255, 0.3);
+    top: 28%;
+    left: 56%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    padding: 24px 16px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.popoverDate {
+    color: var(--blue);
+    margin-bottom: 16px;
+}
+
+.popoverList {
     margin-bottom: 16px;
 
+}
+@media screen and (min-width: 768px){
+    .calendarContainer{
+        width: 656px;
+        height: 280px;
     }
+    .titleMonth {
+        font-size: 26px;
+        line-height: 1.23077;
+    }
+        .calendarGrid {
+            grid-template-columns: repeat(10, 1fr);
+            row-gap: 20px;
+            column-gap: 34px;
+            width: 656px;
+        }
+    .day {
+        width: 34px;
+    }
+    .popover {
+        width: 292px;
+        top: 55%;
+        left: 27%;
+
+    }
+        
+
+}
+
+
+
+@media only screen and (min-width: 1440px){
+.calendarContainer {
+    max-width: 544px;
+    height: 300px;
+}
+
+.calendarGrid {
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 20px;
+    column-gap: 22px;
+    width: 544px;
+}
+.popover{
+top: 33%;
+left: 50%;
+}
+}

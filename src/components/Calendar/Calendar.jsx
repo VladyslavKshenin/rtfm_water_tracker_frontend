@@ -16,7 +16,7 @@ import { handleApdateSelector } from 'store/month/monthSelector';
 
 const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
   const formattedDate = format(date, 'd MMMM');
-  console.log(formattedDate);
+  // console.log(formattedDate);
   return (
     <div className={css.popover}>
       <p className={css.popoverDate}>{formattedDate}</p>

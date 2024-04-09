@@ -7,7 +7,9 @@ export const addWaterThunk = createAsyncThunk(
   'water/addWater',
   async (body, { rejectWithValue, getState }) => {
     try {
-      return await addWater(body, getState().auth.token);
+      const data = await addWater(body, getState().auth.token);
+      console.log('data', data)
+      return data
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -25,7 +27,7 @@ export const getWaterTodayThunk = createAsyncThunk(
   }
 );
 
-export const deleteWaterThunk = createAsyncThunk(
+export const removeWaterThunk = createAsyncThunk(
   'water/deleteWater', async (id, { rejectWithValue, getState }) => {
     try {
       const data = await removeWater(id, getState().auth.token)

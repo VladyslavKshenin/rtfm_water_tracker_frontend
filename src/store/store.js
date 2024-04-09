@@ -37,11 +37,17 @@ const waterRatePersistConfig = {
   storage,
 }
 
+const waterListPersisConfig = {
+  key: "water",
+  storage,
+  whitelist: ['items'],
+}
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     modal: showModalReducer,
-    water: waterReducer,
+    water: persistReducer(waterListPersisConfig, waterReducer),
     waterRate: persistReducer(waterRatePersistConfig, waterRateReducer),
     month: monthReducer,
     settings: settingsReducer,

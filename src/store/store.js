@@ -16,6 +16,7 @@ import { waterReducer } from './water/waterSlice';
 import { waterRateReducer } from './waterRate/waterRateSlice';
 import { settingsReducer } from './settings/settingsSlice';
 import { rootReducer } from './Root/rootSlice';
+import { monthReducer } from './month/monthSlice';
 
 /* const middleware = [
   ...getDefaultMiddleware({
@@ -36,6 +37,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     modal: showModalReducer,
     water: waterReducer,
+    month: monthReducer,
     waterRate: waterRateReducer,
     settings: settingsReducer,
     root: rootReducer,

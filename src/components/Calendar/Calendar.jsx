@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   format,
   startOfMonth,
@@ -9,6 +9,9 @@ import {
   subMonths,
 } from 'date-fns';
 import css from './Calendar.module.css';
+import { getWaterMonthThunk } from 'store/month/monthThunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { monthSelector } from 'store/month/monthSelector';
 
 // Компонент поповеру
 const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
@@ -33,6 +36,13 @@ const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
 const CalendarContainer = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [popoverData, setPopoverData] = useState(null);
+  const dispatch = useDispatch();
+  const monthData = useSelector(monthSelector);
+  console.log(monthData);
+
+  useEffect(() => {
+    dispatch(getWaterMonthThunk());
+  }, [dispatch]);
 
   const handleNextMonth = () => {
     setCurrentDate(addMonths(currentDate, 1));

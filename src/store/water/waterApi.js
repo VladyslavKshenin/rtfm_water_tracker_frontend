@@ -12,3 +12,12 @@ export const addWater = async (body, token) => {
   });
   return data;
 };
+
+export const getWaterToday = async token => {
+  const { data } = await api.get('/water/today', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};

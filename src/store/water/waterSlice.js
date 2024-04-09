@@ -1,12 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addWaterThunk } from './waterThunk';
+import { addWaterThunk, getWaterTodayThunk } from './waterThunk';
 
 const initialState = {
-  //   items: {
-  //     dose: null,
-  //     time: null,
-  //   },
   items: [],
+  todayData: null,
   isLoading: false,
   error: null,
 };
@@ -31,6 +28,11 @@ export const waterSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
+      .addCase(getWaterTodayThunk.pending, handlePaending)
+      .addCase(getWaterTodayThunk.rejected, handleReject)
+      .addCase(getWaterTodayThunk.fulfilled, (state, { payload }) => {
+        state.todayData = payload;
+      })
       .addCase(addWaterThunk.pending, handlePaending)
       .addCase(addWaterThunk.rejected, handleReject)
       .addCase(addWaterThunk.fulfilled, handleFulfilled);

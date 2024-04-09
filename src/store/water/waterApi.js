@@ -20,3 +20,20 @@ export const getWaterToday = async (_,token) => {
   });
   return data;
 };
+
+export const editWater = async (token, id) => {
+  const { data } = await api.patch(`/water/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};
+export const deleteWater = async (token, id) => {
+  const { data } = await api.delete(`/water/${id}`,  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};

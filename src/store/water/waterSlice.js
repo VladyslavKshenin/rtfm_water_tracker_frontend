@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addWaterThunk, getWaterTodayThunk } from './waterThunk';
+import { addWaterThunk, getWaterTodayThunk, deleteWaterTodayThunk,editWaterTodayThunk } from './waterThunk';
 
 const initialState = {
   //   items: {
@@ -7,6 +7,7 @@ const initialState = {
   //     time: null,
   //   },
   items: [],
+  listItems:[],
   isLoading: false,
   error: null,
 };
@@ -26,9 +27,13 @@ const handleFulfilled = (state, { payload }) => {
   
   state.items = [payload, ...state.items];
 };
-const handleFulfilledGetToday = (state, { payload }) => {
+const handleFulfilledDel = (state, { payload }) => {
   state.isLoading = false;
   state.items = payload;
+};
+const handleFulfilledGetToday = (state, { payload }) => {
+  state.isLoading = false;
+  state.listItems = payload;
 };
 
 export const waterSlice = createSlice({
@@ -43,6 +48,14 @@ export const waterSlice = createSlice({
       .addCase(getWaterTodayThunk.pending, handlePaending)
       .addCase(getWaterTodayThunk.rejected, handleReject)
       .addCase(getWaterTodayThunk.fulfilled, handleFulfilledGetToday)
+
+      .addCase(deleteWaterTodayThunk.pending, handlePaending)
+      .addCase(deleteWaterTodayThunk.rejected, handleReject)
+      .addCase(deleteWaterTodayThunk.fulfilled, handleFulfilledDel)
+
+      .addCase(editWaterTodayThunk.pending, handlePaending)
+      .addCase(editWaterTodayThunk.rejected, handleReject)
+      .addCase(editWaterTodayThunk.fulfilled, handleFulfilledDel)
   },
 });
 

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { updateWaterRateThunk } from "store/waterRate/waterRateThunk"
 import { dailyNormaModal } from "store/modal/modalSlice"
 import css from "./DailyNormalModalForm.module.css"
+import { Notify } from "notiflix"
 
 const DailyNormalModalForm = () => {
   const [gender, setGender] = useState('female')
@@ -55,7 +56,7 @@ switch (gender) {
           dispatch(dailyNormaModal())
         })
         .catch(error => {
-          alert('Maximum amount of your daily normal is 15L');
+          Notify.failure('Maximum amount of your daily normal is 15L');
         });
     } else {
       const body = waterCalculation*1000
@@ -65,7 +66,7 @@ switch (gender) {
           dispatch(dailyNormaModal())
         })
         .catch(error => {
-          alert('Maximum amount of your daily normal is 15L');
+          Notify.failure('Maximum amount of your daily normal is 15L');
         });
     }
  

@@ -18,7 +18,7 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const isLoading = useSelector(globalLoadingSelector)
-  console.log('first', isLoading)
+
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);

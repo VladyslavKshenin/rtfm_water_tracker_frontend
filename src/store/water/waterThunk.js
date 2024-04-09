@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { addWater, getWaterToday, removeWater } from 'components/api/water';
+import { addWater, getWaterToday, removeWater, updateWater } from 'components/api/water';
 import { Notify } from 'notiflix';
 
 
@@ -32,6 +32,19 @@ export const removeWaterThunk = createAsyncThunk(
     try {
       const data = await removeWater(id, getState().auth.token)
       console.log('data remove', data)
+      return data
+    } catch (error) {
+      Notify.warning('Oops. Something went wrong. Try again.')
+      return rejectWithValue(error)
+    }
+  }
+);
+
+export const updateWaterThunk = createAsyncThunk(
+  'water/updateWater', async (id, { rejectWithValue, getState }) => {
+    try {
+      const data = await updateWater(id, getState().auth.token)
+      console.log('data update', data)
       return data
     } catch (error) {
       Notify.warning('Oops. Something went wrong. Try again.')

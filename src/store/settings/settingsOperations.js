@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 // axios.defaults.baseURL = 'https://watertracker-ldwc.onrender.com';
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = 'https://rtfm-water-tracker-backend.onrender.com/api';
 
 export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

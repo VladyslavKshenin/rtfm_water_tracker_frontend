@@ -72,7 +72,7 @@ switch (gender) {
   }
 
   return (
-    <form action="Water rate" onSubmit={handleSubmit}>
+    <form action="Water rate" className={css.form} onSubmit={handleSubmit}>
       <h3 className={css.title}>Calculate your rate</h3>
       <fieldset className={css.wrappGender}>
       <label className={css.label} htmlFor="gender">
@@ -142,7 +142,7 @@ switch (gender) {
           </fieldset>
 
         <button className={css.button} type="submit">Save</button>
-        </form>
+      </form>
   )
 }
 

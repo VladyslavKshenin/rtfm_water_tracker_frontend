@@ -11,7 +11,8 @@ export const DailyNorma = () => {
   const dispatch = useDispatch()  
   const dailyNormaClose = useSelector(dailyNormaModalSelector)
   const waterRate = useSelector(waterRateSelector);
-
+  // const waterRate = getItem().waterRate.waterRate
+  
   const onClose = () => {
     dispatch(dailyNormaModal())
   }

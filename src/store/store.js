@@ -31,12 +31,17 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const waterRatePersistConfig = {
+  key: 'waterRate',
+  storage,
+}
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     modal: showModalReducer,
     water: waterReducer,
-    waterRate: waterRateReducer,
+    waterRate: persistReducer(waterRatePersistConfig, waterRateReducer),
     settings: settingsReducer,
     root: rootReducer,
   },

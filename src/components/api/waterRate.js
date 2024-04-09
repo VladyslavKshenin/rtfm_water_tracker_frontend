@@ -7,7 +7,5 @@ export const updateWaterRate = async (body, token) => {
             Authorization: `Bearer ${token}`
         }
     }) 
-
-    console.log('data', data)
     return data
 }

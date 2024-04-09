@@ -97,9 +97,10 @@ input::placeholder {
     width: 256px;
     color: var(--white);
     font-family: inherit;
-  
-
+    display: block;
+    margin-bottom: 32px;
 }
+
 @media screen and (min-width: 768px) {
     .button {
         float: right;
@@ -107,3 +108,7 @@ input::placeholder {
         width: 160px;
     }
   }
+
+.form {
+
+}

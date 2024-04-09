@@ -24,10 +24,10 @@
       <path d="M8.448 9.152a1.199 1.199 0 0 1 0 1.696L4.496 14.8H30.4a1.201 1.201 0 1 1 0 2.4H4.496l3.952 3.952a1.2 1.2 0 1 1-1.696 1.696l-6-6a1.199 1.199 0 0 1 0-1.696l6-6a1.199 1.199 0 0 1 1.696 0z"/>
     </symbol>
     <symbol id="minus" viewBox="0 0 32 32">
-      <path d="M.571 16a1.714 1.714 0 0 1 1.714-1.714h27.429a1.714 1.714 0 0 1 0 3.428H2.285A1.714 1.714 0 0 1 .571 16z"/>
+      <path fill="#407bff" d="M.571 16a1.714 1.714 0 0 1 1.714-1.714h27.429a1.714 1.714 0 0 1 0 3.428H2.285A1.714 1.714 0 0 1 .571 16z"/>
     </symbol>
     <symbol id="plus" viewBox="0 0 32 32">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.286" d="M16 2.286v27.429M29.714 16H2.285"/>
+      <path stroke="#407bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.286" d="M16 2.286v27.429M29.714 16H2.285"/>
     </symbol>
 <!-- Popover -->
     <symbol id="unfold" viewBox="0 0 55 32">

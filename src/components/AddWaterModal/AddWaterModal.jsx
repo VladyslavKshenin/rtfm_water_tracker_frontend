@@ -78,7 +78,7 @@ export const AddWaterModal = ({ closeModal }) => {
       <div className={css.firstblock}>
         <h2 className={css.title}>Add water</h2>
         <button className={css.exit} type="button" onClick={closeModal}>
-        <Svg id={'#close'} width={24} height={24} />
+          <Svg id={'#close'} width={24} height={24} />
       </button>
       </div>
       
@@ -88,11 +88,11 @@ export const AddWaterModal = ({ closeModal }) => {
           <p className={css.desc}>Amount of water:</p>
           <div className={css.amount}>
           <button className={css.btn} onClick={decreaseDose} disabled={amount === 0}>
-            <Svg id={'#minus'} width={14} height={2} className={css.icon } />
+            <Svg id={'#minus'} width={10} height={14} />
             </button>
             <span className={css.span}>{amount}ml</span>
           <button className={css.btn} onClick={increaseDose}>
-            <Svg id={'#plus'} width={14} height={14} className={css.icon } />
+            <Svg id={'#plus'} width={14} height={14 }/>
             </button>
           </div>
       </div>

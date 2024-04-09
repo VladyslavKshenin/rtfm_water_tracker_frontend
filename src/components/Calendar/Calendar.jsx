@@ -40,18 +40,19 @@ const CalendarContainer = () => {
   const [backendData, setBackendData] = useState([]);
   const dispatch = useDispatch();
   const monthData = useSelector(monthSelector);
-
+  // console.log(format(currentDate, 'yyyy-MM'));
   useEffect(() => {
     const fetchData = async () => {
+      // const
       try {
-        await dispatch(getWaterMonthThunk());
+        await dispatch(getWaterMonthThunk(format(currentDate, 'yyyy-MM')));
       } catch (error) {
         console.error('Error fetching month data:', error);
       }
     };
 
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, currentDate]);
 
   useEffect(() => {
     if (!monthData) {

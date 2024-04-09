@@ -3,9 +3,9 @@ import { getWaterMonth } from './mothApi.js';
 
 export const getWaterMonthThunk = createAsyncThunk(
   'water/getWaterMonth',
-  async (_, { rejectWithValue, getState }) => {
+  async (date, { rejectWithValue, getState }) => {
     try {
-      return await getWaterMonth(getState().auth.token);
+      return await getWaterMonth(getState().auth.token, date);
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -7,7 +7,6 @@ export const getWaterMonthThunk = createAsyncThunk(
     try {
       return await getWaterMonth(getState().auth.token);
     } catch (error) {
-      // Возвращаем только сообщение об ошибке
       return rejectWithValue(error.message);
     }
   }

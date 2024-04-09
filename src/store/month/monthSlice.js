@@ -17,6 +17,9 @@ const handleReject = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
 };
+export const handleApdate = (state, { payload }) => {
+  state.todayData = payload;
+};
 
 export const monthSlice = createSlice({
   name: 'month',

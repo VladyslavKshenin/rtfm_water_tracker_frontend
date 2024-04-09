@@ -13,9 +13,9 @@ import { getWaterMonthThunk } from 'store/month/monthThunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { monthSelector } from 'store/month/monthSelector';
 
-// Компонент поповеру
 const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
   const formattedDate = format(date, 'd MMMM');
+  console.log(formattedDate);
   return (
     <div className={css.popover}>
       <p className={css.popoverDate}>{formattedDate}</p>
@@ -33,16 +33,44 @@ const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
     </div>
   );
 };
+
 const CalendarContainer = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [popoverData, setPopoverData] = useState(null);
+  const [backendData, setBackendData] = useState([]);
   const dispatch = useDispatch();
   const monthData = useSelector(monthSelector);
-  console.log(monthData);
 
   useEffect(() => {
-    dispatch(getWaterMonthThunk());
+    const fetchData = async () => {
+      try {
+        await dispatch(getWaterMonthThunk());
+      } catch (error) {
+        console.error('Error fetching month data:', error);
+      }
+    };
+
+    fetchData();
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!monthData) {
+      // console.log('monthData is null.');
+      return;
+    }
+
+    const arrayMonth = monthData?.waterInfoForMonth || [];
+
+    // console.log('monthData.waterInfoForMonth:', arrayMonth);
+
+    const transformedData = arrayMonth.map(item => ({
+      dailyNorma: item.waterRate / 1000,
+      fulfillment: item.percentage,
+      waterServings: item.totalIntake,
+    }));
+
+    setBackendData(transformedData);
+  }, [monthData]);
 
   const handleNextMonth = () => {
     setCurrentDate(addMonths(currentDate, 1));
@@ -57,13 +85,6 @@ const CalendarContainer = () => {
   const daysOfMonth = eachDayOfInterval({
     start: firstDayOfMonth,
     end: lastDayOfMonth,
-  });
-
-  // Поки використаємо статичне значення 0 для кожної дати
-  const backendData = Array(daysOfMonth.length).fill({
-    dailyNorma: 1.5,
-    fulfillment: 0,
-    waterServings: 6,
   });
 
   return (
@@ -92,7 +113,7 @@ const CalendarContainer = () => {
             >
               {format(day, 'd')}
             </div>
-            <div>{backendData[index].fulfillment}%</div>
+            <div>{backendData[index]?.fulfillment}%</div>
           </div>
         ))}
         {popoverData && <Popover {...popoverData} date={popoverData.date} />}

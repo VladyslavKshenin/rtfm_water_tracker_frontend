@@ -1,5 +1,5 @@
 import TodayListItem from "components/TodayListItem/TodayListItem"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { waterSelector } from "store/water/waterSelector"
 
 const TodayList = () => {

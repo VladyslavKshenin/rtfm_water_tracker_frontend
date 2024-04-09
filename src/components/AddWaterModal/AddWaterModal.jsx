@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { waterSelector } from '../../store/water/waterSelector';
 import { addWaterThunk } from '../../store/water/waterThunk';
 import { Svg } from 'components/Icons/Icons';
 import css from './AddWaterModal.module.css';
 
 export const AddWaterModal = ({ closeModal }) => {
-  // const dose = useSelector(waterSelector);
   const dispatch = useDispatch();
   const [amount, setWaterDose] = useState(0);
   const [inputWaterDose, setInputWaterDose] = useState('');
@@ -67,7 +65,10 @@ export const AddWaterModal = ({ closeModal }) => {
     const currentDate = new Date();
     currentDate.setHours(hours);
     currentDate.setMinutes(minutes);
-    const isoDate = currentDate.toISOString();
+
+    const isoDate = new Date(
+      currentDate.getTime() - currentDate.getTimezoneOffset() * 60000
+    ).toISOString();
 
     try {
       const result = await dispatch(addWaterThunk({ amount, date: isoDate }));
@@ -84,23 +85,25 @@ export const AddWaterModal = ({ closeModal }) => {
         <h2 className={css.title}>Add water</h2>
         <button className={css.exit} type="button" onClick={closeModal}>
           <Svg id={'#close'} width={24} height={24} />
-      </button>
-
+        </button>
       </div>
 
       <p className={css.description}> Choose a value:</p>
-        <div className={css.secondblock}>
-          <p className={css.desc}>Amount of water:</p>
-          <div className={css.amount}>
-          <button className={css.btn} onClick={decreaseDose} disabled={amount === 0}>
+      <div className={css.secondblock}>
+        <p className={css.desc}>Amount of water:</p>
+        <div className={css.amount}>
+          <button
+            className={css.btn}
+            onClick={decreaseDose}
+            disabled={amount === 0}
+          >
             <Svg id={'#minus'} width={10} height={14} />
-            </button>
-            <span className={css.span}>{amount}ml</span>
+          </button>
+          <span className={css.span}>{amount}ml</span>
           <button className={css.btn} onClick={increaseDose}>
-            <Svg id={'#plus'} width={14} height={14 }/>
-            </button>
-          </div>
-
+            <Svg id={'#plus'} width={14} height={14} />
+          </button>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>

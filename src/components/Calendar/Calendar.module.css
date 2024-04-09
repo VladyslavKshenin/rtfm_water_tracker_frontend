@@ -48,6 +48,9 @@
     border: 1px solid var(--orange);
     background-color: var(--white);
 }
+.noBorder {
+    border: none;
+}
 .today {
     background-color: lightblue;
 }

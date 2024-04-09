@@ -12,11 +12,9 @@ import css from './Calendar.module.css';
 import { getWaterMonthThunk } from 'store/month/monthThunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { monthSelector } from 'store/month/monthSelector';
-// import { handleApdateSelector } from 'store/month/monthSelector';
 
 const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
   const formattedDate = format(date, 'd MMMM');
-  // console.log(formattedDate);
   return (
     <div className={css.popover}>
       <p className={css.popoverDate}>{formattedDate}</p>
@@ -41,8 +39,7 @@ const CalendarContainer = () => {
   const [backendData, setBackendData] = useState([]);
   const dispatch = useDispatch();
   const monthData = useSelector(monthSelector);
-  // const hendleApdate = useSelector(handleApdateSelector);
-  // console.log(format(currentDate, 'yyyy-MM'));
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,13 +54,10 @@ const CalendarContainer = () => {
 
   useEffect(() => {
     if (!monthData) {
-      // console.log('monthData is null.');
       return;
     }
 
     const arrayMonth = monthData?.waterInfoForMonth || [];
-
-    // console.log('monthData.waterInfoForMonth:', arrayMonth);
 
     const transformedData = arrayMonth.map(item => ({
       dailyNorma: item.waterRate / 1000,
@@ -104,20 +98,25 @@ const CalendarContainer = () => {
         </div>
       </div>
       <div className={css.calendarGrid}>
-        {daysOfMonth.map((day, index) => (
-          <div className={css.day} key={index}>
-            <div
-              className={`${css.calendarDay} ${isToday(day) ? css.today : ''}`}
-              onMouseEnter={() =>
-                setPopoverData({ ...backendData[index], date: day })
-              }
-              onMouseLeave={() => setPopoverData(null)}
-            >
-              {format(day, 'd')}
+        {daysOfMonth.map((day, index) => {
+          const isFulfillment100OrMore = backendData[index]?.fulfillment >= 100;
+          return (
+            <div className={css.day} key={index}>
+              <div
+                className={`${css.calendarDay} ${
+                  isToday(day) ? css.today : ''
+                } ${isFulfillment100OrMore ? css.noBorder : ''}`}
+                onMouseEnter={() =>
+                  setPopoverData({ ...backendData[index], date: day })
+                }
+                onMouseLeave={() => setPopoverData(null)}
+              >
+                {format(day, 'd')}
+              </div>
+              <div>{backendData[index]?.fulfillment}%</div>
             </div>
-            <div>{backendData[index]?.fulfillment}%</div>
-          </div>
-        ))}
+          );
+        })}
         {popoverData && <Popover {...popoverData} date={popoverData.date} />}
       </div>
     </div>

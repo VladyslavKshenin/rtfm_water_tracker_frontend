@@ -11,6 +11,7 @@ export const addWaterThunk = createAsyncThunk(
     }
   }
 );
+
 export const getWaterTodayThunk = createAsyncThunk(
   'water/getWaterToday',
   async (_,{ rejectWithValue,getState}) => {

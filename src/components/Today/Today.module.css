@@ -1,0 +1,8 @@
+.list_waters{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.list_item{
+    display: flex;
+}

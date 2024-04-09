@@ -12,6 +12,7 @@ import css from './Calendar.module.css';
 import { getWaterMonthThunk } from 'store/month/monthThunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { monthSelector } from 'store/month/monthSelector';
+import { handleApdateSelector } from 'store/month/monthSelector';
 
 const Popover = ({ date, dailyNorma, fulfillment, waterServings }) => {
   const formattedDate = format(date, 'd MMMM');
@@ -40,10 +41,10 @@ const CalendarContainer = () => {
   const [backendData, setBackendData] = useState([]);
   const dispatch = useDispatch();
   const monthData = useSelector(monthSelector);
+  const hendleApdate = useSelector(handleApdateSelector);
   // console.log(format(currentDate, 'yyyy-MM'));
   useEffect(() => {
     const fetchData = async () => {
-      // const
       try {
         await dispatch(getWaterMonthThunk(format(currentDate, 'yyyy-MM')));
       } catch (error) {
@@ -52,7 +53,7 @@ const CalendarContainer = () => {
     };
 
     fetchData();
-  }, [dispatch, currentDate]);
+  }, [dispatch, currentDate, hendleApdate]);
 
   useEffect(() => {
     if (!monthData) {

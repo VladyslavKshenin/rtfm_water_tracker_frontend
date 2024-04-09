@@ -1,15 +1,17 @@
 .title {
+  font-family: var(--primary-font);
+  font-weight: 500;
   font-size: 18px;
-  font-weight: 600;
-  line-height: 20px;
-  margin-bottom: 8px;
-  margin-top: 24px;
+  line-height: 1.11;
+  color: var(--black);
+  padding-top: 24px;
 }
 
 .upload_wrapper {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 0 24px 0;
 }
 
 .upload {
@@ -33,13 +35,6 @@
       color: var(--orange);
     }
   }
-
-  & svg {
-    width: 16px;
-    height: 16px;
-    fill: var(--blue);
-    transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
 }
 
 .avatar {
@@ -50,3 +45,17 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.desc {
+  font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    color: var(--blue);
+}
+
+.desc:hover,
+.desc.focus {
+  color: var(--orange);
+}
+

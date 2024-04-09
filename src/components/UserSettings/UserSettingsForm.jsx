@@ -79,7 +79,7 @@ const UserSettingsForm = () => {
     <form onSubmit={handleSubmit}>
       <div className = {css.form_container}>
         <div>
-          <h3 className={css.blok_title}>Your gender identity</h3>
+          <h3 className={css.title}>Your gender identity</h3>
           <div className={css.gender_wrapper}>
             <div className={css.radio_wrapper}>
               <label>
@@ -107,7 +107,8 @@ const UserSettingsForm = () => {
             </div>
           </div>
           <div>
-            <label className={css.label_subscription}>Your name</label>
+            <label></label>
+            <h3 className={css.titleForm}>Your name</h3>
             <input className={css.input}
               name="name"
               type="text"
@@ -119,8 +120,8 @@ const UserSettingsForm = () => {
               required
             />
           </div>
-          <label className={css.label_subscription}>Email</label>
-          <div>
+          <label></label>
+          <h3 className={css.titleForm}>E-mail</h3>
             <input className={css.input}
               name="email"
               type="email"
@@ -132,10 +133,10 @@ const UserSettingsForm = () => {
               autoComplete="email"
               required
             />
-          </div>
+          
         </div>
         <div>
-          <h3 className={css.block_title}>Password</h3>
+          <h3 className={css.title}>Password</h3>
           <div>
             <div className={css.form_text}>Outdated password:</div>
             <div className={css.password_wrapper}>
@@ -146,7 +147,7 @@ const UserSettingsForm = () => {
                   ></use>
                 </svg>
               </span>
-              <input className={css.input}
+              <input className={css.inputPasw}
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 onChange={handleChangeOldPassword}
@@ -169,7 +170,7 @@ const UserSettingsForm = () => {
                     ></use>
                   </svg>
                 </span>
-                <input className={css.input}
+                <input className={css.inputPasw}
                   name="newPassword"
                   type={showNewPassword ? 'text' : 'password'}
                   onChange={handleChangeNewPassword}
@@ -195,7 +196,7 @@ const UserSettingsForm = () => {
                     ></use>
                   </svg>
                 </span>
-                <input className={css.input}
+                <input className={css.inputPasw}
                   name="repeatPassword"
                   type={showRepeatPassword ? 'text' : 'password'}
                   onChange={handleChangePassword}
@@ -208,9 +209,11 @@ const UserSettingsForm = () => {
           </div>
         </div>
       </div>
+      <div className={css.flexbtn}>
       <button className = {css.button} disabled={!isSubmit} type="submit">
         Save
-      </button>
+        </button>
+        </div>
     </form>
   );
 };

@@ -3,7 +3,7 @@ import { addWaterThunk, getWaterTodayThunk } from './waterThunk';
 
 const initialState = {
   items: [],
-  todayData: null,
+  todayData: {},
   isLoading: false,
   error: null,
 };

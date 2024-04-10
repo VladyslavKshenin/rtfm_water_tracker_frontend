@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 
 import { Suspense } from 'react';
 import { Header } from '../Header/Header';
-import Footer from 'components/Footer/Footer';
+// import Footer from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
   return (
@@ -14,8 +14,8 @@ export const SharedLayout = () => {
           <Outlet />
         </main>
       </Suspense>
-      <Footer/>
-      <ToastContainer
+      {/* <Footer/> */}
+      {/* <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -26,7 +26,7 @@ export const SharedLayout = () => {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
     </>
   );
 };

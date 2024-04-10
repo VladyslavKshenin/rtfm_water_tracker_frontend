@@ -28,14 +28,12 @@
 .waterRateContainer{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     border-radius: 10px;
     padding: 24px 8px;
     width: 280px;
-    height: 680px;
+    height: 840px;
     box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
     background: #ecf2ff;
-    justify-content: center;
 }
 
 @media screen and (min-width: 768px){

@@ -137,7 +137,13 @@ const Today = () => {
   return (
     <>
       <div>
+        <div className={css.today_container}>
         <h2>Today</h2>
+        <div className={css.loader_container}>
+        {isLoading && !error && <div className={css.loader}>loading</div>}
+      {error && error}
+        </div>
+        </div>
         <ul className={css.list_waters}>
           {data.waterRecords
             && data.waterRecords.map(({ id, consumedWater, date }) => {
@@ -159,8 +165,7 @@ const Today = () => {
               })
             }
         </ul>
-        {isLoading && !error && <b>Request in progress...</b>}
-      {error && error}
+
         {showModalDel && <Modal active={setShowModalDel} onClose={onClose}>
           <p>DELETE</p>
           <button type="button" onClick={onClose}>cancel</button>

@@ -140,6 +140,13 @@
 
 /* first block */
 
+.contentItemblokEdit {
+    display: flex;
+    width: 118px;
+    margin-left: 12px;
+    justify-content: space-between;
+}
+
 .firstblock {
     display: flex;
     justify-content: space-between;
@@ -332,8 +339,8 @@
 
     border-radius: 10px;
     padding: 8px 30px;
-    width: 256px;
-    height: 36px;
+    width: 160px;
+    height: 44px;
     box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
     background: var(--blue);
 }

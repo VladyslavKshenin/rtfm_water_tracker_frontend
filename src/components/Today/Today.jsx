@@ -148,8 +148,8 @@ const Today = () => {
           </div>
         </div>
 
-        <ul className={css.list_waters}>
-          {data.waterRecords &&
+         <ul className={css.list_waters}>
+          {data.waterRecords?.length > 0 ?
             data.waterRecords.map(({ id, consumedWater, date }) => {
               const dataS = new Date(date);
               return (
@@ -192,7 +192,7 @@ const Today = () => {
                   </div>
                 </li>
               );
-            })}
+            }): <li><p className={css.waterItem}>No notes yet</p></li>}
         </ul>
         {showModalDel && (
           <Modal active={setShowModalDel} onClose={onClose}>
@@ -227,7 +227,7 @@ const Today = () => {
                       <svg className={css.iconGlas} width="26" height="26">
                         <use href={Icons + '#glas'}></use>
                       </svg>
-                      <div className={css.contentItemblok}>
+                      <div className={css.contentItemblokEdit}>
                         <p className={css.waterItem}>{consumedWater} ml</p>{' '}
                         <p className={css.timeItem}>
                           {dataS.getHours() < 10 && `0`}

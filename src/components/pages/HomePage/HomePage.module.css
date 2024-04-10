@@ -1,66 +1,83 @@
-
 .sectionHome {
+    background-image: url(../../../images/mobile/background_element_home_mobile@1x.png), url(../../../images/mobile/background_element_home_mobile@2x.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
     padding: 24px 0;
 }
 
-@media screen and (min-width: 1440px) {
-    .sectionHome {
-        padding: 20px 0;;
-    }
-}
-
-.direction {
-    margin-bottom: 40px;
-}
-
-@media screen and (min-width: 1440px) {
-    .direction {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 30px 0 16px;
-    }
-    .containerHome {
-        display: flex;
-        justify-content: space-between;
-    }
-
-}
-
 .containerHome {
+    background-image: url(../../../images/mobile/bottle_home_mobile@1x.png), url(../../../images/mobile/bottle_home_mobile@2x.png);
+    background-position: center top 106px;
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     flex-direction: column;
     padding-top: 24px;
     padding-bottom: 20px;
 }
 
+.direction {
+    height: 480px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .waterRateContainer{
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
     border-radius: 10px;
     padding: 24px 8px;
     width: 280px;
-    height: 680px;
+    height: 840px;
     box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
     background: #ecf2ff;
-    justify-content: center;
 }
 
 @media screen and (min-width: 768px){
-.waterRateContainer{
-    padding: 32px 24px;
-    width: 704px;
-    height: 688px;}
+    .sectionHome{
+        background-image: url(../../../images/tablet/background_element_home_tablet@1x.png), url(../../../images/tablet/background_element_home_tablet@2x.png);
+    }
+    .containerHome{
+        background-image: url(../../../images/tablet/bottle_home_tablet@1x.png), url(../../../images/tablet/bottle_home_tablet@2x.png);
+        background-position: center top;
+    }
+    .waterRateContainer{
+        padding: 32px 24px;
+        width: 704px;
+        height: 688px;
+    }
+    .direction {
+        height: 550px;
+        
+    }
 }
 
-@media only screen and (min-width: 1440px){
-    .containerHome{       
+@media screen and (min-width: 1440px) {
+    .sectionHome{
+        background-image: url(../../../images/desc/background_element_main_desc@1x.png), url(../../../images/desc/background_element_main_desc@2x.png);
+
+    }
+    .containerHome {
+        background-image: url(../../../images/desc/bottle_home_desc@1x.png), url(../../../images/desc/bottle_home_desc@2x.png);
+        background-size: 55%;
+        background-position: left top;
         flex-direction: row;
         justify-content: space-between;
+     }
+    .direction {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 0 16px;
+        margin-bottom: 0;
+        height: 680px;
     }
-   
- .waterRateContainer {
-    width: 592px;
-    height: 680px;
+    
+    .waterRateContainer {
+        width: 592px;
+        height: 680px;
     }
 }

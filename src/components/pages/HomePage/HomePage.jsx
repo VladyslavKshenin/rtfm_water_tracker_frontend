@@ -2,6 +2,7 @@ import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 import { WaterProgress } from 'components/WaterProgress/WaterProgress';
 import CalendarContainer from '../../Calendar/Calendar.jsx';
 import css from './HomePage.module.css'
+import Today from 'components/Today/Today.jsx';
 // import { useSelector } from 'react-redux';
 const HomePage = () => {
 
@@ -14,6 +15,7 @@ const HomePage = () => {
         </div>
         
         <div className={css.waterRateContainer}>
+          <Today/>
           <CalendarContainer />
         </div>
       </div>

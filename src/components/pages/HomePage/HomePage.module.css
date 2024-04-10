@@ -27,7 +27,8 @@
 
 .waterRateContainer{
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
     border-radius: 10px;
     padding: 24px 8px;
     width: 280px;

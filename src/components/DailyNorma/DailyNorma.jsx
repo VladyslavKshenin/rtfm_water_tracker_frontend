@@ -11,8 +11,7 @@ export const DailyNorma = () => {
   const dispatch = useDispatch()  
   const dailyNormaClose = useSelector(dailyNormaModalSelector)
   const waterRate = useSelector(waterRateSelector);
-  // const waterRate = getItem().waterRate.waterRate
-  
+
   const onClose = () => {
     dispatch(dailyNormaModal())
   }
@@ -21,7 +20,7 @@ export const DailyNorma = () => {
     <div className={css.position}>
         <h3 className={css.title}>My daily norma</h3>
         <div className={css.flex}>
-            <p className={css.desc}><strong>{(waterRate/1000)} L</strong></p>
+            <p className={css.desc}><strong>{(waterRate/1000).toFixed(2)} L</strong></p>
             <button className={css.button} type="button" onClick={()=>{dispatch(dailyNormaModal())}}>Edit</button>
         </div>
         {dailyNormaClose  ? <Modal active={dailyNormaClose} onClose={onClose}>

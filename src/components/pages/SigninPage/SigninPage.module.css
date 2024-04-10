@@ -8,22 +8,29 @@
     color: var(--black);
 }
 
+.content {
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+
+}
 .description {
     font-family: var(--primary-font);
     font-size: 18px;
     line-height: 1.33;
     columns: var(--black);
-    padding-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .input {
     border: 1px solid var(--air-force-blue);
     border-radius: 6px;
     padding: 12px 10px;
+    position: relative;
     width: 280px;
     height: 44px;
     background-color: var(--white);
-    margin-bottom: 16px; 
+    /* margin-bottom: 16px;  */
     outline: none;
     color: var(--blue);
 }

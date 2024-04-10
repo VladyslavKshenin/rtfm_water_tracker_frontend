@@ -1,0 +1,164 @@
+.error { 
+    height: 16px;
+    color: red;
+    font-size: 14px;
+    line-height: 1.29;
+}
+.error::first-letter { 
+    text-transform: capitalize;
+}
+
+.title {
+    padding-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.23;
+    color: var(--black);
+}
+
+.content {
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    font-family: var(--primary-font);
+    font-size: 18px;
+    line-height: 1.33;
+    columns: var(--black);
+    margin-bottom: 8px;
+}
+
+.input {
+    border: 1px solid var(--air-force-blue);
+    border-radius: 6px;
+    padding: 12px 10px;
+    width: 280px;
+    height: 44px;
+    background-color: var(--white);
+    outline: none;
+    color: var(--blue);
+}
+
+.inputError {
+    color: red;
+    border:  1px solid red;
+}
+
+.input::placeholder {
+    font-family: var(--primary-font);
+    color: var(--light-blue);
+}
+
+.button {
+    border-radius: 10px;
+    padding: 8px 30px;
+    width: 280px;
+    height: 36px;
+    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+    background: var(--blue);
+    border: none;
+    font-weight: 500;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.button:hover {
+    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.sign {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--blue);
+    display: block;
+}
+
+.sign:hover {
+    color: var(--orange);
+}
+
+.sign.active {
+    color: var(--blue);
+}
+
+
+.svg_input_password {
+    position: relative;
+    height: 44px;
+    width: 280px;
+}
+
+.icon {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    padding: 0;
+    border: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+}
+
+.form_label {
+    display: block;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        padding-top: 40px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;        
+    }
+
+    .input {
+        width: 336px;
+        height: 44px;
+    }
+    
+    .button {  
+        padding: 10px 30px;
+        width: 336px;
+        height: 44px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+    .svg_input_password {
+        width: 384px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .contPosition {
+        padding-top: 162px;
+        padding-left: 822px;
+    }
+    .form {
+        width: 384px;
+        height: 312px;
+    }
+
+    .input {
+        width: 384px;
+    }
+
+    .button {
+        width: 384px;
+    }
+}

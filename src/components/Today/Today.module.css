@@ -26,7 +26,7 @@
 }
 
 
-.today_container{
+.today_container::after{
     position: relative;
 }
 .waterItemblok{
@@ -130,8 +130,8 @@
 
 .loader_container {
     position: absolute;
-    top: -5px;
-    left: 50%;
+    top: 145px;
+    left: 72%;
 }
 
 .loader {

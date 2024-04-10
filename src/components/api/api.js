@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /// НАШ БЕКЕНД
 export const api = (axios.defaults.baseURL =
-  'http://localhost:8080/api');
+  'https://rtfm-water-tracker-backend.onrender.com/api');
 // axios.defaults.baseURL = 'http://localhost:8080/api';
 /// НАШ БЕКЕНД
 

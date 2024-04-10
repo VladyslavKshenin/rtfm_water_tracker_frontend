@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { loginSchema } from './validation';
+import { registerSchema } from './validation';
 import { ReactComponent as Eye } from 'images/eye.svg';
 import { ReactComponent as EyeSlash } from 'images/eye-slash.svg';
 import css from './AuthForm.module.css'
@@ -17,11 +17,11 @@ const SignUpAuthForm = () => {
   const navigate = useNavigate();
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm({
-    resolver: yupResolver(loginSchema)
+    resolver: yupResolver(registerSchema)
   });
 
   const onSubmit = (data) => {
-    
+
     if (data.password !== data.passwordRepeat) {
           Notify.failure('Паролі не співпадають');
           return;
@@ -44,7 +44,7 @@ const SignUpAuthForm = () => {
     }
 
   return (
-    <form action="register" className={css.form} onSubmit={handleSubmit(onSubmit)}>
+    <form action="register" autoComplete="off" className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <h1 className={css.title}>Sign Up</h1>
       <label htmlFor="email" className={css.description}>Enter your email</label>
       <input id="email" className={errors?.email ? css.input + " " + css.inputError : css.input}

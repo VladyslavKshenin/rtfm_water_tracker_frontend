@@ -143,14 +143,15 @@ figure {
 .signSection{
   background-image: url(./images/mobile/bottle_sign_in@1x.png), url(./images/mobile/bottle_sign_in@2x.png);
   min-height: 100vh;
-    background-position: center bottom;
+    background-position: center top 105%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 280px;
+    height: 100vh;
 }
 .signMain{
   background-image: url(./images/mobile/background_element_sign_in_mobile@1x.png), url(./images/mobile/background_element_sign_in_mobile@2x.png);
   min-height: 100vh;
-    width: 100%;
+    /* width: 100%; */
     background-repeat: no-repeat;
       background-size: 100%;
 }
@@ -158,7 +159,7 @@ figure {
 @media screen and (min-width: 768px) {
   .signSection{
     background-image: url(./images/tablet/bottle_sign_in_tablet@1x.png), url(./images/tablet/bottle_sign_in_tablet@2x.png);
-      background-position: center bottom 150%;
+      background-position: center bottom 120%;
       background-size: 100%;
   }
     .signMain{
@@ -176,10 +177,10 @@ figure {
 @media only screen and (min-width: 1440px) {
     .signSection{
       background-image: url(./images/desc/bottle_for_sign_in_desc@1x.png), url(./images/desc/bottle_for_sign_in_desc@2x.png);
-  background-position: top right 116%;
+  background-position: top 80px right 105%;
   background-size: 60%;
 
-     }
+    }
    .signMain{
     background-image: url(./images/desc/background_element_main_desc@1x.png), url(./images/desc/background_element_main_desc@2x.png);
      }
@@ -194,6 +195,6 @@ figure {
     }
   .container {
     max-width: 1440px;
-      padding: 0 112px;
+      padding: 0 20px;
   }
 }

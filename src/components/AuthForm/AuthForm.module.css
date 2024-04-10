@@ -138,8 +138,9 @@
         font-size: 18px;
         line-height: 1.33;
     }
+
     .svg_input_password {
-        width: 384px;
+        width: 336px;
     }
 }
 
@@ -159,6 +160,10 @@
     }
 
     .button {
+        width: 384px;
+    }
+
+    .svg_input_password {
         width: 384px;
     }
 }

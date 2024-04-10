@@ -23,6 +23,9 @@
     .header {
         padding-top: 12px;
     }
+    .nav {
+        padding: 0 112px;
+    }
 }
 
 .list {

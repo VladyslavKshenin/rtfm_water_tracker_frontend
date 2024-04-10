@@ -35,6 +35,10 @@ const handleFulfilledGetToday = (state, { payload }) => {
   state.isLoading = false;
   state.listItems = payload;
 };
+const handleFulfilledEdit = (state, { payload }) => {
+  state.isLoading = false;
+  state.items = payload;
+};
 
 export const waterSlice = createSlice({
   name: 'water',
@@ -55,7 +59,7 @@ export const waterSlice = createSlice({
 
       .addCase(editWaterTodayThunk.pending, handlePaending)
       .addCase(editWaterTodayThunk.rejected, handleReject)
-      .addCase(editWaterTodayThunk.fulfilled, handleFulfilledDel)
+      .addCase(editWaterTodayThunk.fulfilled, handleFulfilledEdit )
   },
 });
 

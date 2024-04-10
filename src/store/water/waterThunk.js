@@ -25,9 +25,9 @@ export const getWaterTodayThunk = createAsyncThunk(
 
 export const editWaterTodayThunk = createAsyncThunk(
   'water/editWaterToday',
-  async (id,{ rejectWithValue,getState}) => {
+  async (body,{ rejectWithValue,getState}) => {
     try {
-      return await editWater( getState().auth.token, id);
+      return await editWater( getState().auth.token, body);
     } catch (error) {
       return rejectWithValue(error);
     }

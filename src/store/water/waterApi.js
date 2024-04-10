@@ -21,8 +21,11 @@ export const getWaterToday = async (_,token) => {
   return data;
 };
 
-export const editWater = async (token, id) => {
-  const { data } = await api.patch(`/water/${id}`, {
+export const editWater = async (token, body) => {
+  const { data } = await api.patch(`/water/${body.id}`, {
+    amount: body.amount,
+    date: body.date
+  },{
     headers: {
       Authorization: `Bearer ${token}`,
     },

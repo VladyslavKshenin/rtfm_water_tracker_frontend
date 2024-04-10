@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { todaySelector, waterSelector } from '../../store/water/waterSelector';
 import { waterRateSelector } from '../../store/waterRate/waterRateSelector';
 import { getWaterTodayThunk } from '../../store/water/waterThunk';
+import { Svg } from 'components/Icons/Icons';
 import css from './WaterProgress.module.css';
 
 export const WaterProgress = () => {
@@ -16,7 +17,7 @@ export const WaterProgress = () => {
 
   useEffect(() => {
     dispatch(getWaterTodayThunk());
-  }, [dispatch, newDose, waterRate]); //додати селектори видалення і редагування
+  }, [dispatch, newDose, waterRate]);
 
   const handleClick = () => {
     setShowModal(!showModal);
@@ -29,7 +30,7 @@ export const WaterProgress = () => {
   return (
     <>
       <div className={css.flex}>
-        <div>
+        <div className={css.progressBarConteiner}>
           <p className={css.title}>Today</p>
           <div className={css.progressBar}>
             {!waterData ? (
@@ -43,8 +44,42 @@ export const WaterProgress = () => {
               ></div>
             )}
           </div>
+          <div className={css.percent_bar}>
+            <div
+              className={
+                waterData.waterPercent === 0
+                  ? css.percent_num_current
+                  : css.percent_num
+              }
+            >
+              0%
+            </div>
+            <div
+              className={
+                waterData.waterPercent === 50
+                  ? css.percent_num_current
+                  : css.percent_num
+              }
+            >
+              50%
+            </div>
+            <div
+              className={
+                waterData.waterPercent >= 100
+                  ? css.percent_num_current
+                  : css.percent_num
+              }
+            >
+              {waterData.waterPercent <= 100
+                ? '100%'
+                : `${waterData.waterPercent}%`}
+            </div>
+          </div>
         </div>
         <button className={css.button} onClick={() => handleClick()}>
+          <div className={css.icon}>
+            <Svg id={'#circleplus'} width={24} height={24} />
+          </div>
           Add Water
         </button>
       </div>

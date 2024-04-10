@@ -30,6 +30,7 @@ const handleFulfilledDel = (state, { payload }) => {
 const handleFulfilledGetToday = (state, { payload }) => {
   state.isLoading = false;
   state.listItems = payload;
+  state.todayData = payload;
 };
 const handleFulfilledEdit = (state, { payload }) => {
   state.isLoading = false;

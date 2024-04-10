@@ -8,6 +8,7 @@ import { waterListSelector,waterErrorSelector,waterIsLoadingSelector } from 'sto
 
 import css from './Today.module.css';
 import Modal from 'components/Modal/Modal';
+import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
 
 const Today = () => {
   const dispatch = useDispatch();
@@ -123,7 +124,14 @@ const Today = () => {
     dispatch(editWaterTodayThunk({ amount, date: isoDate, id: idItem}));
   };
   
+  const [showModal, setShowModal] = useState(false);
+  const handleClick = () => {
+    setShowModal(!showModal);
+  };
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
 
   return (
@@ -140,7 +148,7 @@ const Today = () => {
                     <p>
                       {dataS.getHours() < 10 && `0`}
                       {dataS.getHours()}:{dataS.getMinutes() < 10 && `0`}
-                      {dataS.getMinutes()}
+                      {dataS.getMinutes()} {dataS.getHours() < 12 ? `AM`: `PM`}
                     </p>
                     <button type="button" data-iditems={id} onClick={editHandleChange}>edit</button>
                     <button type="button" data-iditems={id} onClick={delHandleChange}>
@@ -174,7 +182,7 @@ const Today = () => {
                     <p>
                       {dataS.getHours() < 10 && `0`}
                       {dataS.getHours()}:{dataS.getMinutes() < 10 && `0`}
-                      {dataS.getMinutes()}
+                      {dataS.getMinutes()} {dataS.getHours() < 12 ? `AM`: `PM`}
                     </p>
 
                   </div>
@@ -219,6 +227,15 @@ const Today = () => {
       </form>
 
         </Modal>}
+        <button className={css.button} onClick={() => handleClick()}>
+          Add Water
+        </button>
+
+      {showModal ? (
+        <Modal active={showModal} onClose={closeModal}>
+          <AddWaterModal closeModal={closeModal} />
+        </Modal>
+      ) : null}
       </div>
     </>
   );

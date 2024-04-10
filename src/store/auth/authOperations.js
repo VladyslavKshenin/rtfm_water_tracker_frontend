@@ -3,15 +3,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix';
 import { clearAuthHeader, setAuthHeader } from 'components/api/api';
 
-export const register = createAsyncThunk(
+export const registeration = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
 
     try {
-      console.log('credentials', credentials)
       const { data } = await axios.post('/auth/register', credentials);
-      console.log('data', data)
-      Notify.success('Registered successfully!');
       return data;
     } catch (error) {
       Notify.failure('Registered failed!');
@@ -26,7 +23,6 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.token);
-      Notify.success('Login is successful!');
       return data;
     } catch (error) {
       Notify.failure('Login failed!');

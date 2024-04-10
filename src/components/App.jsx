@@ -9,8 +9,9 @@ import PublicRoute from './guards/PublicRoute';
 import PrivateRoute from './guards/PrivateRoute';
 import { currentUser } from 'store/auth/authOperations';
 import { globalLoadingSelector } from 'store/Root/selectors';
+import SigninPage from './pages/SigninPage/SigninPage';
 
-const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
+// const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 
@@ -18,7 +19,7 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const isLoading = useSelector(globalLoadingSelector)
-  console.log('first', isLoading)
+
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);

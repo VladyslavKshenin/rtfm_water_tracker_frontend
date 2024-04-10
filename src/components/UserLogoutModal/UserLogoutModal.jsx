@@ -8,16 +8,15 @@ import { useNavigate } from "react-router-dom"
 const UserLogoutModal = ({ onClose }) => {
 
   const dispatch = useDispatch()
-
   const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch(logOut())
     .unwrap()
       .then((payload) => {
-        console.log('payload', payload)
         onClose()
         navigate('/signin')
+        // navigate('/welcome')
         Notify.success("You have successfully exited")
        })
       .catch((error) => {

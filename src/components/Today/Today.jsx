@@ -135,6 +135,7 @@ const Today = () => {
   const closeModal = () => {
     setShowModal(false);
     setShowModalEdit(false);
+    setShowModalDel(false);
   };
 
   return (
@@ -196,13 +197,23 @@ const Today = () => {
         </ul>
         {showModalDel && (
           <Modal active={setShowModalDel} onClose={onClose}>
-            <p>DELETE</p>
-            <button type="button" onClick={onClose}>
-              cancel
+            <div className={css.containerDel}>
+            <div className={css.firstblock}>
+        <h2 className={css.title}>Delete entry</h2>
+        <button className={css.exit} type="button" onClick={closeModal}>
+          <Svg id={'#close'} width={24} height={24} />
+      </button>
+      </div>
+      <p className={css.textDel}>Are you sure you want to delete the entry?</p>
+           <div className={css.containerBtnDel}>
+            <button className={css.btnCancellDel} type="button" onClick={onClose}>
+              Cancel
             </button>
-            <button type="button" onClick={deleteHandleChange}>
-              delete
+            <button className={css.btnDeletelDel} type="button" onClick={deleteHandleChange}>
+              Delete
             </button>
+            </div>
+            </div>
           </Modal>
         )}
 

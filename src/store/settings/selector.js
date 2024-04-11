@@ -1,0 +1,1 @@
+export const userAvatarSelector = state => state.settings.avatar.avatarURL

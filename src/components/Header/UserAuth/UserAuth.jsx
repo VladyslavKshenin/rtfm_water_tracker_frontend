@@ -10,7 +10,7 @@ const UserAuth = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const usersInformation = useSelector(selectUser);
 
-    const {name, email, avatar} = usersInformation;
+    const {name, email, avatarURL} = usersInformation;
     const userName = name ? name : email?.slice(0, email?.indexOf("@")); 
     const userAvatar = email?.slice(0, 1).toUpperCase()
     
@@ -25,17 +25,17 @@ const UserAuth = () => {
         </Link>
       ) : (
         <span className={css.userInfo}>
-            {avatar && name &&  (<>
+            {avatarURL && name &&  (<>
                                     <span>{name}</span>
                                     <span className={css.circleImage}>
-                                      <img src={avatar} alt="User's avatar" width={28} height={28} />
+                                      <img src={avatarURL} alt="User's avatar" width={28} height={28} />
                                     </span>
                                   </>)}
-            {!avatar && name && (<> 
+            {!avatarURL && name && (<> 
                                     <span className={css.userName}>{name}</span>
                                     <span className={css.userAvatar}>{userAvatar}</span>
                                 </>)}
-            {!avatar && !name &&    (<>
+            {!avatarURL && !name &&    (<>
                                         <span className={css.userName}>{userName}</span>
                                         <span className={css.userAvatar}>{userAvatar}</span>
                                     </>)}

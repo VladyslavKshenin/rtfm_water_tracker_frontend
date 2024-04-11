@@ -4,16 +4,18 @@ import { selectUser } from 'store/auth/authSelectors';
 import { updateUserData } from 'store/settings/settingsOperations';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import css from "./UserSettingsForm.module.css";
-import { Notify } from "notiflix"
+import { Notify } from 'notiflix';
 
-const UserSettingsForm = () => {
+const UserSettingsForm = ({ onClose }) => {
+
   const  user = useSelector(selectUser);
   const [name, setName] = useState(user?.name || '');
   const [gender, setGender] = useState(user.gender);
   const [email, setEmail] = useState(user.email);
+
   let [outdatedPassword, setPassword] = useState('');
+
   const [newPassword = '', setNewPassword] = useState('');
   const [repeatPassword = '', setRepeatPassword] = useState();
   const dispatch = useDispatch();
@@ -72,8 +74,17 @@ const UserSettingsForm = () => {
 
     isSubmit = false;
     setNewPassword(newPassword);
-    dispatch(updateUserData(state));
-    Notify.success("User's data updated successfully");
+    dispatch(updateUserData(state))
+      .unwrap()
+      .then((payload) => {
+        console.log('payload', payload)
+        // dispatch(settingModal())
+        onClose()
+        Notify.success("User's data updated successfully");
+      })
+      .catch((error) => {
+        Notify.failure("Something went wrong with your setting!")
+    })
   };
 
   return (
@@ -118,7 +129,6 @@ const UserSettingsForm = () => {
               value={name}
               placeholder="Name"
               autoComplete="username"
-              required
             />
           </div>
           <label></label>
@@ -149,7 +159,7 @@ const UserSettingsForm = () => {
                 </svg>
               </span>
               <input className={css.inputPasw}
-                name="password"
+                name="outdatedPassword"
                 type={showPassword ? 'text' : 'password'}
                 onChange={handleChangeOldPassword}
                 value={outdatedPassword}

@@ -68,7 +68,10 @@ export const AddWaterModal = ({ closeModal }) => {
     currentDate.setHours(hours);
     currentDate.setMinutes(minutes);
     const isoDate = currentDate.toISOString();
-
+   if(amount===0){
+    closeModal();
+    return;
+   }
     try {
       const result = await dispatch(addWaterThunk({ amount, date: isoDate }));
       if (result.meta.requestStatus === 'fulfilled') {

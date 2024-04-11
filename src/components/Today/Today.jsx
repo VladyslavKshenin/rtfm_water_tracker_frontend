@@ -125,7 +125,7 @@ const Today = () => {
     const isoDate = currentDate.toISOString();
     setShowModalEdit(false);
     document.body.style.overflow = '';
-
+    
     dispatch(editWaterTodayThunk({ amount, date: isoDate, id: idItem }));
   };
 

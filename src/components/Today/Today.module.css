@@ -18,6 +18,19 @@
     overflow: auto;
     margin-bottom: 12px;  
 }
+.list_waters::-webkit-scrollbar{
+    width: 2px;
+    border-radius: 8px;
+}
+.list_waters::-webkit-scrollbar-track {
+    background: var(--air-force-blue); 
+
+  }
+  .list_waters::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    width: 4px;
+    background-color:var(--light-blue); 
+  }
 
 .list_item{
     display: flex;

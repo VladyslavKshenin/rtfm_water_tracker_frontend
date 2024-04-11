@@ -57,6 +57,19 @@ code {
   font-style: normal;
   font-display: swap;
 }
+body::-webkit-scrollbar{
+  width: 8px;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--light-blue); 
+
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  width: 10px;
+  background-color:var(--blue); 
+}
 /* Base style */
 .visually-hidden {
   position: absolute;

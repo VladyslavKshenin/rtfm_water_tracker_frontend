@@ -13,7 +13,7 @@ const UserAuth = () => {
     const {name, email, avatar} = usersInformation;
     const userName = name ? name : email?.slice(0, email?.indexOf("@")); 
     const userAvatar = email?.slice(0, 1).toUpperCase()
-
+    
   return (
     <>
       {!isLoggedIn ? (
@@ -27,8 +27,10 @@ const UserAuth = () => {
         <span className={css.userInfo}>
             {avatar && name &&  (<>
                                     <span>{name}</span>
-                                    <img src="" alt="User's avatar" />
-                                </>)}
+                                    <span className={css.circleImage}>
+                                      <img src={avatar} alt="User's avatar" width={28} height={28} />
+                                    </span>
+                                  </>)}
             {!avatar && name && (<> 
                                     <span className={css.userName}>{name}</span>
                                     <span className={css.userAvatar}>{userAvatar}</span>

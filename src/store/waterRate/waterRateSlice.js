@@ -11,7 +11,7 @@ const waterRateSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(updateWaterRateThunk.fulfilled, (state, { payload }) => {
-                state.waterRate = payload[0].waterRate
+                state.waterRate = payload[payload.length-1].waterRate
             })
     } 
 })

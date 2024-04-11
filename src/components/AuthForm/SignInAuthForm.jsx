@@ -38,7 +38,7 @@ const SignInAuthForm = () => {
 
 
   return (
-    <form action="login" autoComplete="off" className={css.form} onSubmit={handleSubmit(onSubmit)} >
+    <form action="login" autoComplete="on" className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <h1 className={css.title}>Sign In</h1>
       <label htmlFor="email" className={css.description}>Enter your email</label>
       <input id="email" className={errors?.email ? css.input + " " + css.inputError : css.input}

@@ -4,6 +4,7 @@
     font-size: 14px;
     line-height: 1.29;
 }
+
 .error::first-letter { 
     text-transform: capitalize;
 }
@@ -34,7 +35,7 @@
 .input {
     border: 1px solid var(--air-force-blue);
     border-radius: 6px;
-    padding: 12px 10px;
+    padding: 12px 36px 12px 10px;
     width: 280px;
     height: 44px;
     background-color: var(--white);

@@ -48,7 +48,7 @@ export const Header = () => {
         {settingClose ? <Modal active={settingClose} onClose={onCloseSetting} >
                           <SettingModal onClose={onCloseSetting}>
                             <UploadImage />
-                            <UserSettingsForm />
+                            <UserSettingsForm onClose={onCloseSetting}/>
                           </SettingModal>
                         </Modal>
                     : null}

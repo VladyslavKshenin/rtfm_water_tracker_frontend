@@ -77,8 +77,6 @@ const UserSettingsForm = ({ onClose }) => {
     dispatch(updateUserData(state))
       .unwrap()
       .then((payload) => {
-        console.log('payload', payload)
-        // dispatch(settingModal())
         onClose()
         Notify.success("User's data updated successfully");
       })

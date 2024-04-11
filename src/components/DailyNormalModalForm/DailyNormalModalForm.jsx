@@ -59,7 +59,8 @@ const DailyNormalModalForm = () => {
       const body = waterRate * 1000;
       dispatch(updateWaterRateThunk({ waterRate: body }))
         .unwrap()
-        .then(() => {
+        .then((payload) => {
+          console.log('payload', payload)
           dispatch(dailyNormaModal());
         })
         .catch(error => {

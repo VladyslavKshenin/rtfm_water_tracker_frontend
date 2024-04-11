@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/rtfm_water_tracker_frontend/static/css/main.2ef0c15f.css",
-    "main.js": "/rtfm_water_tracker_frontend/static/js/main.f57c7572.js",
-    "static/js/368.d3171ae2.chunk.js": "/rtfm_water_tracker_frontend/static/js/368.d3171ae2.chunk.js",
+    "main.css": "/rtfm_water_tracker_frontend/static/css/main.b534c01b.css",
+    "main.js": "/rtfm_water_tracker_frontend/static/js/main.1196b75f.js",
+    "static/js/368.d0cf754b.chunk.js": "/rtfm_water_tracker_frontend/static/js/368.d0cf754b.chunk.js",
     "static/css/949.aebc841f.chunk.css": "/rtfm_water_tracker_frontend/static/css/949.aebc841f.chunk.css",
     "static/js/949.348ef41c.chunk.js": "/rtfm_water_tracker_frontend/static/js/949.348ef41c.chunk.js",
     "static/js/965.5517ec39.chunk.js": "/rtfm_water_tracker_frontend/static/js/965.5517ec39.chunk.js",
@@ -38,15 +38,15 @@
     "index.html": "/rtfm_water_tracker_frontend/index.html",
     "static/media/eye-slash.svg": "/rtfm_water_tracker_frontend/static/media/eye-slash.2ceab82f09b339bf52cc81440085ea72.svg",
     "static/media/eye.svg": "/rtfm_water_tracker_frontend/static/media/eye.b9f7be026605b1a59b9bfa34efcac750.svg",
-    "main.2ef0c15f.css.map": "/rtfm_water_tracker_frontend/static/css/main.2ef0c15f.css.map",
-    "main.f57c7572.js.map": "/rtfm_water_tracker_frontend/static/js/main.f57c7572.js.map",
-    "368.d3171ae2.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/368.d3171ae2.chunk.js.map",
+    "main.b534c01b.css.map": "/rtfm_water_tracker_frontend/static/css/main.b534c01b.css.map",
+    "main.1196b75f.js.map": "/rtfm_water_tracker_frontend/static/js/main.1196b75f.js.map",
+    "368.d0cf754b.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/368.d0cf754b.chunk.js.map",
     "949.aebc841f.chunk.css.map": "/rtfm_water_tracker_frontend/static/css/949.aebc841f.chunk.css.map",
     "949.348ef41c.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/949.348ef41c.chunk.js.map",
     "965.5517ec39.chunk.js.map": "/rtfm_water_tracker_frontend/static/js/965.5517ec39.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ef0c15f.css",
-    "static/js/main.f57c7572.js"
+    "static/css/main.b534c01b.css",
+    "static/js/main.1196b75f.js"
   ]
 }

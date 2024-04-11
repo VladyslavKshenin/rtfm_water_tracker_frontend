@@ -143,7 +143,7 @@ figure {
 .signSection{
   background-image: url(./images/mobile/bottle_sign_in@1x.png), url(./images/mobile/bottle_sign_in@2x.png);
   min-height: 100vh;
-    background-position: center top 105%;
+    background-position: center top 400px;
     background-repeat: no-repeat;
     background-size: 280px;
     height: 100vh;
@@ -159,7 +159,7 @@ figure {
 @media screen and (min-width: 768px) {
   .signSection{
     background-image: url(./images/tablet/bottle_sign_in_tablet@1x.png), url(./images/tablet/bottle_sign_in_tablet@2x.png);
-      background-position: center bottom 120%;
+      background-position: center top -65px;
       background-size: 100%;
   }
     .signMain{

@@ -18,11 +18,12 @@
 }
 
 .direction {
-    height: 480px;
-    margin-bottom: 40px;
+    height: 410px;
+    margin-bottom: 75px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .waterRateContainer{
@@ -50,7 +51,8 @@
         height: 688px;
     }
     .direction {
-        height: 550px;
+        height: 600px;
+        margin-bottom: 40px;
         
     }
 }
@@ -65,7 +67,8 @@
         background-size: 55%;
         background-position: left top;
         flex-direction: row;
-        justify-content: space-between;
+        gap: 32px;
+        justify-content: center;
      }
     .direction {
         display: flex;
@@ -74,6 +77,7 @@
         padding: 30px 0 16px;
         margin-bottom: 0;
         height: 680px;
+        width: 590px;
     }
     
     .waterRateContainer {

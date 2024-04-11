@@ -131,7 +131,7 @@
 
 .icon {
     margin-right: 18px;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 @media screen and (min-width: 768px) {
@@ -146,14 +146,15 @@
 
     .icon {
         margin-right: 14px;
-        margin-top: 10px;
+        margin-top: 3px;
     }
 }
 
 @media screen and (min-width: 1440px) {
 
     .flex {
-        gap: 43px;
+        gap: 0;
+        justify-content: space-between;
     }
 
     .progressBarConteiner {
@@ -166,6 +167,8 @@
     }
 
     .icon {
-        margin: 10px;
+        margin-right: 10px;
+        margin-top: 8px;
+        margin-bottom: 4px;
     }
 }

@@ -15,6 +15,8 @@ import Modal from 'components/Modal/Modal';
 import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
 import Icons from '../../images/icons.svg';
 import { Svg } from 'components/Icons/Icons';
+import { getWaterMonthThunk } from 'store/month/monthThunk';
+import { format } from 'date-fns';
 
 const Today = () => {
   const dispatch = useDispatch();
@@ -52,11 +54,11 @@ const Today = () => {
     setShowModalEdit(false);
     document.body.style.overflow = '';
   };
-  const deleteHandleChange = () => {
+  const deleteHandleChange = async () => {
     setShowModalDel(false);
     document.body.style.overflow = '';
     setIdItem('');
-    dispatch(deleteWaterTodayThunk(idItem));
+    await dispatch(deleteWaterTodayThunk(idItem));
   };
 
   const [amount, setWaterDose] = useState(0);
@@ -137,6 +139,19 @@ const Today = () => {
     setShowModalEdit(false);
     setShowModalDel(false);
   };
+  useEffect(() => {
+    if (!data?.waterRecords && data.waterRecords?.length === 0) return;
+    const fetchData = async () => {
+      try {
+        await dispatch(getWaterMonthThunk(format(new Date(), 'yyyy-MM')));
+      } catch (error) {
+        console.error('Error fetching month data:', error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.waterRecords]);
 
   return (
     <>
@@ -149,8 +164,8 @@ const Today = () => {
           </div>
         </div>
 
-         <ul className={css.list_waters}>
-          {data.waterRecords?.length > 0 ?
+        <ul className={css.list_waters}>
+          {data.waterRecords?.length > 0 ? (
             data.waterRecords.map(({ id, consumedWater, date }) => {
               const dataS = new Date(date);
               return (
@@ -193,26 +208,41 @@ const Today = () => {
                   </div>
                 </li>
               );
-            }): <li><p className={css.waterItem}>No notes yet</p></li>}
+            })
+          ) : (
+            <li>
+              <p className={css.waterItem}>No notes yet</p>
+            </li>
+          )}
         </ul>
         {showModalDel && (
           <Modal active={setShowModalDel} onClose={onClose}>
             <div className={css.containerDel}>
-            <div className={css.firstblock}>
-        <h2 className={css.title}>Delete entry</h2>
-        <button className={css.exit} type="button" onClick={closeModal}>
-          <Svg id={'#close'} width={24} height={24} />
-      </button>
-      </div>
-      <p className={css.textDel}>Are you sure you want to delete the entry?</p>
-           <div className={css.containerBtnDel}>
-            <button className={css.btnCancellDel} type="button" onClick={onClose}>
-              Cancel
-            </button>
-            <button className={css.btnDeletelDel} type="button" onClick={deleteHandleChange}>
-              Delete
-            </button>
-            </div>
+              <div className={css.firstblock}>
+                <h2 className={css.title}>Delete entry</h2>
+                <button className={css.exit} type="button" onClick={closeModal}>
+                  <Svg id={'#close'} width={24} height={24} />
+                </button>
+              </div>
+              <p className={css.textDel}>
+                Are you sure you want to delete the entry?
+              </p>
+              <div className={css.containerBtnDel}>
+                <button
+                  className={css.btnCancellDel}
+                  type="button"
+                  onClick={onClose}
+                >
+                  Cancel
+                </button>
+                <button
+                  className={css.btnDeletelDel}
+                  type="button"
+                  onClick={deleteHandleChange}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </Modal>
         )}
@@ -220,76 +250,88 @@ const Today = () => {
         {showModalEdit && (
           <Modal active={showModalEdit} onClose={onClose}>
             <div className={css.container}>
-            <div className={css.firstblock}>
-        <h2 className={css.title}>Edit the entered amount of water</h2>
-        <button className={css.exit} type="button" onClick={closeModal}>
-          <Svg id={'#close'} width={24} height={24} />
-      </button>
-
-      </div>
-
-            {data.waterRecords &&
-              data.waterRecords.map(({ id, consumedWater, date }) => {
-                const dataS = new Date(date);
-                if (id === idItem)
-                  return (
-                    <div className={css.list_item} key={id}>
-                    <div className={css.waterItemblokEdit}>
-                      <svg className={css.iconGlas} width="26" height="26">
-                        <use href={Icons + '#glas'}></use>
-                      </svg>
-                      <div className={css.contentItemblokEdit}>
-                        <p className={css.waterItem}>{consumedWater} ml</p>{' '}
-                        <p className={css.timeItem}>
-                          {dataS.getHours() < 10 && `0`}
-                          {dataS.getHours()}:{dataS.getMinutes() < 10 && `0`}
-                          {dataS.getMinutes()}{' '}
-                          {dataS.getHours() < 12 ? `AM` : `PM`}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  );
-                else return null;
-              })}
-
-            <p className={css.description}>Correct entered data:</p>
-            <div className={css.secondblock}>
-              <p className={css.desc}>Amount of water:</p>
-              <div className={css.amount}>
-                <button className={css.btn} onClick={decreaseDose} disabled={amount === 0}>
-                <Svg id={'#minus'} width={10} height={14} />
-                </button>
-                <span className={css.span}>{amount}ml</span>
-                <button className={css.btn} onClick={increaseDose}>
-                <Svg id={'#plus'} width={14} height={14 }/>
+              <div className={css.firstblock}>
+                <h2 className={css.title}>Edit the entered amount of water</h2>
+                <button className={css.exit} type="button" onClick={closeModal}>
+                  <Svg id={'#close'} width={24} height={24} />
                 </button>
               </div>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div className={css.thirdblock}>
-                <p className={css.desc}>Recording time:</p>
-                <div>
-                  <select value={date} onChange={handleTime} className={css.select}>
-                    {timeOptions()}
-                  </select>
+
+              {data.waterRecords &&
+                data.waterRecords.map(({ id, consumedWater, date }) => {
+                  const dataS = new Date(date);
+                  if (id === idItem)
+                    return (
+                      <div className={css.list_item} key={id}>
+                        <div className={css.waterItemblokEdit}>
+                          <svg className={css.iconGlas} width="26" height="26">
+                            <use href={Icons + '#glas'}></use>
+                          </svg>
+                          <div className={css.contentItemblokEdit}>
+                            <p className={css.waterItem}>{consumedWater} ml</p>{' '}
+                            <p className={css.timeItem}>
+                              {dataS.getHours() < 10 && `0`}
+                              {dataS.getHours()}:
+                              {dataS.getMinutes() < 10 && `0`}
+                              {dataS.getMinutes()}{' '}
+                              {dataS.getHours() < 12 ? `AM` : `PM`}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  else return null;
+                })}
+
+              <p className={css.description}>Correct entered data:</p>
+              <div className={css.secondblock}>
+                <p className={css.desc}>Amount of water:</p>
+                <div className={css.amount}>
+                  <button
+                    className={css.btn}
+                    onClick={decreaseDose}
+                    disabled={amount === 0}
+                  >
+                    <Svg id={'#minus'} width={10} height={14} />
+                  </button>
+                  <span className={css.span}>{amount}ml</span>
+                  <button className={css.btn} onClick={increaseDose}>
+                    <Svg id={'#plus'} width={14} height={14} />
+                  </button>
                 </div>
               </div>
-              <div className={css.fourthblock}>
-                <label className={css.label}>Enter the value of the water used:</label>
-                <input
-                 className={css.input}  
-                  type="text"
-                  value={inputWaterDose}
-                  onChange={handleInputWaterDoseChange}
-                  onBlur={handleInputWaterDoseBlur}
-                />
-              </div>
-              <div className={css.fifthblock}>
-                <p className={css.amn}>{amount}ml</p>
-                <button className={css.save} type="submit">Save</button>
-              </div>
-            </form>
+              <form onSubmit={handleSubmit}>
+                <div className={css.thirdblock}>
+                  <p className={css.desc}>Recording time:</p>
+                  <div>
+                    <select
+                      value={date}
+                      onChange={handleTime}
+                      className={css.select}
+                    >
+                      {timeOptions()}
+                    </select>
+                  </div>
+                </div>
+                <div className={css.fourthblock}>
+                  <label className={css.label}>
+                    Enter the value of the water used:
+                  </label>
+                  <input
+                    className={css.input}
+                    type="text"
+                    value={inputWaterDose}
+                    onChange={handleInputWaterDoseChange}
+                    onBlur={handleInputWaterDoseBlur}
+                  />
+                </div>
+                <div className={css.fifthblock}>
+                  <p className={css.amn}>{amount}ml</p>
+                  <button className={css.save} type="submit">
+                    Save
+                  </button>
+                </div>
+              </form>
             </div>
           </Modal>
         )}

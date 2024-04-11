@@ -32,6 +32,7 @@
     width: 120px;
 }
 .calendarGrid {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     row-gap: 16px;
@@ -55,11 +56,11 @@
 }
 .popover {
     position: absolute;
-    z-index: 999;
+    z-index: 1;
     background-color: var(--white);
     box-shadow: 0 4px 4px 0 rgba(64, 123, 255, 0.3);
-    top: 740px;
-    left: 158px;
+    top: -240px;
+    left: 133px;
     transform: translateX(-50%);
     border-radius: 10px;
     padding: 24px 16px;
@@ -98,8 +99,8 @@
     }
     .popover {
         width: 292px;
-        top: 890px;
-        left: 200px;
+        top: -215px;
+        left: 290px;
 
     }
 }
@@ -117,7 +118,7 @@
         width: 544px;
     }
     .popover{
-        top: 300px;
-        left: 675px;
-    }
+        top: -200px;
+        left: -155px;
+        }
 }

@@ -37,6 +37,11 @@ const waterRatePersistConfig = {
   storage,
 }
 
+const settingsPersistConfig = {
+  key: 'settings',
+  storage,
+}
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
@@ -44,7 +49,7 @@ export const store = configureStore({
     water: waterReducer,
     waterRate: persistReducer(waterRatePersistConfig, waterRateReducer),
     month: monthReducer,
-    settings: settingsReducer,
+    settings: persistReducer(settingsPersistConfig, settingsReducer),
     root: rootReducer,
   },
   middleware: getDefaultMiddleware =>

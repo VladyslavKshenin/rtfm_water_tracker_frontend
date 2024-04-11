@@ -13,7 +13,7 @@ const UserSettingsForm = () => {
   const [name, setName] = useState(user?.name || '');
   const [gender, setGender] = useState(user.gender);
   const [email, setEmail] = useState(user.email);
-  let [password, setPassword] = useState('');
+  let [outdatedPassword, setPassword] = useState('');
   const [newPassword = '', setNewPassword] = useState('');
   const [repeatPassword = '', setRepeatPassword] = useState();
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const UserSettingsForm = () => {
     gender: gender,
     name: name,
     email: email,
-    password: password,
+    password: outdatedPassword,
     newPassword: newPassword,
   };
 
@@ -57,11 +57,11 @@ const UserSettingsForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (password && !newPassword) {
+    if (outdatedPassword && !newPassword) {
       toast.error('Please enter new password');
       return;
     }
-    if (!password && newPassword) {
+    if (!outdatedPassword && newPassword) {
       toast.error('Please enter old password');
       return;
     }
@@ -151,7 +151,7 @@ const UserSettingsForm = () => {
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 onChange={handleChangeOldPassword}
-                value={password}
+                value={outdatedPassword}
                 id="exampleInputPassword1"
                 placeholder="Password"
               />

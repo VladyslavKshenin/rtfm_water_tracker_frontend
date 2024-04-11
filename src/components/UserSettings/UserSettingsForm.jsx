@@ -6,14 +6,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import css from "./UserSettingsForm.module.css";
-import { toast } from 'react-toastify';
+import { Notify } from "notiflix"
 
 const UserSettingsForm = () => {
   const  user = useSelector(selectUser);
   const [name, setName] = useState(user?.name || '');
   const [gender, setGender] = useState(user.gender);
   const [email, setEmail] = useState(user.email);
-  let [password, setPassword] = useState('');
+  let [outdatedPassword, setPassword] = useState('');
   const [newPassword = '', setNewPassword] = useState('');
   const [repeatPassword = '', setRepeatPassword] = useState();
   const dispatch = useDispatch();
@@ -22,14 +22,6 @@ const UserSettingsForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
-  const state = {
-    gender: gender,
-    name: name,
-    email: email,
-    password: password,
-    newPassword: newPassword,
-  };
 
   const handleChangePassword = e => {
     setRepeatPassword(e.target.value);
@@ -57,22 +49,31 @@ const UserSettingsForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (password && !newPassword) {
-      toast.error('Please enter new password');
+    
+    if (outdatedPassword && !newPassword) {
+      Notify.failure('Please enter new password');
       return;
     }
-    if (!password && newPassword) {
-      toast.error('Please enter old password');
+    if (!outdatedPassword && newPassword) {
+      Notify.failure('Please enter old password');
       return;
     }
     if (newPassword !== repeatPassword) {
-      toast.error("Passwords not match");
+      Notify.failure("Passwords not match");
       return;
     }
+    const state = {
+      gender: gender,
+      name: name,
+      email: email,
+      ...(outdatedPassword && {outdatedPassword: outdatedPassword}),
+    ...(newPassword && {newPassword: newPassword})
+    };
+
     isSubmit = false;
     setNewPassword(newPassword);
     dispatch(updateUserData(state));
-    toast.success("User's data updated successfully");
+    Notify.success("User's data updated successfully");
   };
 
   return (
@@ -151,7 +152,7 @@ const UserSettingsForm = () => {
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 onChange={handleChangeOldPassword}
-                value={password}
+                value={outdatedPassword}
                 id="exampleInputPassword1"
                 placeholder="Password"
               />

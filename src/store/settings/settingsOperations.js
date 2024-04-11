@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { Notify } from "notiflix";
 
-// axios.defaults.baseURL = 'https://watertracker-ldwc.onrender.com';
 axios.defaults.baseURL = 'https://rtfm-water-tracker-backend.onrender.com/api';
 
 export const setAuthHeader = token => {
@@ -13,7 +12,10 @@ export const updateAvatar = createAsyncThunk(
   'user-settings/avatar',
   async (formData, thunkAPI) => {
     try {
-      const { data } = await axios.patch('/user-settings/avatar', formData);
+      const { data } = await axios.patch('/user-settings/edit', formData, {headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
 
       return data;
     } catch (error) {
@@ -23,19 +25,28 @@ export const updateAvatar = createAsyncThunk(
 );
 
 export const updateUserData = createAsyncThunk(
-  'user-settings/edit',
-  async (body, thunkAPI) => {
+  'user-settings/info',
+  async (userData, thunkAPI) => {
     const persistedToken = thunkAPI.getState().auth.token;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
     setAuthHeader(persistedToken);
     try {
-      const { data } = await axios.patch('/user-settings', body);
+      const { data } = await axios.patch('/user-settings/edit', userData);
       return data;
     } catch (error) {
-      toast.error('Request error');
+      Notify.failure('Request error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+// export const authInstance = axios.create({
+//   baseURL: "https://rtfm-water-tracker-backend.onrender.com/api",
+// });
+
+// export const requestUserCurrent = async () => {
+//   const { data } = await authInstance.get("user");
+//   return data;
+// };

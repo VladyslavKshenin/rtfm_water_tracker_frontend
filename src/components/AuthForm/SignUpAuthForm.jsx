@@ -51,7 +51,7 @@ const SignUpAuthForm = () => {
   return (
     <form
       action="register"
-      autoComplete="off"
+      autoComplete="on"
       className={css.form}
       onSubmit={handleSubmit(onSubmit)}
     >

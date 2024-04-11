@@ -26,7 +26,8 @@ const handleReject = (state, { payload }) => {
 
 const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
-  state.items.push(payload);
+  state.items = {...state.items,...payload}
+  //state.items.push(payload);
 };
 const handleFulfilledDel = (state, { payload }) => {
   state.isLoading = false;

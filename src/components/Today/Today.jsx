@@ -36,7 +36,6 @@ const Today = () => {
     document.body.style.overflow = 'hidden';
     setIdItem(e.currentTarget.dataset.iditems);
     setShowModalDel(true);
-    console.log(showModalDel);
 
     // dispatch(deleteWaterTodayThunk(e.currentTarget.dataset.iditems));
   };
@@ -45,7 +44,6 @@ const Today = () => {
     document.body.style.overflow = 'hidden';
     setIdItem(e.currentTarget.dataset.iditems);
     setShowModalEdit(true);
-    console.log(showModalDel);
 
     // dispatch(deleteWaterTodayThunk(e.currentTarget.dataset.iditems));
   };

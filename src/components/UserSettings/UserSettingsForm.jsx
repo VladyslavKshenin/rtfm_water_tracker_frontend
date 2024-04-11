@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import css from "./UserSettingsForm.module.css";
-import { toast } from 'react-toastify';
+import { Notify } from "notiflix"
 
 const UserSettingsForm = () => {
   const  user = useSelector(selectUser);
@@ -22,14 +22,6 @@ const UserSettingsForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
-  const state = {
-    gender: gender,
-    name: name,
-    email: email,
-    password: outdatedPassword,
-    newPassword: newPassword,
-  };
 
   const handleChangePassword = e => {
     setRepeatPassword(e.target.value);
@@ -57,22 +49,31 @@ const UserSettingsForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    
     if (outdatedPassword && !newPassword) {
-      toast.error('Please enter new password');
+      Notify.failure('Please enter new password');
       return;
     }
     if (!outdatedPassword && newPassword) {
-      toast.error('Please enter old password');
+      Notify.failure('Please enter old password');
       return;
     }
     if (newPassword !== repeatPassword) {
-      toast.error("Passwords not match");
+      Notify.failure("Passwords not match");
       return;
     }
+    const state = {
+      gender: gender,
+      name: name,
+      email: email,
+      ...(outdatedPassword && {outdatedPassword: outdatedPassword}),
+    ...(newPassword && {newPassword: newPassword})
+    };
+
     isSubmit = false;
     setNewPassword(newPassword);
     dispatch(updateUserData(state));
-    toast.success("User's data updated successfully");
+    Notify.success("User's data updated successfully");
   };
 
   return (

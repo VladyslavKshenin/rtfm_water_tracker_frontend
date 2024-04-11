@@ -41,12 +41,3 @@ export const updateUserData = createAsyncThunk(
     }
   }
 );
-
-// export const authInstance = axios.create({
-//   baseURL: "https://rtfm-water-tracker-backend.onrender.com/api",
-// });
-
-// export const requestUserCurrent = async () => {
-//   const { data } = await authInstance.get("user");
-//   return data;
-// };
